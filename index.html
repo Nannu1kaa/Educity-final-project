@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Take The Trails - Final Project</title>
     <style>
-         {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -79,37 +79,23 @@
 
         .hero {
             position: relative;
-            height: 85vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
                         url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920') no-repeat center center/cover;
             display: flex;
             align-items: center;
             padding: 0 8%;
-            overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 45%;
-            height: 60%;
-            background-color: #dcb02c;
-            clip-path: polygon(0 100%, 100% 100%, 75% 0, 0 0);
-            z-index: 1;
-            opacity: 0.95;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 55%;
             height: 100%;
             background-color: #dcb02c;
-            clip-path: polygon(100% 0, 35% 0, 100% 85%);
+            clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
             z-index: 1;
         }
 
@@ -127,22 +113,21 @@
         }
 
         .hero-text h1 {
-            font-size: 70px;
+            font-size: 65px;
             font-weight: 900;
-            line-height: 0.95;
+            line-height: 1;
             text-transform: uppercase;
-            letter-spacing: -2px;
-            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         .hero-text h1 .white-text {
             color: #ffffff;
-            display: block;
         }
 
+        / Right side offer badge and button 
         .hero-offer {
             text-align: right;
-            color: #1a1a1a;
+            color: #ffffff;
             max-width: 400px;
             display: flex;
             flex-direction: column;
@@ -151,22 +136,24 @@
         }
 
         .offer-badge {
-            font-size: 85px;
+            font-size: 80px;
             font-weight: 900;
             line-height: 0.85;
             text-transform: uppercase;
+            color: #dcb02c;
         }
 
         .offer-badge span {
-            font-size: 24px;
+            font-size: 22px;
             display: block;
             font-weight: 700;
             letter-spacing: 1px;
+            color: #ffffff;
         }
 
         .btn-start {
-            background-color: #1a1a1a;
-            color: #ffffff;
+            background-color: #dcb02c;
+            color: #1a1a1a;
             padding: 15px 35px;
             font-size: 14px;
             font-weight: 700;
@@ -178,7 +165,7 @@
         }
 
         .btn-start:hover {
-            background-color: #333333;
+            background-color: #ffffff;
         }
 
         .trips-section {
@@ -230,7 +217,7 @@
         }
 
         .bottom-section {
-            padding: 40px 8% 80px 8%;
+            padding: 40px 8% 40px 8%;
             display: flex;
             justify-content: space-between;
             gap: 50px;
@@ -253,6 +240,15 @@
             font-size: 15px;
             color: #555555;
             line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-note {
+            font-size: 13px;
+            color: #888888;
+            border-top: 1px solid #eeeeee;
+            padding-top: 15px;
+            line-height: 1.4;
         }
 
         .newsletter {
@@ -301,11 +297,11 @@
         @media (max-width: 768px) {
             header { padding: 15px 5%; }
             .hero { height: auto; padding: 60px 5%; }
-            .hero::before, .hero::after { display: none; }
+            .hero::before { display: none; }
             .hero-container { flex-direction: column; text-align: center; gap: 40px; }
+            .hero-text h1 { font-size: 45px; color: #ffffff; }
+            .hero-text h1 .white-text { color: #dcb02c; }
             .hero-offer { align-items: center; text-align: center; }
-            .hero-text h1 { font-size: 45px; color: #ffffff !important; }
-            .hero-text h1 .white-text { color: #ffffff; }
             .bottom-section { flex-direction: column; }
         }
     </style>
@@ -333,7 +329,7 @@
                     30% Off
                     <span>For all destinations</span>
                 </div>
-                <button class="btn-start">Get Started</button>
+                <button class="btn-start" onclick="window.location.reload();">Get Started</button>
             </div>
         </div>
     </section>
@@ -343,7 +339,7 @@
         <div class="trips-grid">
             
             <div class="trip-card">
-                <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=600" alt="Desert" class="trip-img">
+                <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=600" alt="Desert" class="trip-img">
                 <h3>Desert Trips</h3>
                 <p>Explore the stunning golden dunes, experience magic starry nights in the open desert, and start an unforgettable adventure today.</p>
             </div>
@@ -367,6 +363,10 @@
         <div class="testimonials">
             <h2>Testimonials</h2>
             <p>Our travelers' happiness is our priority. We work hard to turn every single trip into a beautiful lifelong memory and create the perfect safe environment for your new discoveries.</p>
+            
+            <div class="footer-note">
+                <strong>Why choose us?</strong> We provide fully planned outdoor trips, certified tour guides, and 24/7 premium customer support for all young hikers around the country.
+            </div>
         </div>
 
         <div class="newsletter">
