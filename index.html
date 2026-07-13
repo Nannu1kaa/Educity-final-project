@@ -1,1 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take The Trails - Final Project</title>
+    <style>
+         {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
 
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: #dcb02c;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #dcb02c;
+        }
+
+        .btn-book {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-book:hover {
+            background-color: #dcb02c;
+            color: #1a1a1a;
+        }
+
+        .hero {
+            position: relative;
+            height: 85vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
+                        url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 45%;
+            height: 60%;
+            background-color: #dcb02c;
+            clip-path: polygon(0 100%, 100% 100%, 75% 0, 0 0);
+            z-index: 1;
+            opacity: 0.95;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            background-color: #dcb02c;
+            clip-path: polygon(100% 0, 35% 0, 100% 85%);
+            z-index: 1;
+        }
+
+        .hero-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .hero-text {
+            max-width: 500px;
+            color: #1a1a1a;
+        }
+
+        .hero-text h1 {
+            font-size: 70px;
+            font-weight: 900;
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 .white-text {
+            color: #ffffff;
+            display: block;
+        }
+
+        .hero-offer {
+            text-align: right;
+            color: #1a1a1a;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .offer-badge {
+            font-size: 85px;
+            font-weight: 900;
+            line-height: 0.85;
+            text-transform: uppercase;
+        }
+
+        .offer-badge span {
+            font-size: 24px;
+            display: block;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .btn-start {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 15px 35px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-start:hover {
+            background-color: #333333;
+        }
+
+        .trips-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .trips-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .trip-card {
+            flex: 1;
+            min-width: 280px;
+            background: #ffffff;
+            text-align: left;
+        }
+
+        .trip-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .trip-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .trip-card p {
+            font-size: 14px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .bottom-section {
+            padding: 40px 8% 80px 8%;
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .testimonials {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .testimonials h2 {
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .testimonials p {
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .newsletter {
+            flex: 1;
+            min-width: 300px;
+            background-color: #dcb02c;
+            padding: 40px;
+        }
+
+        .newsletter h2 {
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .search-box {
+            display: flex;
+            width: 100%;
+            background: #ffffff;
+            padding: 5px;
+            border: 1px solid #1a1a1a;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            .hero { height: auto; padding: 60px 5%; }
+            .hero::before, .hero::after { display: none; }
+            .hero-container { flex-direction: column; text-align: center; gap: 40px; }
+            .hero-offer { align-items: center; text-align: center; }
+            .hero-text h1 { font-size: 45px; color: #ffffff !important; }
+            .hero-text h1 .white-text { color: #ffffff; }
+            .bottom-section { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Trails<span>.</span></div>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">Destinations</a>
+            <a href="#">Stories</a>
+            <a href="#" class="btn-book">Book Now</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Take <span class="white-text">The</span> Trails</h1>
+            </div>
+            
+            <div class="hero-offer">
+                <div class="offer-badge">
+                    30% Off
+                    <span>For all destinations</span>
+                </div>
+                <button class="btn-start">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="trips-section">
+        <h2 class="section-title">Our Featured Trips</h2>
+        <div class="trips-grid">
+            
+            <div class="trip-card">
+                <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=600" alt="Desert" class="trip-img">
+                <h3>Desert Trips</h3>
+                <p>Explore the stunning golden dunes, experience magic starry nights in the open desert, and start an unforgettable adventure today.</p>
+            </div>
+
+            <div class="trip-card">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600" alt="Forest" class="trip-img">
+                <h3>Forest Trails</h3>
+                <p>Escape the busy city life, hike through ancient green trees, listen to nature, and enjoy the pure peaceful vibes of the wild forest.</p>
+            </div>
+
+            <div class="trip-card">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600" alt="Mountain" class="trip-img">
+                <h3>Canyon & Mountains</h3>
+                <p>Challenge yourself by climbing breathtaking mountain peaks and exploring historic deep canyons with professional guides.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bottom-section">
+        <div class="testimonials">
+            <h2>Testimonials</h2>
+            <p>Our travelers' happiness is our priority. We work hard to turn every single trip into a beautiful lifelong memory and create the perfect safe environment for your new discoveries.</p>
+        </div>
+
+        <div class="newsletter">
+            <h2>Subscribe To Our<br>Newsletter</h2>
+            <div class="search-box">
+                <input type="email" placeholder="Email address">
+                <button>Submit</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
