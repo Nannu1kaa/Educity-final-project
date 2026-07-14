@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take The Trails - Final Project</title>
+    <title>Time to Travel - Flash</title>
     <style>
         * {
             margin: 0;
@@ -13,370 +13,696 @@
         }
 
         body {
-            background-color: #ffffff;
-            color: #1a1a1a;
+            background-color: #0d131a; 
+            color: #ffffff;
         }
 
         header {
-            background-color: #1a1a1a;
-            padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(13, 19, 26, 0.95);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         .logo {
-            color: #ffffff;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-        }
-
-        .logo span {
-            color: #dcb02c;
         }
 
         nav {
             display: flex;
-            align-items: center;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav a {
-            color: #ffffff;
+            color: #a0a5ab;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
         nav a:hover, nav a.active {
-            color: #dcb02c;
-        }
-
-        .btn-book {
-            background-color: #ffffff;
-            color: #1a1a1a;
-            padding: 10px 22px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 13px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-book:hover {
-            background-color: #dcb02c;
-            color: #1a1a1a;
+            color: #00f2fe; 
         }
 
         .hero {
             position: relative;
-            height: 80vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
-                        url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920') no-repeat center center/cover;
+            height: 85vh;
+            background: linear-gradient(rgba(13, 19, 26, 0.4), #0d131a), 
+                        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920') no-repeat center center/cover;
             display: flex;
             align-items: center;
             padding: 0 8%;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 45%;
-            height: 100%;
-            background-color: #dcb02c;
-            clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
-            z-index: 1;
+        .hero-content {
+            max-width: 650px;
         }
 
-        .hero-container {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 5;
-        }
 
-        .hero-text {
-            max-width: 500px;
-            color: #1a1a1a;
-        }
-
-        .hero-text h1 {
-            font-size: 65px;
+        .hero-content h1 {
+            font-size: 55px;
             font-weight: 900;
-            line-height: 1;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: -1px;
         }
 
-        .hero-text h1 .white-text {
-            color: #ffffff;
+        .hero-content p {
+            font-size: 15px;
+            color: #ccd1d7;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
 
-        / Right side offer badge and button 
-        .hero-offer {
-            text-align: right;
-            color: #ffffff;
-            max-width: 400px;
+        .info-cards {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
             gap: 20px;
+            margin-top: 20px;
         }
 
-        .offer-badge {
-            font-size: 80px;
-            font-weight: 900;
-            line-height: 0.85;
-            text-transform: uppercase;
-            color: #dcb02c;
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #00f2fe;
+            flex: 1;
         }
 
-        .offer-badge span {
-            font-size: 22px;
-            display: block;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #ffffff;
-        }
-
-        .btn-start {
-            background-color: #dcb02c;
-            color: #1a1a1a;
-            padding: 15px 35px;
+        .info-card h4 {
             font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
+            color: #00f2fe;
+            margin-bottom: 5px;
         }
 
-        .btn-start:hover {
-            background-color: #ffffff;
+        .info-card p {
+            font-size: 12px;
+            color: #a0a5ab;
+            margin: 0;
         }
 
-        .trips-section {
+        .tours-section {
             padding: 80px 8%;
             text-align: center;
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: 30px;
             font-weight: 800;
             text-transform: uppercase;
-            margin-bottom: 40px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: #a0a5ab;
+            margin-bottom: 50px;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .trips-grid {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
 
-        .trip-card {
-            flex: 1;
-            min-width: 280px;
-            background: #ffffff;
+        .tour-card {
+            background-color: #161f28;
+            border-radius: 12px;
+            overflow: hidden;
             text-align: left;
-        }
-
-        .trip-img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        .trip-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .trip-card p {
-            font-size: 14px;
-            color: #555555;
-            line-height: 1.6;
-        }
-
-        .bottom-section {
-            padding: 40px 8% 40px 8%;
-            display: flex;
-            justify-content: space-between;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        .testimonials {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .testimonials h2 {
-            font-size: 28px;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .testimonials p {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .footer-note {
-            font-size: 13px;
-            color: #888888;
-            border-top: 1px solid #eeeeee;
-            padding-top: 15px;
-            line-height: 1.4;
-        }
-
-        .newsletter {
-            flex: 1;
-            min-width: 300px;
-            background-color: #dcb02c;
-            padding: 40px;
-        }
-
-        .newsletter h2 {
-            font-size: 28px;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-
-        .search-box {
-            display: flex;
-            width: 100%;
-            background: #ffffff;
-            padding: 5px;
-            border: 1px solid #1a1a1a;
-        }
-
-        .search-box input {
-            flex: 1;
-            border: none;
-            padding: 10px;
-            font-size: 14px;
-            outline: none;
-        }
-
-        .search-box button {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.15);
+        }
+
+        .tour-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .tour-info {
+            padding: 20px;
+        }
+
+        .tour-info h3 {
+            font-size: 16px;
+            font-weight: 700;
             text-transform: uppercase;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .tour-info p {
             font-size: 12px;
+            color: #a0a5ab;
+            line-height: 1.5;
+        }
+
+        .discover-section {
+            padding: 80px 8%;
+            background-color: #090e13;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .discover-left {
+            flex: 1;
+        }
+
+        .discover-left h2 {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .discover-left p {
+            font-size: 15px;
+            color: #a0a5ab;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .explore-btn {
+            background-color: #00f2fe;
+            color: #0d131a;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .explore-btn:hover {
+            background-color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .discover-right {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-box {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 140px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gallery-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-box:hover img {
+            transform: scale(1.15); 
+        }
+
+        .image-viewer {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 19, 26, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-viewer img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+            border: 2px solid #00f2fe;
+        }
+
+        .close-viewer {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-viewer:hover {
+            color: #00f2fe;
         }
 
         @media (max-width: 768px) {
             header { padding: 15px 5%; }
-            .hero { height: auto; padding: 60px 5%; }
-            .hero::before { display: none; }
-            .hero-container { flex-direction: column; text-align: center; gap: 40px; }
-            .hero-text h1 { font-size: 45px; color: #ffffff; }
-            .hero-text h1 .white-text { color: #dcb02c; }
-            .hero-offer { align-items: center; text-align: center; }
-            .bottom-section { flex-direction: column; }
+            nav { display: none; } 
+            .hero { height: auto; padding: 100px 5% 50px 5%; }
+            .hero-content h1 { font-size: 38px; }
+            .info-cards { flex-direction: column; }
+            .discover-section { flex-direction: column; text-align: center; }
+            .explore-btn { margin-bottom: 30px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Trails<span>.</span></div>
+        <div class="logo">Flash<span>.</span></div>
         <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#">Destinations</a>
-            <a href="#">Stories</a>
-            <a href="#" class="btn-book">Book Now</a>
+            <a href="#" class="active">Main</a>
+            <a href="#">About Us</a>
+            <a href="#">Tours</a>
+            <a href="#">Gallery</a>
+            <a href="#">Reviews</a>
+            <a href="#">Contacts</a>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>Take <span class="white-text">The</span> Trails</h1>
-            </div>
+        <div class="hero-content">
+            <h1>Time to Travel</h1>
+            <p>The best time to visit Rocky Mountain National Park is from June to September when the snow is melted and the hiking trails and attractions are accessible. Get ready to explore beauty in its purest form.</p>
             
-            <div class="hero-offer">
-                <div class="offer-badge">
-                    30% Off
-                    <span>For all destinations</span>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h4>Mountain Trails</h4>
+                    <p>Climb the crown jewel of Rocky Mountain NP.</p>
                 </div>
-                <button class="btn-start" onclick="window.location.reload();">Get Started</button>
+                <div class="info-card">
+                    <h4>Forest Walk</h4>
+                    <p>The most popular trails around the deep forests.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Canyon Views</h4>
+                    <p>Experience great reviews from actual hikers.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="trips-section">
-        <h2 class="section-title">Our Featured Trips</h2>
-        <div class="trips-grid">
-            
-            <div class="trip-card">
-                <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=600" alt="Desert" class="trip-img">
-                <h3>Desert Trips</h3>
-                <p>Explore the stunning golden dunes, experience magic starry nights in the open desert, and start an unforgettable adventure today.</p>
+    <section class="tours-section">
+        <h2 class="section-title">Popular Tours</h2>
+        <p class="section-subtitle">Choose your next big adventure</p>
+        
+        <div class="tours-grid">
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600" alt="Forest" class="tour-img">
+                <div class="tour-info">
+                    <h3>Forest Magic</h3>
+                    <p>Enjoy the peaceful walks inside green ancient pine woods.</p>
+                </div>
             </div>
 
-            <div class="trip-card">
-                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600" alt="Forest" class="trip-img">
-                <h3>Forest Trails</h3>
-                <p>Escape the busy city life, hike through ancient green trees, listen to nature, and enjoy the pure peaceful vibes of the wild forest.</p>
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600" alt="Hills" class="tour-img">
+                <div class="tour-info">
+                    <h3>Foggy Valleys</h3>
+                    <p>Discover misty canyons and lakes hidden in the mountains.</p>
+                </div>
             </div>
 
-            <div class="trip-card">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600" alt="Mountain" class="trip-img">
-                <h3>Canyon & Mountains</h3>
-                <p>Challenge yourself by climbing breathtaking mountain peaks and exploring historic deep canyons with professional guides.</p>
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=600" alt="Mountains" class="tour-img">
+                <div class="tour-info">
+                    <h3>Peak Climbers</h3>
+                    <p>For brave hikers looking to reach the absolute highest peaks.</p>
+                </div>
             </div>
 
-        </div>
-    </section>
-
-    <section class="bottom-section">
-        <div class="testimonials">
-            <h2>Testimonials</h2>
-            <p>Our travelers' happiness is our priority. We work hard to turn every single trip into a beautiful lifelong memory and create the perfect safe environment for your new discoveries.</p>
-            
-            <div class="footer-note">
-                <strong>Why choose us?</strong> We provide fully planned outdoor trips, certified tour guides, and 24/7 premium customer support for all young hikers around the country.
-            </div>
-        </div>
-
-        <div class="newsletter">
-            <h2>Subscribe To Our<br>Newsletter</h2>
-            <div class="search-box">
-                <input type="email" placeholder="Email address">
-                <button>Submit</button>
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" alt="Waterfalls" class="tour-img">
+                <div class="tour-info">
+                    <h3>Wild Rivers</h3>
+                    <p>Beautiful tracks alongside roaring wild waterfalls.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <section class="discover-section">
+        <div class="discover-left">
+            <h2>Discover the world in a new way</h2>
+            <p>Take a look at our amazing gallery of real photographs captured by travelers during their journeys. Click on any picture to view it in full screen and feel the atmosphere of pure nature.</p>
+            <button class="explore-btn" onclick="alert('Exploring more destinations coming soon!');">Explore More</button>
+        </div>
+
+        <div class="discover-right">
+            <div class="gallery-box">
+                <img src="https://images.unsplash.com/photo-1472214222541-d510753a4707?q=80&w=600" alt="Beautiful Field" class="gallery-img">
+            </div>
+
+            <div class="gallery-box">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600" alt="Grand Mountain" class="gallery-img">
+            </div>
+
+            <div class="gallery-box">
+                <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=600" alt="Sunset Lake" class="gallery-img">
+            </div>
+
+            <div class="gallery-box">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600" alt="Golden Beach" class="gallery-img">
+            </div>
+        </div>
+    </section>
+
+    <div id="myViewer" class="image-viewer">
+        <span class="close-viewer" id="closeBtn">&times;</span>
+        <img id="fullImage" src="" alt="Full Screen Preview">
+    </div>
+
+    <script>
+        const galleryImages = document.querySelectorAll('.gallery-img');
+        const viewer = document.getElementById('myViewer');
+        const fullImage = document.getElementById('fullImage');
+        const closeBtn = document.getElementById('closeBtn');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function() {
+                viewer.style.display = 'flex';
+                fullImage.src = this.src;     
+            });
+        });
+
+        closeBtn.addEventListener('click', function() {
+            viewer.style.display = 'none';
+        });
+
+        viewer.addEventListener('click', function(e) {
+            if (e.target !== fullImage) {
+                viewer.style.display = 'none';
+            }
+        });
+    </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
