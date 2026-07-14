@@ -137,7 +137,368 @@
             gap: 25px;
         }
 
+        .tour-card {
+            background-color: #161f28;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.15);
+        }
+
+        .tour-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .tour-info {
+            padding: 20px;
+        }
+
+        .tour-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .tour-info p {
+            font-size: 12px;
+            color: #a0a5ab;
+            line-height: 1.5;
+        }
+
+        .discover-section {
+            padding: 100px 8%; 
+            background-color: #090e13;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .discover-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .discover-left h2 {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .discover-left p {
+            font-size: 15px;
+            color: #a0a5ab;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .explore-btn {
+            align-self: flex-start; 
+            background-color: #00f2fe;
+            color: #0d131a;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .explore-btn:hover {
+            background-color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .discover-right {
+            flex: 1.2; 
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px; 
+        }
+
+        .gallery-box {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 190px; 
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gallery-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-box:hover img {
+            transform: scale(1.12);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(13, 19, 26, 0.85));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-box:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay span {
+            font-size: 11px;
+            color: #00f2fe;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .image-overlay h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .image-viewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 19, 26, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-viewer img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+            border: 2px solid #00f2fe;
+        }
+
+        .close-viewer {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-viewer:hover {
+            color: #00f2fe;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            nav { display: none; }
+            .hero { height: auto; padding: 100px 5% 50px 5%; }
+            .hero-content h1 { font-size: 38px; }
+            .info-cards { flex-direction: column; }
+            .discover-section { flex-direction: column; text-align: center; }
+            .explore-btn { margin-bottom: 30px; align-self: center; }
+            .discover-right { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Flash<span>.</span></div>
+        <nav>
+            <a href="#" class="active">Main</a>
+            <a href="#">About Us</a>
+            <a href="#">Tours</a>
+            <a href="#">Gallery</a>
+            <a href="#">Reviews</a>
+            <a href="#">Contacts</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Time to Travel</h1>
+            <p>The best time to visit Rocky Mountain National Park is from June to September when the snow is melted and the hiking trails and attractions are accessible. Get ready to explore beauty in its purest form.</p>
+            
+            <div class="info-cards">
+                <div class="info-card">
+                    <h4>Mountain Trails</h4>
+                    <p>Climb the crown jewel of Rocky Mountain NP.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Forest Walk</h4>
+                    <p>The most popular trails around the deep forests.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Canyon Views</h4>
+                    <p>Experience great reviews from actual hikers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tours-section">
+        <h2 class="section-title">Popular Tours</h2>
+        <p class="section-subtitle">Choose your next big adventure</p>
         
+        <div class="tours-grid">
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600" alt="Forest" class="tour-img">
+                <div class="tour-info">
+                    <h3>Forest Magic</h3>
+                    <p>Enjoy the peaceful walks inside green ancient pine woods.</p>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600" alt="Hills" class="tour-img">
+                <div class="tour-info">
+                    <h3>Foggy Valleys</h3>
+                    <p>Discover misty canyons and lakes hidden in the mountains.</p>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=600" alt="Mountains" class="tour-img">
+                <div class="tour-info">
+                    <h3>Peak Climbers</h3>
+                    <p>For brave hikers looking to reach the absolute highest peaks.</p>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" alt="Waterfalls" class="tour-img">
+                <div class="tour-info">
+                    <h3>Wild Rivers</h3>
+                    <p>Beautiful tracks alongside roaring wild waterfalls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="discover-section">
+        <div class="discover-left">
+            <h2>Discover the world in a new way</h2>
+            <p>Take a look at our amazing gallery of real photographs captured by travelers during their journeys. Click on any picture to view it in full screen and feel the atmosphere of pure nature.</p>
+            <button class="explore-btn" onclick="alert('Exploring more destinations coming soon!');">Explore More</button>
+        </div>
+
+        <div class="discover-right">
+            <div class="gallery-box">
+                <img src="https://images.unsplash.com/photo-1500627869374-13cd993b1115?q=80&w=600" alt="Beautiful Field" class="gallery-img">
+                <div class="image-overlay">
+                    <span>Nature</span>
+                    <h4>Magic Green Fields</h4>
+                </div>
+            </div>
+
+            <div class="gallery-box">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600" alt="Grand Mountain" class="gallery-img">
+                <div class="image-overlay">
+                    <span>Adventure</span>
+                    <h4>Grand Peak Views</h4>
+                </div>
+            </div>
+
+            <div class="gallery-box">
+                <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=600" alt="Sunset Lake" class="gallery-img">
+                <div class="image-overlay">
+                    <span>Relax</span>
+                    <h4>Sunset Lake Reflection</h4>
+                </div>
+            </div>
+
+            <div class="gallery-box">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600" alt="Golden Beach" class="gallery-img">
+                <div class="image-overlay">
+                    <span>Paradise</span>
+                    <h4>Golden Tropical Coast</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="myViewer" class="image-viewer">
+        <span class="close-viewer" id="closeBtn">&times;</span>
+        <img id="fullImage" src="" alt="Full Screen Preview">
+    </div>
+
+    <script>
+        const galleryImages = document.querySelectorAll('.gallery-img');
+        const viewer = document.getElementById('myViewer');
+        const fullImage = document.getElementById('fullImage');
+        const closeBtn = document.getElementById('closeBtn');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function() {
+                viewer.style.display = 'flex';
+                fullImage.src = this.src;
+            });
+        });
+
+        closeBtn.addEventListener('click', function() {
+            viewer.style.display = 'none';
+        });
+
+        viewer.addEventListener('click', function(e) {
+            if (e.target !== fullImage) {
+                viewer.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
