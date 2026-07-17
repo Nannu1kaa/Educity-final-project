@@ -3,297 +3,470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hush Modern Restaurant </title>
+    <title>Hush Modern Restaurant</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
+         {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: sans-serif;
         }
 
         body {
             background-color: #0b111e;
             color: #ffffff;
-            overflow-x: hidden;
         }
 
-
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            padding: 20px 5%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .header {
+            background-color: #0b111e;
+            padding: 20px 50px;
         }
 
-        .navbar {
+        .navigation {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
+            border-bottom: 1px solid #222;
         }
 
-        .logo {
-            font-weight: 700;
-            font-size: 26px;
-            letter-spacing: 1px;
+        .logo-text {
+            font-size: 25px;
+            font-weight: bold;
         }
 
-        .logo span {
+        .logo-text span {
             color: #ff6b35;
         }
 
-        .nav-links {
+        .menu-links {
             display: flex;
             list-style: none;
             gap: 20px;
         }
 
-        .nav-links a {
-            color: #ddd;
+        .menu-links a {
+            color: #ffffff;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-size: 14px;
         }
 
-        .nav-links a:hover, .nav-links a.active {
+        .menu-links a:hover {
             color: #ff6b35;
         }
 
-        .hero-main {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .burger-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .main-hero {
+            display: flex;
             align-items: center;
-            margin: 40px 0;
+            justify-content: space-between;
+            padding: 50px 0;
+            flex-wrap: wrap;
             gap: 30px;
         }
 
-        .hero-text {
-            max-width: 500px;
-            z-index: 2;
+        .hero-left {
+            flex: 1;
+            min-width: 300px;
         }
 
-        .hero-text h1 {
-            font-size: 52px;
-            font-weight: 800;
-            line-height: 1.1;
+        .hero-left h1 {
+            font-size: 45px;
             margin-bottom: 20px;
         }
 
-        .hero-text p {
-            font-size: 14px;
-            color: #cccccc;
+        .hero-left p {
+            font-size: 15px;
+            color: #ccc;
             line-height: 1.6;
             margin-bottom: 30px;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 12px 32px;
+        .order-btn {
             background-color: #ff6b35;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 20px;
             font-size: 14px;
-            border-radius: 25px;
-            transition: all 0.3s;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        .order-btn:hover {
+            background-color: #e05a2b;
         }
 
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .sushi-plate-img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-        }
-
-
-        .second-section {
-            padding: 60px 5%;
-            background-color: #ffffff;
-            color: #333333;
+        .hero-right {
+            flex: 1;
+            min-width: 300px;
             text-align: center;
         }
 
-        .second-section h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #111;
+        .hero-right img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
         }
 
-        .section-subtitle {
-            font-size: 14px;
+        .section-white {
+            background-color: #ffffff;
+            color: #333333;
+            padding: 60px 50px;
+            text-align: center;
+        }
+
+        .section-white h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .section-white p {
             color: #666;
             margin-bottom: 40px;
         }
 
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        .sushi-container {
+            display: flex;
+            justify-content: center;
             gap: 20px;
-            max-width: 900px;
-            margin: 0 auto;
+            flex-wrap: wrap;
         }
 
-        .preview-card {
-            background: #f9f9f9;
-            border-radius: 15px;
+        .sushi-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
             padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 280px;
             text-align: left;
         }
 
-        .card-img {
-            width: 100px;
-            height: 100px;
+        .sushi-card img {
+            width: 100%;
+            height: 160px;
             object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .sushi-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .sushi-card p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .section-dark {
+            background-color: #080d16;
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .section-dark h2 {
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+
+        .dark-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dark-card {
+            background-color: #111a28;
+            border-radius: 10px;
+            width: 280px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .dark-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .dark-card-body {
+            padding: 20px;
+        }
+
+        .dark-card-body h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .dark-card-body p {
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .middle-promo {
+            padding: 80px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .promo-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .promo-left h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .promo-left p {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .promo-right {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .promo-right img {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .bottom-contact {
+            background-color: #ffffff;
+            color: #333333;
+            padding: 80px 50px;
+        }
+
+        .contact-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-left img {
+            width: 100%;
             border-radius: 10px;
         }
 
-        .card-info h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: #111;
+        .contact-right {
+            flex: 1;
+            min-width: 300px;
         }
 
-        .card-info p {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.4;
+        .contact-right h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
         }
 
+        .menu-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+            font-size: 14px;
+        }
+
+        .menu-item span.price {
+            color: #ff6b35;
+            font-weight: bold;
+        }
 
         @media (max-width: 768px) {
-            .navbar {
+            .menu-links {
+                display: none;
                 flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-
-            .hero-main {
-                grid-template-columns: 1fr;
-                text-align: center;
+                width: 100%;
+                background-color: #111a28;
+                padding: 10px;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                z-index: 100;
             }
 
-            .hero-text {
-                margin: 0 auto;
+            .menu-links.active {
+                display: flex;
             }
 
-            .hero-text h1 {
-                font-size: 38px;
+            .burger-menu {
+                display: block;
             }
 
-            .cards-container {
-                grid-template-columns: 1fr;
+            .header, .section-white, .section-dark, .middle-promo, .bottom-contact {
+                padding: 40px 20px;
             }
-        }
-
-        .wip-note {
-            text-align: center;
-            padding: 60px 5%;
-            color: #888;
-            font-style: italic;
-            background-color: #ffffff;
         }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <nav class="navbar">
-            <div class="logo">Sushi<span>.</span></div>
-            <ul class="nav-links">
-                <li><a href="#" class="active">HOME</a></li>
+    <header class="header">
+        <nav class="navigation">
+            <div class="logo-text">Sushi<span>.</span></div>
+            <div class="burger-menu" id="burgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="menu-links" id="navMenu">
+                <li><a href="#">HOME</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="#">MENU</a></li>
                 <li><a href="#">GALLERY</a></li>
                 <li><a href="#">REVIEW</a></li>
                 <li><a href="#">CONTACT</a></li>
             </ul>
-            <div class="search-icon"><i class="fas fa-search"></i></div>
         </nav>
 
-        <div class="hero-main">
-            <div class="hero-text">
+        <div class="main-hero">
+            <div class="hero-left">
                 <h1>Hush Modern Restaurant</h1>
                 <p>Enjoy the authentic taste of Japan with our expertly crafted sushi and traditional dishes. Every piece is a perfect balance of flavor and presentation, made from the freshest ingredients.</p>
-                <a href="#" class="cta-button">Order Now</a>
+                <button class="order-btn click-action">Book Now</button>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1470&auto=format&fit=crop" alt="Sushi Plate" class="sushi-plate-img">
+            <div class="hero-right">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1470&auto=format&fit=crop" alt="Sushi">
             </div>
         </div>
     </header>
 
-    <section class="second-section">
-        <h2>Our Car May Susia</h2>
-        <p class="section-subtitle">A curated selection of our finest dishes, crafted with passion.</p>
+    <section class="section-white">
+        <h2>Culur Home</h2>
+        <p>Delicious choices recommended by our best chefs.</p>
 
+        <div class="sushi-container">
+            <div class="sushi-card">
+                <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=600&auto=format&fit=crop" alt="Sushi 1">
+                <h3>Delicious Roll</h3>
+                <p>A fresh blend of salmon, avocado, and spicy mayo rolled to perfection.</p>
+            </div>
+            <div class="sushi-card">
+                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop" alt="Sushi 2">
+                <h3>Salmon Nigiri</h3>
+                <p>Premium slices of fresh salmon over perfectly seasoned sushi rice.</p>
+            </div>
+            <div class="sushi-card">
+                <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?q=80&w=600&auto=format&fit=crop" alt="Sushi 3">
+                <h3>Chef's Special</h3>
+                <p>An amazing assortment of our finest daily selection of fresh fish.</p>
+            </div>
+        </div>
+    </section>
 
-        <div class="cards-container">
-            <div class="preview-card">
-                <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=300&auto=format&fit=crop" alt="Sushi" class="card-img">
-                <div class="card-info">
-                    <h3>Salmon Sushi</h3>
-                    <p>Fresh salmon served over seasoned rice with a touch of wasabi.</p>
+    <section class="section-dark">
+        <h2>Our Cae May Susia</h2>
+        <div class="dark-grid">
+            <div class="dark-card">
+                <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?q=80&w=600&auto=format&fit=crop" alt="Sushi 4">
+                <div class="dark-card-body">
+                    <h3>Premium Combo</h3>
+                    <p>Designed for true sushi lovers. Includes 16 mixed premium pieces.</p>
                 </div>
             </div>
-
-            <div class="preview-card">
-                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=300&auto=format&fit=crop" alt="Sushi" class="card-img">
-                <div class="card-info">
-                    <h3>Maki Roll</h3>
-                    <p>Traditional roll wrapped in nori with cucumber and avocado.</p>
+            <div class="dark-card">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=600&auto=format&fit=crop" alt="Sushi 5">
+                <div class="dark-card-body">
+                    <h3>Dragon Roll</h3>
+                    <p>Eel, cucumber, and avocado topped with sweet unagi sauce.</p>
+                </div>
+            </div>
+            <div class="dark-card">
+                <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=600&auto=format&fit=crop" alt="Sushi 6">
+                <div class="dark-card-body">
+                    <h3>Spicy Tuna</h3>
+                    <p>Finely chopped spicy tuna roll with crunchy tempura flakes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="wip-note">
-      
+    <section class="middle-promo">
+        <div class="promo-left">
+            <h2>Make to Yocik öng your Sushi Coontcs</h2>
+            <p>We pride ourselves on using only the finest, sustainably sourced seafood. Our chefs train for years to master the delicate art of sushi making, ensuring that every bite is an extraordinary culinary experience.</p>
+        </div>
+        <div class="promo-right">
+            <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop" alt="Sushi">
+        </div>
+    </section>
 
+    <section class="bottom-contact">
+        <div class="contact-flex">
+            <div class="contact-left">
+                <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?q=80&w=600&auto=format&fit=crop" alt="Restaurant">
+            </div>
+            <div class="contact-right">
+                <h2>Contact Sekus</h2>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span>Salmon Sashimi (5pcs)</span>
+                        <span class="price">$12.99</span>
+                    </li>
+                    <li class="menu-item">
+                        <span>Spicy Tuna Roll</span>
+                        <span class="price">$8.50</span>
+                    </li>
+                    <li class="menu-item">
+                        <span>Tempura Shrimp (4pcs)</span>
+                        <span class="price">$10.00</span>
+                    </li>
+                    <li class="menu-item">
+                        <span>Miso Soup</span>
+                        <span class="price">$4.00</span>
+                    </li>
+                </ul>
+                <button class="order-btn click-action">Book a Table</button>
+            </div>
+        </div>
+    </section>
 
+    <script>
+        const burgerBtn = document.getElementById('burgerBtn');
+        const navMenu = document.getElementById('navMenu');
 
+        burgerBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
 
+        const buttons = document.querySelectorAll('.click-action');
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                alert('Thank you. Your request has been received.');
+            });
+        });
+    </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>
 
 
 
