@@ -10,477 +10,442 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: sans-serif;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
         }
 
         body {
-            background-color: #0b111e;
+            background-color: #05080f;
             color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
         }
 
-        .header {
+        .mobile-container {
+            width: 100%;
+            max-width: 480px;
             background-color: #0b111e;
-            padding: 20px 50px;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            position: relative;
         }
 
-        .navigation {
+        .hero {
+            position: relative;
+            padding: 20px 20px 80px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding-bottom: 15px;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .logo-text {
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        .logo-text span {
-            color: #ff6b35;
-        }
-
-        .menu-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .menu-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .menu-links a:hover {
-            color: #ff6b35;
-        }
-
-        .burger-menu {
-            display: none;
+        .logo {
             font-size: 24px;
-            cursor: pointer;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #fff;
         }
 
-        .main-hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 50px 0;
-            flex-wrap: wrap;
-            gap: 30px;
+        .logo span {
+            color: #ff6b35;
         }
 
-        .hero-left {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .hero-left h1 {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
-
-        .hero-left p {
-            font-size: 15px;
+        .search-icon {
             color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .order-btn {
-            background-color: #ff6b35;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 18px;
             cursor: pointer;
         }
 
-        .order-btn:hover {
-            background-color: #e05a2b;
-        }
-
-        .hero-right {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-
-        .hero-right img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-        }
-
-        .section-white {
-            background-color: #ffffff;
-            color: #333333;
-            padding: 60px 50px;
-            text-align: center;
-        }
-
-        .section-white h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-
-        .section-white p {
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .sushi-container {
+        .hero-main {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 30px;
+            text-align: center;
         }
 
-        .sushi-card {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            width: 280px;
-            text-align: left;
-        }
-
-        .sushi-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 8px;
+        .hero-text h1 {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 15px;
         }
 
-        .sushi-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .sushi-card p {
+        .hero-text p {
             font-size: 13px;
-            color: #666;
+            line-height: 1.6;
+            color: #aaa;
+            margin-bottom: 25px;
         }
 
-        .section-dark {
-            background-color: #080d16;
-            padding: 80px 50px;
+        .cta-btn {
+            display: inline-block;
+            background-color: #ff6b35;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            transform: rotate(5deg);
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+        }
+
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave-divider svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 40px;
+        }
+
+        .wave-divider .shape-fill {
+            fill: #ffffff;
+        }
+
+        .second-section {
+            background-color: #ffffff;
+            color: #333;
+            padding: 50px 20px;
             text-align: center;
         }
 
-        .section-dark h2 {
-            font-size: 30px;
-            margin-bottom: 40px;
+        .second-section h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 8px;
         }
 
-        .dark-grid {
+        .second-section .subtitle {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 35px;
+        }
+
+        .tours-grid {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .dark-card {
-            background-color: #111a28;
+        .tour-card {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .tour-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
             border-radius: 10px;
-            width: 280px;
+            margin-bottom: 15px;
+        }
+
+        .tour-card h3 {
+            font-size: 17px;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .tour-card p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .susia-section {
+            background-color: #080d16;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .susia-section h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 35px;
+        }
+
+        .susia-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .susia-card {
+            background-color: #111a28;
+            border-radius: 15px;
             overflow: hidden;
             text-align: left;
         }
 
-        .dark-card img {
+        .susia-card img {
             width: 100%;
             height: 180px;
             object-fit: cover;
         }
 
-        .dark-card-body {
+        .susia-content {
             padding: 20px;
         }
 
-        .dark-card-body h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+        .susia-content h3 {
+            font-size: 17px;
+            color: #fff;
+            margin-bottom: 8px;
         }
 
-        .dark-card-body p {
-            font-size: 13px;
+        .susia-content p {
+            font-size: 12px;
             color: #aaa;
+            line-height: 1.5;
         }
 
-        .middle-promo {
-            padding: 80px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .promo-left {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .promo-left h2 {
-            font-size: 35px;
-            margin-bottom: 20px;
-        }
-
-        .promo-left p {
-            font-size: 14px;
-            color: #ccc;
-            line-height: 1.6;
-        }
-
-        .promo-right {
-            flex: 1;
-            min-width: 300px;
+        .make-yocik-section {
+            background-color: #0b111e;
+            padding: 60px 20px;
             text-align: center;
         }
 
-        .promo-right img {
-            width: 100%;
-            max-width: 350px;
-        }
-
-        .bottom-contact {
-            background-color: #ffffff;
-            color: #333333;
-            padding: 80px 50px;
-        }
-
-        .contact-flex {
+        .yocik-container {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto;
+            flex-direction: column;
+            gap: 35px;
         }
 
-        .contact-left {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-left img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .contact-right {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-right h2 {
+        .yocik-text h2 {
             font-size: 30px;
-            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .yocik-text p {
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .yocik-image img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+        }
+
+        .contact-section {
+            background-color: #ffffff;
+            color: #333;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .contact-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .contact-info p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 25px;
         }
 
         .menu-list {
             list-style: none;
             margin-bottom: 30px;
+            text-align: left;
         }
 
         .menu-item {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px dashed #ccc;
-            font-size: 14px;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ddd;
+            font-size: 13px;
+            font-weight: 600;
         }
 
         .menu-item span.price {
             color: #ff6b35;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .menu-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: #111a28;
-                padding: 10px;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                z-index: 100;
-            }
-
-            .menu-links.active {
-                display: flex;
-            }
-
-            .burger-menu {
-                display: block;
-            }
-
-            .header, .section-white, .section-dark, .middle-promo, .bottom-contact {
-                padding: 40px 20px;
-            }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <nav class="navigation">
-            <div class="logo-text">Sushi<span>.</span></div>
-            <div class="burger-menu" id="burgerBtn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="menu-links" id="navMenu">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">MENU</a></li>
-                <li><a href="#">GALLERY</a></li>
-                <li><a href="#">REVIEW</a></li>
-                <li><a href="#">CONTACT</a></li>
-            </ul>
-        </nav>
+    <div class="mobile-container">
 
-        <div class="main-hero">
-            <div class="hero-left">
-                <h1>Hush Modern Restaurant</h1>
-                <p>Enjoy the authentic taste of Japan with our expertly crafted sushi and traditional dishes. Every piece is a perfect balance of flavor and presentation, made from the freshest ingredients.</p>
-                <button class="order-btn click-action">Book Now</button>
-            </div>
-            <div class="hero-right">
-                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1470&auto=format&fit=crop" alt="Sushi">
-            </div>
-        </div>
-    </header>
+        <header class="hero">
+            <nav class="navbar">
+                <div class="logo">Sushi<span>.</span></div>
+                <div class="search-icon"><i class="fas fa-search"></i></div>
+            </nav>
 
-    <section class="section-white">
-        <h2>Culur Home</h2>
-        <p>Delicious choices recommended by our best chefs.</p>
-
-        <div class="sushi-container">
-            <div class="sushi-card">
-                <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=600&auto=format&fit=crop" alt="Sushi 1">
-                <h3>Delicious Roll</h3>
-                <p>A fresh blend of salmon, avocado, and spicy mayo rolled to perfection.</p>
-            </div>
-            <div class="sushi-card">
-                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop" alt="Sushi 2">
-                <h3>Salmon Nigiri</h3>
-                <p>Premium slices of fresh salmon over perfectly seasoned sushi rice.</p>
-            </div>
-            <div class="sushi-card">
-                <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?q=80&w=600&auto=format&fit=crop" alt="Sushi 3">
-                <h3>Chef's Special</h3>
-                <p>An amazing assortment of our finest daily selection of fresh fish.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-dark">
-        <h2>Our Cae May Susia</h2>
-        <div class="dark-grid">
-            <div class="dark-card">
-                <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?q=80&w=600&auto=format&fit=crop" alt="Sushi 4">
-                <div class="dark-card-body">
-                    <h3>Premium Combo</h3>
-                    <p>Designed for true sushi lovers. Includes 16 mixed premium pieces.</p>
+            <div class="hero-main">
+                <div class="hero-text">
+                    <h1>Hush Modern Restaurant</h1>
+                    <p>Enjoy the authentic taste of Japan with our expertly crafted sushi and traditional dishes. Every piece is a perfect balance of flavor and presentation.</p>
+                    <a href="#" class="cta-btn">Book Now</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1470&auto=format&fit=crop" alt="Sushi Plate">
                 </div>
             </div>
-            <div class="dark-card">
-                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=600&auto=format&fit=crop" alt="Sushi 5">
-                <div class="dark-card-body">
-                    <h3>Dragon Roll</h3>
-                    <p>Eel, cucumber, and avocado topped with sweet unagi sauce.</p>
+
+            <div class="wave-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,53.05,22,79.66,34.7,141.13,64.1,208.76,68.28,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </header>
+
+        <section class="second-section">
+            <h2>Culur Home</h2>
+            <p class="subtitle">Delicious choices recommended by our best chefs.</p>
+
+            <div class="tours-grid">
+                <div class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=600&auto=format&fit=crop" alt="Sushi 1">
+                    <h3>Delicious Roll</h3>
+                    <p>A fresh blend of salmon, avocado, and spicy mayo rolled to perfection.</p>
+                </div>
+                <div class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop" alt="Sushi 2">
+                    <h3>Salmon Nigiri</h3>
+                    <p>Premium slices of fresh salmon over perfectly seasoned sushi rice.</p>
+                </div>
+                <div class="tour-card">
+                    <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?q=80&w=600&auto=format&fit=crop" alt="Sushi 3">
+                    <h3>Chef's Special</h3>
+                    <p>An amazing assortment of our finest daily selection of fresh fish.</p>
                 </div>
             </div>
-            <div class="dark-card">
-                <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=600&auto=format&fit=crop" alt="Sushi 6">
-                <div class="dark-card-body">
-                    <h3>Spicy Tuna</h3>
-                    <p>Finely chopped spicy tuna roll with crunchy tempura flakes.</p>
+        </section>
+
+        <section class="susia-section">
+            <h2>Our Cae May Susia</h2>
+            <div class="susia-grid">
+                <div class="susia-card">
+                    <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?q=80&w=600&auto=format&fit=crop" alt="Sushia 1">
+                    <div class="susia-content">
+                        <h3>Premium Combo</h3>
+                        <p>Designed for true sushi lovers. Includes 16 mixed premium pieces.</p>
+                    </div>
+                </div>
+                <div class="susia-card">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=600&auto=format&fit=crop" alt="Sushia 2">
+                    <div class="susia-content">
+                        <h3>Dragon Roll</h3>
+                        <p>Eel, cucumber, and avocado topped with sweet unagi sauce.</p>
+                    </div>
+                </div>
+                <div class="susia-card">
+                    <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=600&auto=format&fit=crop" alt="Sushia 3">
+                    <div class="susia-content">
+                        <h3>Spicy Tuna</h3>
+                        <p>Finely chopped spicy tuna roll with crunchy tempura flakes.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="middle-promo">
-        <div class="promo-left">
-            <h2>Make to Yocik öng your Sushi Coontcs</h2>
-            <p>We pride ourselves on using only the finest, sustainably sourced seafood. Our chefs train for years to master the delicate art of sushi making, ensuring that every bite is an extraordinary culinary experience.</p>
-        </div>
-        <div class="promo-right">
-            <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop" alt="Sushi">
-        </div>
-    </section>
-
-    <section class="bottom-contact">
-        <div class="contact-flex">
-            <div class="contact-left">
-                <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?q=80&w=600&auto=format&fit=crop" alt="Restaurant">
+        <section class="make-yocik-section">
+            <div class="yocik-container">
+                <div class="yocik-text">
+                    <h2>Make to Yocik öng your Sushi Coontcs</h2>
+                    <p>We pride ourselves on using only the finest seafood. Our chefs train for years to master the delicate art of sushi making.</p>
+                    <a href="#" class="cta-btn">Learn More</a>
+                </div>
+                <div class="yocik-image">
+                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop" alt="Yocik Sushi">
+                </div>
             </div>
-            <div class="contact-right">
-                <h2>Contact Sekus</h2>
-                <ul class="menu-list">
-                    <li class="menu-item">
-                        <span>Salmon Sashimi (5pcs)</span>
-                        <span class="price">$12.99</span>
-                    </li>
-                    <li class="menu-item">
-                        <span>Spicy Tuna Roll</span>
-                        <span class="price">$8.50</span>
-                    </li>
-                    <li class="menu-item">
-                        <span>Tempura Shrimp (4pcs)</span>
-                        <span class="price">$10.00</span>
-                    </li>
-                    <li class="menu-item">
-                        <span>Miso Soup</span>
-                        <span class="price">$4.00</span>
-                    </li>
-                </ul>
-                <button class="order-btn click-action">Book a Table</button>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-image">
+                    <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?q=80&w=600&auto=format&fit=crop" alt="Restaurant Plate">
+                </div>
+                <div class="contact-info">
+                    <h2>Contact Sekus</h2>
+                    <p>Check out our special daily offers or get in touch with us to book a table.</p>
+                    
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <span>Salmon Sashimi (5pcs)</span>
+                            <span class="price">$12.99</span>
+                        </li>
+                        <li class="menu-item">
+                            <span>Spicy Tuna Roll</span>
+                            <span class="price">$8.50</span>
+                        </li>
+                        <li class="menu-item">
+                            <span>Tempura Shrimp (4pcs)</span>
+                            <span class="price">$10.00</span>
+                        </li>
+                        <li class="menu-item">
+                            <span>Miso Soup</span>
+                            <span class="price">$4.00</span>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="cta-btn">Book a Table</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <script>
-        const burgerBtn = document.getElementById('burgerBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        burgerBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
-
-        const buttons = document.querySelectorAll('.click-action');
-        buttons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                alert('Thank you. Your request has been received.');
-            });
-        });
-    </script>
+    </div>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
