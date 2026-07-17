@@ -6,7 +6,7 @@
     <title>Time to Travel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
+         {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -16,27 +16,18 @@
         body {
             background-color: #030708;
             color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
-
-        .mobile-layout {
-            width: 100%;
-            max-width: 480px;
-            background-color: #050a0f;
-            min-height: 100vh;
-            box-shadow: 0 0 25px rgba(0,0,0,0.8);
-            position: relative;
+            overflow-x: hidden;
         }
 
         .hero-section {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(5,10,15,1)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(3,7,8,1)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1470&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            padding: 20px 20px 40px 20px;
-            text-align: center;
+            min-height: 100vh;
+            padding: 30px 8% 60px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .nav-bar {
@@ -44,98 +35,128 @@
             justify-content: space-between;
             align-items: center;
             padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .brand-logo {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
             letter-spacing: 1px;
         }
 
-        .menu-burger {
-            font-size: 20px;
+        .nav-links a:hover {
+            color: #40e0d0;
+        }
+
+        .search-btn {
+            color: #fff;
+            font-size: 16px;
             cursor: pointer;
         }
 
+        .hero-center-content {
+            max-width: 600px;
+            margin-top: 60px;
+        }
+
         .hero-title {
-            font-size: 38px;
+            font-size: 56px;
             font-weight: 800;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             line-height: 1.1;
+            margin-bottom: 20px;
         }
 
         .hero-desc {
-            font-size: 13px;
+            font-size: 14px;
             color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-bottom-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
         }
 
         .stats-box {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
-            text-align: left;
-            border: 1px solid rgba(255,255,255,0.1);
             cursor: pointer;
         }
 
         .stats-box h4 {
-            font-size: 14px;
+            font-size: 15px;
             color: #40e0d0;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .stats-box p {
             font-size: 12px;
             color: #aaa;
+            line-height: 1.5;
         }
 
         .section-title-block {
             text-align: center;
-            padding: 40px 20px 20px 20px;
+            padding: 80px 0 40px 0;
+            background-color: #030708;
         }
 
         .section-title-block h2 {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 2px;
         }
 
         .section-title-block p {
-            font-size: 12px;
-            color: #777;
-            margin-top: 5px;
+            font-size: 13px;
+            color: #666;
+            margin-top: 8px;
         }
 
-        .tours-list {
-            display: flex;
-            flex-direction: column;
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            padding: 0 20px 40px 20px;
+            padding: 0 8% 80px 8%;
+            background-color: #030708;
         }
 
         .tour-item-card {
             position: relative;
-            height: 220px;
-            border-radius: 14px;
+            height: 380px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            cursor: pointer;
         }
 
         .tour-item-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.4s ease;
         }
 
         .tour-item-card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .tour-card-overlay {
@@ -143,14 +164,15 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 20px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 25px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
         }
 
         .tour-card-overlay h3 {
             font-size: 18px;
             font-weight: 700;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         .tour-card-overlay p {
@@ -159,50 +181,59 @@
         }
 
         .discover-section {
-            background-color: #03070a;
-            padding: 40px 20px;
+            background-color: #020507;
+            padding: 100px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
         }
 
         .discover-title {
-            font-size: 28px;
+            font-size: 48px;
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             letter-spacing: 1px;
         }
 
         .video-trigger-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background-color: rgba(255,255,255,0.1);
-            padding: 10px 20px;
+            gap: 12px;
+            background-color: rgba(255,255,255,0.05);
+            padding: 12px 25px;
             border-radius: 30px;
             text-decoration: none;
             color: #fff;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
             cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .video-trigger-btn:hover {
+            background-color: rgba(255,255,255,0.15);
         }
 
         .video-trigger-btn i {
             color: #40e0d0;
-            font-size: 16px;
+            font-size: 18px;
         }
 
-        .gallery-vertical {
-            display: flex;
-            flex-direction: column;
+        .gallery-horizontal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
 
         .gallery-thumb-item {
             position: relative;
-            height: 130px;
-            border-radius: 10px;
+            height: 250px;
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .gallery-thumb-item img {
@@ -216,169 +247,128 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(0,0,0,0.5);
-            width: 36px;
-            height: 36px;
+            background-color: rgba(0,0,0,0.6);
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #fff;
-            font-size: 12px;
+            font-size: 14px;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <div class="mobile-layout">
+    <section class="hero-section">
+        <header class="nav-bar">
+            <div class="brand-logo">TRAVEL</div>
+            <ul class="nav-links">
+                <li><a href="#">MAIN</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">TOURS</a></li>
+                <li><a href="#">GALLERY</a></li>
+                <li><a href="#">SPECIAL</a></li>
+                <li><a href="#">CONTACTS</a></li>
+            </ul>
+            <div class="search-btn"><i class="fas fa-search"></i></div>
+        </header>
 
-        <section class="hero-section">
-            <header class="nav-bar">
-                <div class="brand-logo">TRAVEL</div>
-                <div class="menu-burger" id="burgerBtn"><i class="fas fa-bars"></i></div>
-            </header>
-
+        <div class="hero-center-content">
             <h1 class="hero-title">TIME TO TRAVEL</h1>
-            <p class="hero-desc">The best time to visit Rocky Mountain National Park is from June to September when the snow is melted and the hiking trails are accessible.</p>
+            <p class="hero-desc">The best time to visit Rocky Mountain National Park is from June to September when the snow is melted and the hiking trails and attractions are accessible. The Crown Jewel of Rocky Mountain NP, Longs Peak is one of the most coveted summits in the West.</p>
+        </div>
 
-            <div class="stats-box" onclick="showMessage('More Details 1 clicked')">
+        <div class="hero-bottom-stats">
+            <div class="stats-box" onclick="showPopup('More Details 1')">
                 <h4>01 / Rocky Mountain</h4>
-                <p>The iconic heart of the range with massive peaks.</p>
+                <p>The iconic heart of the range with massive peaks and attractions.</p>
             </div>
-
-            <div class="stats-box" onclick="showMessage('More Details 2 clicked')">
+            <div class="stats-box" onclick="showPopup('More Details 2')">
                 <h4>02 / Alpine Trails</h4>
-                <p>Breathtaking high-altitude scenic paths.</p>
+                <p>Breathtaking high-altitude scenic paths for advanced hikers.</p>
             </div>
-
-            <div class="stats-box" onclick="showMessage('More Details 3 clicked')">
+            <div class="stats-box" onclick="showPopup('More Details 3')">
                 <h4>03 / Deep Valleys</h4>
-                <p>Lush green pine forests and clear rivers.</p>
+                <p>Lush green pine forests and clear rivers waiting to be discovered.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-title-block">
-            <h2>Popular Tours</h2>
-            <p>There will be a small title here</p>
-        </section>
+    <section class="section-title-block">
+        <h2>POPULAR TOURS</h2>
+        <p>There will be a small title here</p>
+    </section>
 
-        <div class="tours-list">
-            <div class="tour-item-card" onclick="showMessage('Tour 1 selected')">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&auto=format&fit=crop" alt="Tour 1">
-                <div class="tour-card-overlay">
-                    <h3>TOUR 1</h3>
-                    <p>There will be a details</p>
-                </div>
-            </div>
-
-            <div class="tour-item-card" onclick="showMessage('Tour 2 selected')">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600&auto=format&fit=crop" alt="Tour 2">
-                <div class="tour-card-overlay">
-                    <h3>TOUR 2</h3>
-                    <p>There will be a details</p>
-                </div>
-            </div>
-
-            <div class="tour-item-card" onclick="showMessage('Tour 3 selected')">
-                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600&auto=format&fit=crop" alt="Tour 3">
-                <div class="tour-card-overlay">
-                    <h3>TOUR 3</h3>
-                    <p>There will be a details</p>
-                </div>
-            </div>
-
-            <div class="tour-item-card" onclick="showMessage('Tour 4 selected')">
-                <img src="https://images.unsplash.com/photo-1432406186174-2b24f4a66005?q=80&w=600&auto=format&fit=crop" alt="Tour 4">
-                <div class="tour-card-overlay">
-                    <h3>TOUR 4</h3>
-                    <p>There will be a details</p>
-                </div>
+    <div class="tours-grid">
+        <div class="tour-item-card" onclick="showPopup('Tour 1 Selected')">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&auto=format&fit=crop" alt="Tour 1">
+            <div class="tour-card-overlay">
+                <h3>TOUR 1</h3>
+                <p>There will be a details</p>
             </div>
         </div>
 
-        <section class="discover-section">
-            <h2 class="discover-title">DISCOVER THE WORLD IN A NEW WAY</h2>
-            
-            <div class="video-trigger-btn" id="watchVideoBtn">
-                <i class="fas fa-play-circle"></i> WATCH THE VIDEO
+        <div class="tour-item-card" onclick="showPopup('Tour 2 Selected')">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600&auto=format&fit=crop" alt="Tour 2">
+            <div class="tour-card-overlay">
+                <h3>TOUR 2</h3>
+                <p>There will be a details</p>
             </div>
+        </div>
 
-            <div class="gallery-vertical">
-                <div class="gallery-thumb-item">
-                    <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600&auto=format&fit=crop" alt="Thumb 1">
-                    <div class="play-icon-center"><i class="fas fa-play"></i></div>
-                </div>
-
-                <div class="gallery-thumb-item">
-                    <img src="https://images.unsplash.com/photo-1472214222541-d510753a4707?q=80&w=600&auto=format&fit=crop" alt="Thumb 2">
-                    <div class="play-icon-center"><i class="fas fa-play"></i></div>
-                </div>
-
-                <div class="gallery-thumb-item">
-                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600&auto=format&fit=crop" alt="Thumb 3">
-                    <div class="play-icon-center"><i class="fas fa-play"></i></div>
-                </div>
+        <div class="tour-item-card" onclick="showPopup('Tour 3 Selected')">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600&auto=format&fit=crop" alt="Tour 3">
+            <div class="tour-card-overlay">
+                <h3>TOUR 3</h3>
+                <p>There will be a details</p>
             </div>
-        </section>
+        </div>
 
+        <div class="tour-item-card" onclick="showPopup('Tour 4 Selected')">
+            <img src="https://images.unsplash.com/photo-1432406186174-2b24f4a66000?q=80&w=600&auto=format&fit=crop" alt="Tour 4">
+            <div class="tour-card-overlay">
+                <h3>TOUR 4</h3>
+                <p>There will be a details</p>
+            </div>
+        </div>
     </div>
 
+    <section class="discover-section">
+        <div>
+            <h2 class="discover-title">DISCOVER THE WORLD IN A NEW WAY</h2>
+            <div class="video-trigger-btn" id="playVideoBtn">
+                <i class="fas fa-play-circle"></i> WATCH THE VIDEO
+            </div>
+        </div>
+
+        <div class="gallery-horizontal-grid">
+            <div class="gallery-thumb-item">
+                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600&auto=format&fit=crop" alt="Gallery 1">
+                <div class="play-icon-center"><i class="fas fa-play"></i></div>
+            </div>
+
+            <div class="gallery-thumb-item">
+                <img src="https://images.unsplash.com/photo-1472214222541-d510753a4707?q=80&w=600&auto=format&fit=crop" alt="Gallery 2">
+                <div class="play-icon-center"><i class="fas fa-play"></i></div>
+            </div>
+
+            <div class="gallery-thumb-item">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600&auto=format&fit=crop" alt="Gallery 3">
+                <div class="play-icon-center"><i class="fas fa-play"></i></div>
+            </div>
+        </div>
+    </section>
+
     <script>
-        document.getElementById('burgerBtn').addEventListener('click', function() 
-         
    
-        document.getElementById('watchVideoBtn').addEventListener('click', function() 
-           
+          
         
 
-         
-        }
+     
     </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
