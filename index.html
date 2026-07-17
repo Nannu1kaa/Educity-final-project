@@ -193,33 +193,7 @@
             font-size: 48px;
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 25px;
             letter-spacing: 1px;
-        }
-
-        .video-trigger-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background-color: rgba(255,255,255,0.05);
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 700;
-            border: 1px solid rgba(255,255,255,0.1);
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .video-trigger-btn:hover {
-            background-color: rgba(255,255,255,0.15);
-        }
-
-        .video-trigger-btn i {
-            color: #40e0d0;
-            font-size: 18px;
         }
 
         .gallery-horizontal-grid {
@@ -379,23 +353,20 @@
     <section class="discover-section">
         <div>
             <h2 class="discover-title">DISCOVER THE WORLD IN A NEW WAY</h2>
-            <div class="video-trigger-btn" id="playVideoBtn">
-                <i class="fas fa-play-circle"></i> WATCH THE VIDEO
-            </div>
         </div>
 
         <div class="gallery-horizontal-grid">
-            <div class="gallery-thumb-item">
+            <div class="gallery-thumb-item" onclick="showPopup('Playing Video 1...')">
                 <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600&auto=format&fit=crop" alt="Gallery 1">
                 <div class="play-icon-center"><i class="fas fa-play"></i></div>
             </div>
 
-            <div class="gallery-thumb-item">
+            <div class="gallery-thumb-item" onclick="showPopup('Playing Video 2...')">
                 <img src="https://images.unsplash.com/photo-1472214222541-d510753a4707?q=80&w=600&auto=format&fit=crop" alt="Gallery 2">
                 <div class="play-icon-center"><i class="fas fa-play"></i></div>
             </div>
 
-            <div class="gallery-thumb-item">
+            <div class="gallery-thumb-item" onclick="showPopup('Playing Video 3...')">
                 <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600&auto=format&fit=crop" alt="Gallery 3">
                 <div class="play-icon-center"><i class="fas fa-play"></i></div>
             </div>
@@ -404,12 +375,8 @@
 
     <script>
        
-        });
-
-       
-         
-        }
     </script>
 
 </body>
 </html>
+              
