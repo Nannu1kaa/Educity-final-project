@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hush Modern Restaurant -</title>
+    <title>Hush Modern Restaurant </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -23,37 +22,35 @@
 
         .hero {
             position: relative;
-            min-height: 90vh; 
-            padding: 20px 80px;
+            min-height: 100vh;
+            padding: 20px 5%;
             display: flex;
             flex-direction: column;
-            overflow: hidden; 
+            justify-content: space-between;
         }
-
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
-            z-index: 10;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .logo {
             font-weight: 700;
-            font-size: 28px;
+            font-size: 26px;
             letter-spacing: 1px;
-            color: #ffffff;
         }
 
         .logo span {
-            color: #00f2fe;
+            color: #ff6b35;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 20px;
         }
 
         .nav-links a {
@@ -65,103 +62,163 @@
         }
 
         .nav-links a:hover, .nav-links a.active {
-            color: #ffffff;
+            color: #ff6b35;
         }
-
-        .search-icon {
-            font-size: 16px;
-            color: #bbb;
-            cursor: pointer;
-        }
-
 
         .hero-main {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            margin-top: 60px;
-            z-index: 5;
+            margin: 40px 0;
+            gap: 30px;
         }
 
         .hero-text {
             max-width: 500px;
+            z-index: 2;
         }
 
         .hero-text h1 {
-            font-size: 58px;
+            font-size: 52px;
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 25px;
-            text-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            margin-bottom: 20px;
         }
 
         .hero-text p {
             font-size: 14px;
             color: #cccccc;
             line-height: 1.6;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 12px 30px;
-            background-color: #00f2fe;
-            color: #0b111e;
+            padding: 12px 32px;
+            background-color: #ff6b35;
+            color: #fff;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 14px;
-            border-radius: 5px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 25px;
+            transition: all 0.3s;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.5);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
         }
 
-
         .hero-image {
-            position: absolute;
-            right: -100px;
-            top: 150px;
-            width: 800px;
-            height: auto;
-            transform: rotate(15deg);
-            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .sushi-plate-img {
             width: 100%;
+            max-width: 500px;
             height: auto;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
         }
 
 
-        .second-section-intro {
-            padding: 80px 80px;
-            background-color: #0d1624;
+        .second-section {
+            padding: 60px 5%;
+            background-color: #ffffff;
+            color: #333333;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .second-section-intro h2 {
+        .second-section h2 {
             font-size: 32px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            color: #111;
         }
 
-        .second-section-intro p {
+        .section-subtitle {
             font-size: 14px;
-            color: #888;
-            max-width: 600px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
+        .preview-card {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .card-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card-info h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #111;
+        }
+
+        .card-info p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero-main {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                margin: 0 auto;
+            }
+
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
 
         .wip-note {
             text-align: center;
-            padding: 50px;
-            color: #666;
+            padding: 60px 5%;
+            color: #888;
             font-style: italic;
+            background-color: #ffffff;
         }
     </style>
 </head>
@@ -185,7 +242,7 @@
             <div class="hero-text">
                 <h1>Hush Modern Restaurant</h1>
                 <p>Enjoy the authentic taste of Japan with our expertly crafted sushi and traditional dishes. Every piece is a perfect balance of flavor and presentation, made from the freshest ingredients.</p>
-                <a href="#" class="cta-button">BOOK NOW</a>
+                <a href="#" class="cta-button">Order Now</a>
             </div>
             <div class="hero-image">
                 <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1470&auto=format&fit=crop" alt="Sushi Plate" class="sushi-plate-img">
@@ -193,38 +250,32 @@
         </div>
     </header>
 
-    <section class="second-section-intro">
+    <section class="second-section">
         <h2>Our Car May Susia</h2>
-        <p>A curated selection of our finest dishes, crafted with pasión and precision to provide an unforgettable culinary journey.</p>
+        <p class="section-subtitle">A curated selection of our finest dishes, crafted with passion.</p>
+
+
+        <div class="cards-container">
+            <div class="preview-card">
+                <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=300&auto=format&fit=crop" alt="Sushi" class="card-img">
+                <div class="card-info">
+                    <h3>Salmon Sushi</h3>
+                    <p>Fresh salmon served over seasoned rice with a touch of wasabi.</p>
+                </div>
+            </div>
+
+            <div class="preview-card">
+                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=300&auto=format&fit=crop" alt="Sushi" class="card-img">
+                <div class="card-info">
+                    <h3>Maki Roll</h3>
+                    <p>Traditional roll wrapped in nori with cucumber and avocado.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="wip-note">
+      
 
 
 
