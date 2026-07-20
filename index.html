@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furni. - Modern Interior Design Studio</title>
+    <title>Furni</title>
     
     <style>
-        * {
+         {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -25,7 +25,7 @@
         }
 
         .main-header {
-            background-color: #3d5a52;
+            background-color: #2c423b;
             padding: 24px 0;
         }
 
@@ -64,18 +64,49 @@
             padding-bottom: 6px;
         }
 
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .header-icons a {
+            display: inline-flex;
             text-decoration: none;
             color: #ffffff;
-            font-size: 20px;
-            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        .header-icons a:hover {
+            opacity: 0.8;
+        }
+
+        .header-icons svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
         }
 
         .hero {
-            background-color: #3d5a52;
+            background-color: #2c423b;
             padding: 80px 0 100px 0;
             color: #ffffff;
             overflow: hidden;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "••••\n••••\n••••\n••••";
+            position: absolute;
+            right: 40px;
+            top: 40px;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 20px;
+            letter-spacing: 5px;
+            line-height: 0.9;
+            white-space: pre;
         }
 
         .hero-content {
@@ -121,14 +152,14 @@
 
         .btn-shop {
             background-color: #f9bf29;
-            color: #2f4858;
+            color: #2c423b;
             border: 2px solid #f9bf29;
         }
 
         .btn-shop:hover {
             background-color: #ffffff;
             border-color: #ffffff;
-            color: #3d5a52;
+            color: #2c423b;
         }
 
         .btn-explore {
@@ -140,28 +171,28 @@
         .btn-explore:hover {
             background-color: #f9bf29;
             border-color: #f9bf29;
-            color: #3d5a52;
+            color: #2c423b;
         }
 
         .hero-image {
-            flex: 1;
+            flex: 1.2;
             text-align: right;
         }
 
         .hero-image img {
             max-width: 100%;
             height: auto;
-            transform: scale(1.05);
         }
 
         .products {
             padding: 100px 0;
-            background-color: #eff2f1;
+            background-color: #ffffff;
         }
 
         .products .container {
             display: flex;
             gap: 40px;
+            align-items: flex-start;
         }
 
         .products-header {
@@ -180,6 +211,26 @@
             font-size: 14px;
             color: #6a6a6a;
             line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-dark {
+            background-color: #2f2f2f;
+            color: white;
+            border: 2px solid #2f2f2f;
+            border-radius: 30px;
+            padding: 12px 28px;
+            font-size: 14px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-dark:hover {
+            background-color: #f9bf29;
+            border-color: #f9bf29;
+            color: #2f2f2f;
         }
 
         .product-grid {
@@ -192,20 +243,27 @@
         .product-card {
             text-align: center;
             position: relative;
-            padding-bottom: 20px;
-        }
-
-        .product-img-box {
-            background-color: transparent;
-            padding: 30px 20px;
+            padding: 30px 20px 60px 20px;
             border-radius: 12px;
-            margin-bottom: 15px;
             transition: 0.3s ease;
         }
 
+        .product-card.active-style {
+            background-color: #eff2f1;
+        }
+
+        .product-img-box {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
         .product-img-box img {
-            max-width: 85%;
-            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         .product-card h3 {
@@ -221,30 +279,27 @@
             color: #2f2f2f;
         }
 
-        .add-btn {
+        .add-circle-btn {
             position: absolute;
-            bottom: -15px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #2f2f2f;
             color: white;
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            font-size: 22px;
+            font-size: 20px;
             cursor: pointer;
-            opacity: 0;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .product-card:hover .product-img-box {
-            background-color: #dce5e4;
-        }
-
-        .product-card:hover .add-btn {
-            opacity: 1;
-            bottom: 5px;
+        .why-choose-us {
+            padding: 100px 0;
+            background-color: #ffffff;
         }
 
         .split-layout {
@@ -252,11 +307,6 @@
             justify-content: space-between;
             align-items: center;
             gap: 60px;
-        }
-
-        .why-choose-us {
-            padding: 100px 0;
-            background-color: #ffffff;
         }
 
         .features-side {
@@ -272,6 +322,8 @@
             color: #6a6a6a;
             margin-bottom: 40px;
             max-width: 600px;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
         .features-grid {
@@ -292,38 +344,52 @@
             line-height: 1.5;
         }
 
-        .feature-icon {
-            font-size: 24px;
+        .feature-icon-box {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2f2f2f;
+        }
+
+        .feature-icon-box svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
         }
 
         .image-side {
-            flex: 0.8;
+            flex: 0.9;
             position: relative;
         }
 
         .dots-bg-wrapper {
             position: relative;
             display: inline-block;
+            width: 100%;
         }
 
         .dots-bg-wrapper::before {
-            content: "••••\n••••\n••••\n••••";
+            content: "••••\n••••\n••••\n••••\n••••\n••••";
             position: absolute;
-            top: -30px;
-            left: -30px;
+            top: -40px;
+            left: -40px;
             color: #f9bf29;
             font-size: 24px;
-            letter-spacing: 5px;
-            line-height: 0.8;
+            letter-spacing: 6px;
+            line-height: 0.9;
             z-index: -1;
             white-space: pre;
-            opacity: 0.6;
+            opacity: 0.4;
         }
 
         .dots-bg-wrapper img {
-            max-width: 100%;
+            width: 100%;
+            height: auto;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
         .help-design {
@@ -347,6 +413,7 @@
 
         .text-side p {
             color: #6a6a6a;
+            font-size: 14px;
             line-height: 1.6;
             margin-bottom: 30px;
         }
@@ -360,7 +427,7 @@
         }
 
         .bullet-list li {
-            font-size: 14px;
+            font-size: 13px;
             color: #6a6a6a;
             position: relative;
             padding-left: 15px;
@@ -370,25 +437,27 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: #3d5a52;
+            color: #2c423b;
             font-size: 18px;
             top: -2px;
         }
 
-        .btn-dark-explore {
-            background-color: #2f2f2f;
-            color: white;
-            border: 2px solid #2f2f2f;
-        }
-
-        .btn-dark-explore:hover {
-            background-color: #f9bf29;
-            border-color: #f9bf29;
-            color: #2f2f2f;
-        }
-
         .collage-side {
-            flex: 1;
+            flex: 1.1;
+            position: relative;
+        }
+
+        .collage-side::before {
+            content: "••••\n••••\n••••\n••••\n••••";
+            position: absolute;
+            left: -30px;
+            top: -30px;
+            color: #2c423b;
+            font-size: 22px;
+            letter-spacing: 5px;
+            line-height: 0.9;
+            white-space: pre;
+            opacity: 0.2;
         }
 
         .image-collage {
@@ -399,9 +468,8 @@
 
         .collage-img {
             position: absolute;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 
         .collage-img img {
@@ -412,10 +480,10 @@
         }
 
         .img-large {
-            width: 65%;
-            height: 85%;
+            width: 62%;
+            height: 88%;
             left: 0;
-            top: 0;
+            bottom: 0;
             z-index: 2;
         }
 
@@ -423,17 +491,16 @@
             width: 45%;
             height: 40%;
             right: 0;
-            top: -20px;
+            top: 0;
             z-index: 1;
         }
 
         .img-bottom-right {
-            width: 42%;
-            height: 50%;
+            width: 38%;
+            height: 48%;
             right: 5%;
             bottom: 0;
             z-index: 3;
-            border: 6px solid white;
         }
     </style>
 </head>
@@ -441,7 +508,7 @@
 
     <header class="main-header">
         <div class="container">
-            <div class="logo">Furni.</div>
+            <div class="logo">Furni</div>
             <nav class="navbar">
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
@@ -452,8 +519,19 @@
                 </ul>
             </nav>
             <div class="header-icons">
-                <a href="#">👤</a>
-                <a href="#">🛒</a>
+                <a href="#">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="9" cy="21" r="1"/>
+                        <circle cx="20" cy="21" r="1"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </header>
@@ -462,14 +540,14 @@
         <div class="container hero-content">
             <div class="hero-text">
                 <h1>Modern Interior<br>Design Studio</h1>
-                <p>We design spaces that reflect your personality and offer ultimate comfort. Discover our premium furniture and unique decor pieces crafted for modern living.</p>
+                <p>Discover timeless furniture designs crafted to bring premium comfort and elegance to your living space. Explore our exclusive new collection today.</p>
                 <div class="hero-btns">
                     <a href="#" class="btn btn-shop">Shop Now</a>
                     <a href="#" class="btn btn-explore">Explore</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://via.placeholder.com/600x400/3d5a52/ffffff?text=Green+Sofa" alt="Modern Green Sofa" id="mainSofa">
+                <img src="https://i.ibb.co/68XQLzV/sofa.png" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80'" alt="Modern Sofa">
             </div>
         </div>
     </section>
@@ -478,35 +556,34 @@
         <div class="container">
             <div class="products-header">
                 <h2>Crafted with<br>excellent<br>material.</h2>
-                <p>Each piece of furniture in our store is carefully built by professionals using durable, high-quality materials designed to last a lifetime.</p>
+                <p>Each piece is carefully manufactured by expert craftsmen using durable, eco-friendly materials built to stand the test of time.</p>
+                <a href="#" class="btn btn-dark">Explore</a>
             </div>
             
             <div class="product-grid">
-                <div class="product-card">
+                <div class="product-card active-style">
                     <div class="product-img-box">
-                        <img src="https://via.placeholder.com/150x200/f8f9fa/333333?text=Nordic+Chair" alt="Nordic Chair">
+                        <img src="https://i.ibb.co/4M34NfB/chair1.png" onerror="this.src='https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=300&q=80'" alt="Nordic Chair">
                     </div>
                     <h3>Nordic Chair</h3>
                     <p class="price">$50.00</p>
-                    <button class="add-btn">+</button>
+                    <button class="add-circle-btn">+</button>
                 </div>
 
                 <div class="product-card">
                     <div class="product-img-box">
-                        <img src="https://via.placeholder.com/150x200/f8f9fa/333333?text=Kruzo+Chair" alt="Kruzo Aero Chair">
+                        <img src="https://i.ibb.co/fv4n4nJ/chair2.png" onerror="this.src='https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=300&q=80'" alt="Kruzo Aero Chair">
                     </div>
                     <h3>Kruzo Aero Chair</h3>
                     <p class="price">$78.00</p>
-                    <button class="add-btn">+</button>
                 </div>
 
                 <div class="product-card">
                     <div class="product-img-box">
-                        <img src="https://via.placeholder.com/150x200/f8f9fa/333333?text=Ergo+Chair" alt="Ergonomic Chair">
+                        <img src="https://i.ibb.co/2N01Ygq/chair3.png" onerror="this.src='https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?auto=format&fit=crop&w=300&q=80'" alt="Ergonomic Chair">
                     </div>
                     <h3>Ergonomic Chair</h3>
                     <p class="price">$43.00</p>
-                    <button class="add-btn">+</button>
                 </div>
             </div>
         </div>
@@ -516,35 +593,58 @@
         <div class="container split-layout">
             <div class="features-side">
                 <h2>Why Choose Us</h2>
-                <p class="section-desc">We offer an unmatched shopping experience combining quality products, premium customer care, and easy return policies.</p>
+                <p class="section-desc">We prioritize premium build quality, exceptional customer support, and seamless delivery to make your shopping completely effortless.</p>
                 
                 <div class="features-grid">
                     <div class="feature-item">
-                        <div class="feature-icon">🚚</div>
+                        <div class="feature-icon-box">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="1" y="3" width="15" height="13" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="5.5" cy="18.5" r="2.5"/>
+                                <circle cx="18.5" cy="18.5" r="2.5"/>
+                            </svg>
+                        </div>
                         <h3>Fast & Free Shipping</h3>
-                        <p>Get your luxury furniture delivered straight to your doorstep quickly and completely free of charge.</p>
+                        <p>Get your favorite premium products shipped straight to your doorstep within days, absolutely free.</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon">💼</div>
+                        <div class="feature-icon-box">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="3" y1="6" x2="21" y2="6" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 10a4 4 0 0 1-8 0" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <h3>Easy to Shop</h3>
-                        <p>Our intuitive online platform makes browsing, choosing, and purchasing your dream items simpler than ever.</p>
+                        <p>Our secure and intuitive online store ensures a quick, simple, and reliable checkout experience.</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon">💬</div>
+                        <div class="feature-icon-box">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <h3>24/7 Support</h3>
-                        <p>Our dedicated support specialists are available around the clock to help you with any questions or issues.</p>
+                        <p>Our professional service experts are always online to help you with any inquiries or custom setups.</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon">🔄</div>
+                        <div class="feature-icon-box">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="23 4 23 10 17 10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="1 20 1 14 7 14" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <h3>Hassle Free Returns</h3>
-                        <p>Not satisfied with your order? No worries! Return your items easily within 30 days without any stress.</p>
+                        <p>Shop with ultimate peace of mind thanks to our straightforward 30-day money-back guarantee.</p>
                     </div>
                 </div>
             </div>
             
             <div class="image-side">
                 <div class="dots-bg-wrapper">
-                    <img src="https://via.placeholder.com/500x450/e0e0e0/333333?text=Cozy+Living+Room" alt="Cozy Sofa Setup">
+                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Why Choose Us Setup">
                 </div>
             </div>
         </div>
@@ -555,73 +655,54 @@
             <div class="collage-side">
                 <div class="image-collage">
                     <div class="collage-img img-large">
-                        <img src="https://via.placeholder.com/300x400/d0d0d0/333333?text=Main+Room" alt="Interior View">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=400&q=80" alt="Interior View">
                     </div>
                     <div class="collage-img img-top-right">
-                        <img src="https://via.placeholder.com/200x150/c0c0c0/333333?text=Small+Setup" alt="Decor View">
+                        <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=300&q=80" alt="Decor View">
                     </div>
                     <div class="collage-img img-bottom-right">
-                        <img src="https://via.placeholder.com/220x250/b0c4de/333333?text=Stool" alt="Modern Stool">
+                        <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=300&q=80" alt="Modern Stool">
                     </div>
                 </div>
             </div>
             
             <div class="text-side">
                 <h2>We Help You Make<br>Modern Interior Design</h2>
-                <p>Our expert team guides you through the entire process, from choosing the right layout and materials to selecting the final decor touches that make a house feel like home.</p>
+                <p>Transforming your home shouldn't be stressful. Our interior design team provides customized conceptual solutions tailored to your unique lifestyle, layout, and personal aesthetic vision.</p>
                 
                 <ul class="bullet-list">
-                    <li>Premium quality materials handpicked for you.</li>
-                    <li>Tailored interior solutions that match your budget.</li>
-                    <li>Highly experienced design consultants at your service.</li>
-                    <li>Modern, timeless aesthetic concepts for any room size.</li>
+                    <li>Premium luxury materials sourced globally.</li>
+                    <li>Timeless designs tailored to fit your budget.</li>
+                    <li>Highly experienced professional consultants.</li>
+                    <li>Custom sizing options for any modern space.</li>
                 </ul>
                 
-                <a href="#" class="btn btn-dark-explore">Explore</a>
+                <a href="#" class="btn btn-dark">Explore</a>
             </div>
         </div>
     </section>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const addButtons = document.querySelectorAll('.add-btn');
-            addButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const productName = this.parentElement.querySelector('h3').textContent;
-                    const productPrice = this.parentElement.querySelector('.price').textContent;
-                    alert(`🎉 Success!\n${productName} (${productPrice}) has been added to your cart! 🛒`);
+            const addBtn = document.querySelector('.add-circle-btn');
+            if(addBtn) {
+                addBtn.addEventListener('click', function() {
+                    alert('Item added to cart successfully!');
                 });
-            });
+            }
 
             const navLinks = document.querySelectorAll('.navbar a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    if(this.getAttribute('href') === '#') {
-                        e.preventDefault();
-                    }
+                    if(this.getAttribute('href') === '#') e.preventDefault();
                     navLinks.forEach(item => item.classList.remove('active'));
                     this.classList.add('active');
                 });
             });
-
-            const mainSofa = document.getElementById('mainSofa');
-            if (mainSofa) {
-                mainSofa.style.transition = 'transform 0.4s ease';
-                mainSofa.addEventListener('mouseover', function() {
-                    this.style.transform = 'scale(1.03) translateY(-5px)';
-                });
-                mainSofa.addEventListener('mouseout', function() {
-                    this.style.transform = 'scale(1.05) translateY(0)';
-                });
-            }
         });
     </script>
 </body>
-</html>   
-
-
-
-
+</html>
 
 
 
