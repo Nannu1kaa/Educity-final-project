@@ -1,417 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furni - Modern Interior Design Studio</title>
-    <style>
-         {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furniture Website</title>
 
-        body {
-            background-color: #ffffff;
-            color: #2f2f2f;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-        .hero-section {
-            background-color: #3b5d50;
-            color: #ffffff;
-            padding: 20px 80px 80px 80px;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
+body{
+    background:#f8f8f8;
+}
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
+header{
+    background:#1f2a24;
+    color:white;
+    padding:20px 50px;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
+nav ul{
+    display:flex;
+    list-style:none;
+}
 
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 15px;
-        }
+nav ul li{
+    margin-left:20px;
+}
 
-        .nav-links a.active, .nav-links a:hover {
-            color: #ffffff;
-            border-bottom: 2px solid #f9bf29;
-            padding-bottom: 5px;
-        }
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
 
-        .nav-icons {
-            display: flex;
-            gap: 20px;
-        }
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:60px 50px;
+    background:#1f2a24;
+    color:white;
+}
 
-        .nav-icons span {
-            cursor: pointer;
-            font-size: 18px;
-        }
+.hero-text{
+    width:50%;
+}
 
-        .hero-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 60px;
-        }
+.hero-text h1{
+    font-size:45px;
+    margin-bottom:20px;
+}
 
-        .hero-text {
-            max-width: 400px;
-        }
+.hero-text p{
+    margin-bottom:20px;
+}
 
-        .hero-text h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
+.btn{
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
 
-        .hero-text p {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
+.btn1{
+    background:orange;
+    color:white;
+}
 
-        .btn-yellow {
-            background-color: #f9bf29;
-            color: #2f2f2f;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-right: 15px;
-        }
+.btn2{
+    background:transparent;
+    color:white;
+    border:1px solid white;
+}
 
-        .btn-outline {
-            background-color: transparent;
-            color: #ffffff;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-        }
+.hero img{
+    width:400px;
+}
 
-        .btn-dark {
-            background-color: #2f2f2f;
-            color: #ffffff;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 30px;
-            cursor: pointer;
-        }
+.products{
+    padding:50px;
+    text-align:center;
+}
 
-        .hero-image img {
-            max-width: 500px;
-            object-fit: contain;
-        }
+.products h2{
+    margin-bottom:30px;
+}
 
-        .products-section {
-            padding: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-        }
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
 
-        .products-intro {
-            max-width: 250px;
-        }
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    width:220px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
 
-        .products-intro h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
+.card img{
+    width:100%;
+}
 
-        .products-intro p {
-            font-size: 14px;
-            color: #6a6a6a;
-            margin-bottom: 20px;
-        }
+.card h3{
+    margin-top:10px;
+}
 
-        .product-card {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.card p{
+    margin-top:5px;
+}
 
-        .product-card:hover {
-            background-color: #f3f3f3;
-            border-radius: 10px;
-        }
+.why{
+    padding:50px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
 
-        .product-card img {
-            max-width: 150px;
-            margin-bottom: 20px;
-        }
+.left{
+    width:45%;
+}
 
-        .product-card h3 {
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
+.left h2{
+    margin-bottom:20px;
+}
 
-        .product-card .price {
-            font-weight: bold;
-            color: #2f2f2f;
-        }
+.box{
+    margin-bottom:20px;
+}
 
-        .why-choose-section {
-            padding: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 50px;
-        }
+.right img{
+    width:400px;
+    border-radius:10px;
+}
 
-        .why-choose-text {
-            flex: 1;
-        }
+.design{
+    padding:50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
 
-        .why-choose-text h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
+.design-images{
+    display:flex;
+    gap:10px;
+}
 
-        .why-choose-text .subtitle {
-            font-size: 14px;
-            color: #6a6a6a;
-            margin-bottom: 40px;
-        }
+.design-images img{
+    width:180px;
+    border-radius:10px;
+}
 
-        .features-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
+.design-text{
+    width:40%;
+}
 
-        .feature-box {
-            width: 45%;
-        }
+.design-text h2{
+    margin-bottom:15px;
+}
 
-        .feature-box .icon {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+.design-text button{
+    margin-top:20px;
+    padding:10px 20px;
+    border:none;
+    background:black;
+    color:white;
+    border-radius:20px;
+}
 
-        .feature-box h4 {
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
+footer{
+    background:#1f2a24;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
 
-        .feature-box p {
-            font-size: 13px;
-            color: #6a6a6a;
-            line-height: 1.5;
-        }
+@media(max-width:768px){
 
-        .why-choose-image {
-            flex: 1;
-        }
+.hero,
+.why,
+.design{
+    flex-direction:column;
+    text-align:center;
+}
 
-        .why-choose-image img {
-            width: 100%;
-            border-radius: 20px;
-        }
+.hero-text,
+.left,
+.design-text{
+    width:100%;
+}
 
-        .interior-help-section {
-            padding: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .interior-images {
-            flex: 1;
-            display: flex;
-            gap: 15px;
-        }
-
-        .interior-images img {
-            width: 48%;
-            border-radius: 15px;
-            object-fit: cover;
-        }
-
-        .interior-text {
-            flex: 1;
-        }
-
-        .interior-text h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .interior-text p {
-            font-size: 14px;
-            color: #6a6a6a;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .bullets-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
-            list-style: none;
-        }
-
-        .bullets-list li {
-            width: 45%;
-            font-size: 14px;
-            color: #2f2f2f;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .bullets-list li::before {
-            content: "•";
-            color: #3b5d50;
-            font-size: 20px;
-        }
-    </style>
+.hero img,
+.right img{
+    width:100%;
+    margin-top:20px;
+}
+}
+</style>
 </head>
+
 <body>
 
-    <header class="hero-section">
-        <nav class="navbar">
-            <div class="logo">Furni.</div>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact us</a></li>
-            </ul>
-            <div class="nav-icons">
-                <span id="profileBtn">👤</span>
-                <span id="cartBtn">🛒</span>
-            </div>
-        </nav>
+<header>
+<nav>
+<h2>Furni</h2>
 
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Modern Interior Design Studio</h1>
-                <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-                <button class="btn-yellow" onclick="alert('Shop Now Clicked!')">Shop Now</button>
-                <button class="btn-outline" onclick="alert('Explore Clicked!')">Explore</button>
-            </div>
-            <div class="hero-image">
-                <img src="https://untree.co/demos/furni/images/sofa.png" alt="Green Sofa">
-            </div>
-        </div>
-    </header>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Blog</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+</header>
 
-    <section class="products-section">
-        <div class="products-intro">
-            <h2>Crafted with excellent material.</h2>
-            <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-            <button class="btn-dark">Explore</button>
-        </div>
+<section class="hero">
+<div class="hero-text">
+<h1>Modern Interior Design Studio</h1>
+<p>Create your dream home with modern furniture and stylish decoration.</p>
 
-        <div class="product-card" onclick="productClick('Nordic Chair')">
-            <img src="https://untree.co/demos/furni/images/product-1.png" alt="Nordic Chair">
-            <h3>Nordic Chair</h3>
-            <p class="price">$50.00</p>
-        </div>
+<button class="btn btn1">Shop Now</button>
+<button class="btn btn2">Explore</button>
+</div>
 
-        <div class="product-card" onclick="productClick('Kruzo Aero Chair')">
-            <img src="https://untree.co/demos/furni/images/product-2.png" alt="Kruzo Aero Chair">
-            <h3>Kruzo Aero Chair</h3>
-            <p class="price">$78.00</p>
-        </div>
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800" alt="">
+</section>
 
-        <div class="product-card" onclick="productClick('Ergonomic Chair')">
-            <img src="https://untree.co/demos/furni/images/product-3.png" alt="Ergonomic Chair">
-            <h3>Ergonomic Chair</h3>
-            <p class="price">$43.00</p>
-        </div>
-    </section>
+<section class="products">
+<h2>Crafted With Excellent Material</h2>
 
-    <section class="why-choose-section">
-        <div class="why-choose-text">
-            <h2>Why Choose Us</h2>
-            <p class="subtitle">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.</p>
-            
-            <div class="features-grid">
-                <div class="feature-box">
-                    <div class="icon">🚚</div>
-                    <h4>Fast & Free Shipping</h4>
-                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.</p>
-                </div>
-                <div class="feature-box">
-                    <div class="icon">🛍️</div>
-                    <h4>Easy to Shop</h4>
-                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.</p>
-                </div>
-                <div class="feature-box">
-                    <div class="icon">📞</div>
-                    <h4>24/7 Support</h4>
-                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.</p>
-                </div>
-                <div class="feature-box">
-                    <div class="icon">🔄</div>
-                    <h4>Hassle Free Returns</h4>
-                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.</p>
-                </div>
-            </div>
-        </div>
+<div class="cards">
 
-        <div class="why-choose-image">
-            <img src="https://untree.co/demos/furni/images/why-choose-us-img.jpg" alt="Interior Room">
-        </div>
-    </section>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500">
+<h3>Nordic Chair</h3>
+<p>$50.00</p>
+</div>
 
-    <section class="interior-help-section">
-        <div class="interior-images">
-            <img src="https://untree.co/demos/furni/images/img-grid-1.jpg" alt="Interior Grid 1">
-            <img src="https://untree.co/demos/furni/images/img-grid-2.jpg" alt="Interior Grid 2">
-            <img src="https://untree.co/demos/furni/images/img-grid-3.jpg" alt="Interior Grid 3" style="width: 100%; margin-top: 15px;">
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519947486511-46149fa0a254?w=500">
+<h3>Kruzo Aero Chair</h3>
+<p>$78.00</p>
+</div>
 
-        <div class="interior-text">
-            <h2>We Help You Make Modern Interior Design</h2>
-            <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-            
-            <ul class="bullets-list">
-                <li>Donec vitae odio quis nisl</li>
-                <li>Donec vitae odio quis nisl</li>
-                <li>Donec vitae odio quis nisl</li>
-                <li>Donec vitae odio quis nisl</li>
-            </ul>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?w=500">
+<h3>Ergonomic Chair</h3>
+<p>$43.00</p>
+</div>
 
-            <button class="btn-dark">Explore</button>
-        </div>
-    </section>
+</div>
+</section>
 
-    <script>
-        const profileBtn = document.getElementById('profileBtn');
-        const cartBtn = document.getElementById('cartBtn');
+<section class="why">
 
-    
-    </script>
+<div class="left">
+<h2>Why Choose Us</h2>
+
+<div class="box">
+<h4>Fast & Free Shipping</h4>
+<p>We deliver products quickly and safely.</p>
+</div>
+
+<div class="box">
+<h4>Easy To Shop</h4>
+<p>Simple and easy shopping experience.</p>
+</div>
+
+<div class="box">
+<h4>24/7 Support</h4>
+<p>We are always ready to help you.</p>
+</div>
+
+<div class="box">
+<h4>Hassle Free Returns</h4>
+<p>Easy return process for customers.</p>
+</div>
+</div>
+
+<div class="right">
+<img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800">
+</div>
+
+</section>
+
+<section class="design">
+
+<div class="design-images">
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500">
+<img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=500">
+</div>
+
+<div class="design-text">
+<h2>We Help You Make Modern Interior Design</h2>
+
+<p>
+We create beautiful and modern interiors for your home.
+</p>
+
+<button>Explore</button>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Furni Website</p>
+</footer>
+
+<script>
+let buttons = document.querySelectorAll("button");
+
+buttons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+        alert("Button Clicked!");
+    });
+});
+</script>
+
 </body>
 </html>
 
@@ -422,4 +343,8 @@
 
 
 
-      
+
+
+
+
+
