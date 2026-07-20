@@ -5,406 +5,430 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Furni - Modern Interior Design Studio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f2f1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            background-color: #ffffff;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+
+        .hero-section {
+            background-color: #2f5146;
+            color: #ffffff;
+            padding: 30px 80px 80px 80px;
         }
 
         header {
-            background-color: #3b5d50;
-            color: white;
-            padding: 20px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 80px;
         }
 
         .logo {
             font-size: 24px;
-            font-weight: bold;
+            font-weight: 700;
         }
 
         nav ul {
             list-style: none;
-            margin: 0;
-            padding: 0;
             display: flex;
-            gap: 20px;
+            gap: 35px;
         }
 
         nav a {
+            color: #ffffff;
             text-decoration: none;
-            color: white;
             font-size: 14px;
-            opacity: 0.8;
+            opacity: 0.6;
+            font-weight: 500;
+            transition: 0.3s;
         }
 
-        nav a:hover, nav a.active {
+        nav a.active, nav a:hover {
             opacity: 1;
-            border-bottom: 2px solid #f9b233;
+            border-bottom: 4px solid #f9b233;
+            padding-bottom: 8px;
         }
 
-        .user-icons {
+        .header-icons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             font-size: 18px;
+            cursor: pointer;
         }
 
-        .hero {
-            background-color: #3b5d50;
-            color: white;
-            padding: 50px;
+        .hero-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .hero-text {
-            max-width: 40%;
+            max-width: 420px;
         }
 
-        .hero h1 {
-            font-size: 40px;
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
             margin-bottom: 20px;
         }
 
-        .hero p {
+        .hero-text p {
             font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 30px;
+            opacity: 0.5;
+            line-height: 1.6;
+            margin-bottom: 35px;
         }
 
-        .btn-shop, .btn-explore {
-            padding: 10px 25px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            margin-right: 10px;
-        }
-
-        .btn-shop {
+        .btn-orange {
             background-color: #f9b233;
-            color: #3b5d50;
+            color: #2f5146;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 15px;
+            display: inline-block;
         }
 
-        .btn-explore {
-            background-color: transparent;
-            border: 2px solid rgba(255,255,255,0.3);
-            color: white;
+        .btn-outline {
+            border: 2px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            font-weight: 500;
         }
 
         .hero-image img {
-            max-width: 500px;
+            max-width: 600px;
+            width: 100%;
         }
 
-        .products {
-            padding: 50px;
+
+        .products-section {
+            padding: 100px 80px;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            background-color: white;
+            gap: 40px;
+            background-color: #ffffff;
         }
 
-        .products-text {
-            max-width: 25%;
+        .products-left {
+            flex: 1;
+            max-width: 260px;
         }
 
-        .products h2 {
-            font-size: 28px;
-        }
-
-        .products p {
-            font-size: 14px;
-            color: #666;
+        .products-left h2 {
+            font-size: 32px;
+            color: #2f2f2f;
+            line-height: 1.2;
             margin-bottom: 20px;
         }
 
-        .btn-black {
-            background-color: #333;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 20px;
-            text-decoration: none;
+        .products-left p {
             font-size: 14px;
+            color: #6a6a6a;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
 
-        .product-list {
+        .btn-black {
+            background-color: #181818;
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .products-right {
+            flex: 3;
             display: flex;
+            justify-content: space-between;
             gap: 20px;
         }
 
         .product-card {
             text-align: center;
-            width: 150px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+
+        .product-card.featured::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            height: 75%;
+            background-color: #eceef0;
+            border-radius: 20px;
+            z-index: 1;
         }
 
         .product-card img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
+            width: 100%;
+            max-width: 180px;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .product-card h3 {
-            font-size: 14px;
-            margin: 5px 0;
+            font-size: 15px;
+            color: #2f2f2f;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+            font-weight: 600;
         }
 
-        .product-card p {
-            font-weight: bold;
-            margin: 5px 0;
+        .product-card .price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2f2f2f;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
         }
 
         .add-btn {
-            background-color: #333;
-            color: white;
+            background-color: #181818;
+            color: #ffffff;
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             font-size: 18px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .why-choose {
-            padding: 50px;
+
+        .why-choose-section {
+            padding: 60px 80px 100px 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
         }
 
-        .why-choose-text {
-            max-width: 50%;
+        .why-choose-left {
+            max-width: 550px;
+        }
+
+        .why-choose-left h2 {
+            font-size: 34px;
+            color: #2f2f2f;
+            margin-bottom: 20px;
+        }
+
+        .why-choose-left > p {
+            font-size: 14px;
+            color: #6a6a6a;
+            line-height: 1.6;
+            margin-bottom: 40px;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 30px;
         }
 
-        .feature {
+        .feature-item {
             display: flex;
             flex-direction: column;
-            font-size: 12px;
-            color: #666;
+            gap: 8px;
         }
 
-        .feature-icon {
+        .feature-icon-wrapper {
             font-size: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
-        .why-choose-image img {
-            max-width: 400px;
-            border-radius: 10px;
-        }
-
-        .interior-design {
-            padding: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: white;
-        }
-
-        .interior-images img {
-            max-width: 400px;
-        }
-
-        .interior-text {
-            max-width: 40%;
-        }
-
-        .interior-text ul {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+        .feature-item h4 {
             font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
+            color: #2f2f2f;
+            font-weight: 600;
         }
 
-        .interior-text li::before {
-            content: "• ";
-            color: #3b5d50;
+        .feature-item p {
+            font-size: 13px;
+            color: #6a6a6a;
+            line-height: 1.5;
         }
 
-        footer {
-            padding: 30px 50px;
-            background-color: white;
-            border-top: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        .why-choose-right {
+            position: relative;
+            padding: 30px;
         }
 
-        .visit-site {
+
+        .why-choose-right::before {
+            content: "••••\n••••\n••••\n••••";
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #dce2e0;
             font-size: 24px;
-            color: #333;
+            letter-spacing: 8px;
+            line-height: 1.2;
+            z-index: 1;
+            white-space: pre;
         }
 
-        .footer-products {
-            display: flex;
-            gap: 20px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .footer-product-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-product-item img {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
+        .why-choose-right img {
+            width: 100%;
+            max-width: 460px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Furni</div>
-        <nav>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact us</a></li>
-            </ul>
-        </nav>
-        <div class="user-icons">
-            <span>👤</span>
-            <span>🛒</span>
-        </div>
-    </header>
+    <div class="container">
+        
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Modern Interior Design Studio</h1>
-            <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-            <a href="#" class="btn-shop">Shop Now</a>
-            <a href="#" class="btn-explore">Explore</a>
-        </div>
-        <div class="hero-image">
-            <img src="sofa.png" alt="Sofa">
-        </div>
-    </section>
+        <section class="hero-section">
+            <header>
+                <div class="logo">Furni</div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <span>👤</span>
+                    <span>🛒</span>
+                </div>
+            </header>
 
-    <section class="products">
-        <div class="products-text">
-            <h2>Crafted with excellent material.</h2>
-            <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-            <a href="#" class="btn-black">Explore</a>
-        </div>
-        <div class="product-list">
-            <div class="product-card">
-                <img src="chair1.png" alt="Nordic Chair">
-                <h3>Nordic Chair</h3>
-                <p>$50.00</p>
-                <button class="add-btn">+</button>
-            </div>
-            <div class="product-card">
-                <img src="chair2.png" alt="Kruzo Aero Chair">
-                <h3>Kruzo Aero Chair</h3>
-                <p>$78.00</p>
-                <button class="add-btn">+</button>
-            </div>
-            <div class="product-card">
-                <img src="chair3.png" alt="Ergonomic Chair">
-                <h3>Ergonomic Chair</h3>
-                <p>$43.00</p>
-                <button class="add-btn">+</button>
-            </div>
-        </div>
-    </section>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Modern Interior Design Studio</h1>
+                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+                    <a href="#" class="btn-orange">Shop Now</a>
+                    <a href="#" class="btn-explore">Explore</a>
+                </div>
+                <div class="hero-image">
 
-    <section class="why-choose">
-        <div class="why-choose-text">
-            <h2>Why Choose Us</h2>
-            <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-            <div class="features-grid">
-                <div class="feature">
-                    <span class="feature-icon">🚚</span>
-                    <strong>Fast & Free Shipping</strong>
-                    <p>Donec vitae odio quis nisl dapibus malesuada.</p>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">🛍️</span>
-                    <strong>Easy to Shop</strong>
-                    <p>Donec vitae odio quis nisl dapibus malesuada.</p>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">🎧</span>
-                    <strong>24/7 Support</strong>
-                    <p>Donec vitae odio quis nisl dapibus malesuada.</p>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">🔄</span>
-                    <strong>Hassle Free Returns</strong>
-                    <p>Donec vitae odio quis nisl dapibus malesuada.</p>
+                    <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/couch.png" alt="Sofa">
                 </div>
             </div>
-        </div>
-        <div class="why-choose-image">
-            <img src="interior.jpg" alt="Interior">
-        </div>
-    </section>
+        </section>
 
-    <section class="interior-design">
-        <div class="interior-images">
-            <img src="interior-grid.jpg" alt="Interior Design">
-        </div>
-        <div class="interior-text">
-            <h2>We Help You Make Modern Interior Design</h2>
-            <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-            <ul>
-                <li>Donec vitae odio quis nisl</li>
-                <li>Donec vitae odio quis nisl</li>
-                <li>Donec vitae odio quis nisl</li>
-                <li>Donec vitae odio quis nisl</li>
-            </ul>
-            <a href="#" class="btn-black">Explore</a>
-        </div>
-    </section>
 
-    <footer>
-        <div class="visit-site">
-            <span>↗</span> 访问网站
-        </div>
-        <div class="footer-products">
-            <div class="footer-product-item">
-                <img src="chair2.png" alt="Kruzo Aero Chair">
-                <div>Kruzo Aero Chair<br>Read More</div>
+        <section class="products-section">
+            <div class="products-left">
+                <h2>Crafted with excellent material.</h2>
+                <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+                <a href="#" class="btn-black">Explore</a>
             </div>
-            <div class="footer-product-item">
-                <img src="chair3.png" alt="Ergonomic Chair">
-                <div>Ergonomic Chair<br>Read More</div>
+            
+            <div class="products-right">
+
+                <div class="product-card featured">
+                    <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/product-1.png" alt="Nordic Chair">
+                    <h3>Nordic Chair</h3>
+                    <div class="price">$50.00</div>
+                    <button class="add-btn">+</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/product-2.png" alt="Kruzo Aero Chair">
+                    <h3>Kruzo Aero Chair</h3>
+                    <div class="price">$78.00</div>
+                    <button class="add-btn">+</button>
+                </div>
+\
+                <div class="product-card">
+                    <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/product-3.png" alt="Ergonomic Chair">
+                    <h3>Ergonomic Chair</h3>
+                    <div class="price">$43.00</div>
+                    <button class="add-btn">+</button>
+                </div>
             </div>
-        </div>
-        <div class="refresh-icon">🔄</div>
-    </footer>
+        </section>
 
-    <script>
-        const addButtons = document.querySelectorAll('.add-btn');
+        <section class="why-choose-section">
+            <div class="why-choose-left">
+                <h2>Why Choose Us</h2>
+                <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">🚚</div>
+                        <h4>Fast & Free Shipping</h4>
+                        <p>Donec vitae odio quis nisl dapibus malesuada.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">🛍️</div>
+                        <h4>Easy to Shop</h4>
+                        <p>Donec vitae odio quis nisl dapibus malesuada.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">🎧</div>
+                        <h4>24/7 Support</h4>
+                        <p>Donec vitae odio quis nisl dapibus malesuada.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">🔄</div>
+                        <h4>Hassle Free Returns</h4>
+                        <p>Donec vitae odio quis nisl dapibus malesuada.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="why-choose-right">
+                <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/why-choose-us-img.jpg" alt="Interior Design">
+            </div>
+        </section>
 
-        addButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const productName = this.parentElement.querySelector('h3').innerText;
-                alert(productName + ' added to cart!');
-            });
-        });
-    </script>
+    </div>
+
 </body>
 </html>
+  
