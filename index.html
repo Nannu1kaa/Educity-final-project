@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Furni - Modern Interior Design Studio</title>
     <style>
-        {
+         {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -71,8 +71,20 @@
         .header-icons {
             display: flex;
             gap: 20px;
-            font-size: 18px;
+            align-items: center;
+        }
+
+        .header-icons svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
             cursor: pointer;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .header-icons svg:hover {
+            opacity: 1;
         }
 
         .hero-content {
@@ -97,6 +109,7 @@
             opacity: 0.5;
             line-height: 1.6;
             margin-bottom: 35px;
+            color: #ffffff;
         }
 
         .btn-orange {
@@ -109,10 +122,16 @@
             font-size: 14px;
             margin-right: 15px;
             display: inline-block;
+            transition: 0.3s;
         }
 
+        .btn-orange:hover {
+            background-color: #e09e25;
+        }
+
+
         .btn-outline {
-            border: 2px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.4);
             color: #ffffff;
             padding: 14px 32px;
             border-radius: 30px;
@@ -120,11 +139,21 @@
             font-size: 14px;
             display: inline-block;
             font-weight: 500;
+            background: transparent;
+            transition: 0.3s;
         }
 
-        .hero-image img {
-            max-width: 600px;
+        .btn-outline:hover {
+            color: #2f5146;
+            background-color: #f9b233;
+            border-color: #f9b233;
+        }
+
+        .hero-image img, .hero-image svg {
+            max-width: 500px;
             width: 100%;
+            height: auto;
+            display: block;
         }
 
 
@@ -163,6 +192,12 @@
             font-size: 14px;
             display: inline-block;
             font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn-black:hover {
+            background-color: #f9b233;
+            color: #181818;
         }
 
         .products-right {
@@ -182,11 +217,10 @@
             padding-bottom: 40px;
         }
 
-
         .product-card.featured::before {
             content: "";
             position: absolute;
-            top: 10px;
+            top: 20px;
             width: 100%;
             height: 75%;
             background-color: #eceef0;
@@ -194,11 +228,10 @@
             z-index: 1;
         }
 
-        .product-card img {
+        .product-card svg, .product-card img {
             width: 100%;
-            max-width: 180px;
-            height: 200px;
-            object-fit: contain;
+            max-width: 160px;
+            height: 180px;
             margin-bottom: 20px;
             position: relative;
             z-index: 2;
@@ -236,6 +269,12 @@
             justify-content: center;
             position: relative;
             z-index: 2;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background-color: #f9b233;
+            color: #181818;
         }
 
 
@@ -276,8 +315,10 @@
             gap: 8px;
         }
 
-        .feature-icon-wrapper {
-            font-size: 24px;
+        .feature-icon-wrapper svg {
+            width: 32px;
+            height: 32px;
+            fill: #2f5146;
             margin-bottom: 5px;
         }
 
@@ -293,19 +334,18 @@
             line-height: 1.5;
         }
 
-
         .why-choose-right {
             position: relative;
             padding: 30px;
         }
-
 
         .why-choose-right::before {
             content: "••••\n••••\n••••\n••••";
             position: absolute;
             top: 0;
             left: 0;
-            color: #dce2e0;
+            color: #f9b233;
+            opacity: 0.4;
             font-size: 24px;
             letter-spacing: 8px;
             line-height: 1.2;
@@ -313,10 +353,10 @@
             white-space: pre;
         }
 
-        .why-choose-right img {
+        .why-choose-right svg {
             width: 100%;
-            max-width: 460px;
-            border-radius: 20px;
+            max-width: 440px;
+            height: auto;
             position: relative;
             z-index: 2;
             display: block;
@@ -330,7 +370,7 @@
 
         <section class="hero-section">
             <header>
-                <div class="logo">Furni</div>
+                <div class="logo">Furni.</div>
                 <nav>
                     <ul>
                         <li><a href="#" class="active">Home</a></li>
@@ -341,8 +381,10 @@
                     </ul>
                 </nav>
                 <div class="header-icons">
-                    <span>👤</span>
-                    <span>🛒</span>
+
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+
+                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
                 </div>
             </header>
 
@@ -351,11 +393,19 @@
                     <h1>Modern Interior Design Studio</h1>
                     <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
                     <a href="#" class="btn-orange">Shop Now</a>
-                    <a href="#" class="btn-explore">Explore</a>
+                    <a href="#" class="btn-outline">Explore</a>
                 </div>
                 <div class="hero-image">
 
-                    <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/couch.png" alt="Sofa">
+                    <svg viewBox="0 0 200 100" width="100%">
+                        <path d="M20,70 Q20,40 50,40 L150,40 Q180,40 180,70 L175,85 L25,85 Z" fill="#1b382f"/>
+                        <path d="M30,50 L95,50 L95,80 L30,80 Z" fill="#142c24"/>
+                        <path d="M105,50 L170,50 L170,80 L105,80 Z" fill="#142c24"/>
+                        <rect x="15" y="55" width="15" height="25" rx="5" fill="#1b382f"/>
+                        <rect x="170" y="55" width="15" height="25" rx="5" fill="#1b382f"/>
+                        <rect x="30" y="85" width="8" height="10" fill="#6d4c41"/>
+                        <rect x="162" y="85" width="8" height="10" fill="#6d4c41"/>
+                    </svg>
                 </div>
             </div>
         </section>
@@ -371,27 +421,42 @@
             <div class="products-right">
 
                 <div class="product-card featured">
-                    <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/product-1.png" alt="Nordic Chair">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M35,40 L65,40 L60,65 L40,65 Z" fill="#d1c4e9"/>
+                        <path d="M35,40 Q50,30 65,40" stroke="#b39ddb" stroke-width="4" fill="none"/>
+                        <line x1="40" y1="65" x2="30" y2="90" stroke="#37474f" stroke-width="3"/>
+                        <line x1="60" y1="65" x2="70" y2="90" stroke="#37474f" stroke-width="3"/>
+                        <line x1="50" y1="65" x2="50" y2="95" stroke="#37474f" stroke-width="3"/>
+                    </svg>
                     <h3>Nordic Chair</h3>
                     <div class="price">$50.00</div>
                     <button class="add-btn">+</button>
                 </div>
 
                 <div class="product-card">
-                    <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/product-2.png" alt="Kruzo Aero Chair">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M30,45 Q50,35 70,45 L65,65 Q50,70 35,65 Z" fill="#b0bec5"/>
+                        <circle cx="50" cy="85" r="15" fill="#37474f"/>
+                        <line x1="50" y1="65" x2="50" y2="85" stroke="#37474f" stroke-width="5"/>
+                    </svg>
                     <h3>Kruzo Aero Chair</h3>
                     <div class="price">$78.00</div>
                     <button class="add-btn">+</button>
                 </div>
-\
+
                 <div class="product-card">
-                    <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/product-3.png" alt="Ergonomic Chair">
+                    <svg viewBox="0 0 100 100">
+                        <rect x="30" y="35" width="40" height="30" rx="5" fill="#8d6e63"/>
+                        <line x1="35" y1="65" x2="30" y2="95" stroke="#4e342e" stroke-width="4"/>
+                        <line x1="65" y1="65" x2="70" y2="95" stroke="#4e342e" stroke-width="4"/>
+                    </svg>
                     <h3>Ergonomic Chair</h3>
                     <div class="price">$43.00</div>
                     <button class="add-btn">+</button>
                 </div>
             </div>
         </section>
+
 
         <section class="why-choose-section">
             <div class="why-choose-left">
@@ -400,22 +465,30 @@
                 
                 <div class="features-grid">
                     <div class="feature-item">
-                        <div class="feature-icon-wrapper">🚚</div>
+                        <div class="feature-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                        </div>
                         <h4>Fast & Free Shipping</h4>
                         <p>Donec vitae odio quis nisl dapibus malesuada.</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon-wrapper">🛍️</div>
+                        <div class="feature-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-8-2h4v2h-4V4z"/></svg>
+                        </div>
                         <h4>Easy to Shop</h4>
                         <p>Donec vitae odio quis nisl dapibus malesuada.</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon-wrapper">🎧</div>
+                        <div class="feature-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.79-2.79C10.07 18.79 11.01 19 12 19c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                        </div>
                         <h4>24/7 Support</h4>
                         <p>Donec vitae odio quis nisl dapibus malesuada.</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon-wrapper">🔄</div>
+                        <div class="feature-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
+                        </div>
                         <h4>Hassle Free Returns</h4>
                         <p>Donec vitae odio quis nisl dapibus malesuada.</p>
                     </div>
@@ -423,7 +496,13 @@
             </div>
             
             <div class="why-choose-right">
-                <img src="https://raw.githubusercontent.com/untreeco/furni/main/images/why-choose-us-img.jpg" alt="Interior Design">
+
+                <svg viewBox="0 0 200 150" width="100%">
+                    <rect x="10" y="10" width="180" height="130" fill="#e8ebe9" rx="10"/>
+                    <rect x="40" y="80" width="120" height="50" fill="#cfd8dc" rx="5"/>
+                    <circle cx="100" cy="40" r="10" fill="#b0bec5"/>
+                    <line x1="100" y1="10" x2="100" y2="30" stroke="#37474f" stroke-width="2"/>
+                </svg>
             </div>
         </section>
 
@@ -431,4 +510,3 @@
 
 </body>
 </html>
-  
