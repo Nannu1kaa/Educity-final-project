@@ -3,510 +3,656 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furni - Modern Interior Design Studio</title>
+    <title>Furni. - Modern Interior Design Studio</title>
+    
     <style>
-         {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
         }
-        
+
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f2f1;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
+            background-color: #ffffff;
+            color: #2f2f2f;
         }
 
         .container {
-            width: 100%;
-            max-width: 1280px;
-            background-color: #ffffff;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-
-        .hero-section {
-            background-color: #2f5146;
-            color: #ffffff;
-            padding: 30px 80px 80px 80px;
+        .main-header {
+            background-color: #3d5a52;
+            padding: 24px 0;
         }
 
-        header {
+        .main-header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 80px;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
+            color: #ffffff;
         }
 
-        nav ul {
+        .navbar ul {
             list-style: none;
             display: flex;
             gap: 35px;
         }
 
-        nav a {
-            color: #ffffff;
+        .navbar a {
             text-decoration: none;
-            font-size: 14px;
-            opacity: 0.6;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 15px;
             font-weight: 500;
             transition: 0.3s;
         }
 
-        nav a.active, nav a:hover {
-            opacity: 1;
-            border-bottom: 4px solid #f9b233;
-            padding-bottom: 8px;
+        .navbar a:hover, .navbar a.active {
+            color: #ffffff;
         }
 
-        .header-icons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
+        .navbar a.active {
+            border-bottom: 3px solid #f9bf29;
+            padding-bottom: 6px;
         }
 
-        .header-icons svg {
-            width: 20px;
-            height: 20px;
-            fill: #ffffff;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: 0.3s;
+        .header-icons a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 20px;
+            margin-left: 20px;
         }
 
-        .header-icons svg:hover {
-            opacity: 1;
+        .hero {
+            background-color: #3d5a52;
+            padding: 80px 0 100px 0;
+            color: #ffffff;
+            overflow: hidden;
         }
 
         .hero-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 40px;
         }
 
         .hero-text {
-            max-width: 420px;
+            flex: 1;
+            max-width: 550px;
         }
 
         .hero-text h1 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
+            line-height: 1.15;
+            margin-bottom: 25px;
         }
 
         .hero-text p {
-            font-size: 14px;
-            opacity: 0.5;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
-            margin-bottom: 35px;
-            color: #ffffff;
+            margin-bottom: 40px;
         }
 
-        .btn-orange {
-            background-color: #f9b233;
-            color: #2f5146;
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
             padding: 14px 32px;
             border-radius: 30px;
-            text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
-            margin-right: 15px;
-            display: inline-block;
-            transition: 0.3s;
+            font-size: 15px;
+            transition: all 0.3s ease-in-out;
         }
 
-        .btn-orange:hover {
-            background-color: #e09e25;
+        .btn-shop {
+            background-color: #f9bf29;
+            color: #2f4858;
+            border: 2px solid #f9bf29;
         }
 
+        .btn-shop:hover {
+            background-color: #ffffff;
+            border-color: #ffffff;
+            color: #3d5a52;
+        }
 
-        .btn-outline {
-            border: 2px solid rgba(255,255,255,0.4);
+        .btn-explore {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.4);
             color: #ffffff;
-            padding: 14px 32px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 14px;
-            display: inline-block;
-            font-weight: 500;
-            background: transparent;
-            transition: 0.3s;
         }
 
-        .btn-outline:hover {
-            color: #2f5146;
-            background-color: #f9b233;
-            border-color: #f9b233;
+        .btn-explore:hover {
+            background-color: #f9bf29;
+            border-color: #f9bf29;
+            color: #3d5a52;
         }
 
-        .hero-image img, .hero-image svg {
-            max-width: 500px;
-            width: 100%;
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            max-width: 100%;
             height: auto;
-            display: block;
+            transform: scale(1.05);
         }
 
+        .products {
+            padding: 100px 0;
+            background-color: #eff2f1;
+        }
 
-        .products-section {
-            padding: 100px 80px;
+        .products .container {
             display: flex;
             gap: 40px;
-            background-color: #ffffff;
         }
 
-        .products-left {
+        .products-header {
             flex: 1;
-            max-width: 260px;
+            max-width: 280px;
         }
 
-        .products-left h2 {
+        .products-header h2 {
             font-size: 32px;
             color: #2f2f2f;
             line-height: 1.2;
             margin-bottom: 20px;
         }
 
-        .products-left p {
+        .products-header p {
             font-size: 14px;
             color: #6a6a6a;
             line-height: 1.6;
-            margin-bottom: 30px;
         }
 
-        .btn-black {
-            background-color: #181818;
-            color: #ffffff;
-            padding: 14px 32px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 14px;
-            display: inline-block;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .btn-black:hover {
-            background-color: #f9b233;
-            color: #181818;
-        }
-
-        .products-right {
+        .product-grid {
             flex: 3;
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
 
         .product-card {
             text-align: center;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             position: relative;
-            padding-bottom: 40px;
+            padding-bottom: 20px;
         }
 
-        .product-card.featured::before {
-            content: "";
-            position: absolute;
-            top: 20px;
-            width: 100%;
-            height: 75%;
-            background-color: #eceef0;
-            border-radius: 20px;
-            z-index: 1;
+        .product-img-box {
+            background-color: transparent;
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: 0.3s ease;
         }
 
-        .product-card svg, .product-card img {
-            width: 100%;
-            max-width: 160px;
-            height: 180px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
+        .product-img-box img {
+            max-width: 85%;
+            height: auto;
         }
 
         .product-card h3 {
-            font-size: 15px;
+            font-size: 16px;
             color: #2f2f2f;
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 2;
             font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .product-card .price {
             font-size: 16px;
             font-weight: 700;
             color: #2f2f2f;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 2;
         }
 
         .add-btn {
-            background-color: #181818;
-            color: #ffffff;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2f2f2f;
+            color: white;
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            font-size: 18px;
+            font-size: 22px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-            transition: 0.3s;
+            opacity: 0;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .add-btn:hover {
-            background-color: #f9b233;
-            color: #181818;
+        .product-card:hover .product-img-box {
+            background-color: #dce5e4;
         }
 
+        .product-card:hover .add-btn {
+            opacity: 1;
+            bottom: 5px;
+        }
 
-        .why-choose-section {
-            padding: 60px 80px 100px 80px;
+        .split-layout {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 60px;
+        }
+
+        .why-choose-us {
+            padding: 100px 0;
             background-color: #ffffff;
         }
 
-        .why-choose-left {
-            max-width: 550px;
+        .features-side {
+            flex: 1.2;
         }
 
-        .why-choose-left h2 {
+        .features-side h2 {
             font-size: 34px;
-            color: #2f2f2f;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .why-choose-left > p {
-            font-size: 14px;
+        .section-desc {
             color: #6a6a6a;
-            line-height: 1.6;
             margin-bottom: 40px;
+            max-width: 600px;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px 20px;
         }
 
-        .feature-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .feature-icon-wrapper svg {
-            width: 32px;
-            height: 32px;
-            fill: #2f5146;
-            margin-bottom: 5px;
-        }
-
-        .feature-item h4 {
-            font-size: 14px;
+        .feature-item h3 {
+            font-size: 15px;
+            margin: 10px 0 8px 0;
             color: #2f2f2f;
-            font-weight: 600;
         }
 
         .feature-item p {
-            font-size: 13px;
+            font-size: 14px;
             color: #6a6a6a;
             line-height: 1.5;
         }
 
-        .why-choose-right {
-            position: relative;
-            padding: 30px;
+        .feature-icon {
+            font-size: 24px;
         }
 
-        .why-choose-right::before {
+        .image-side {
+            flex: 0.8;
+            position: relative;
+        }
+
+        .dots-bg-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dots-bg-wrapper::before {
             content: "••••\n••••\n••••\n••••";
             position: absolute;
-            top: 0;
-            left: 0;
-            color: #f9b233;
-            opacity: 0.4;
+            top: -30px;
+            left: -30px;
+            color: #f9bf29;
             font-size: 24px;
-            letter-spacing: 8px;
-            line-height: 1.2;
-            z-index: 1;
+            letter-spacing: 5px;
+            line-height: 0.8;
+            z-index: -1;
             white-space: pre;
+            opacity: 0.6;
         }
 
-        .why-choose-right svg {
-            width: 100%;
-            max-width: 440px;
-            height: auto;
+        .dots-bg-wrapper img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .help-design {
+            padding: 100px 0;
+            background-color: #ffffff;
+        }
+
+        .rev-layout {
+            flex-direction: row-reverse;
+        }
+
+        .text-side {
+            flex: 1;
+        }
+
+        .text-side h2 {
+            font-size: 34px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .text-side p {
+            color: #6a6a6a;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 20px;
+            margin-bottom: 40px;
+        }
+
+        .bullet-list li {
+            font-size: 14px;
+            color: #6a6a6a;
             position: relative;
-            z-index: 2;
+            padding-left: 15px;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3d5a52;
+            font-size: 18px;
+            top: -2px;
+        }
+
+        .btn-dark-explore {
+            background-color: #2f2f2f;
+            color: white;
+            border: 2px solid #2f2f2f;
+        }
+
+        .btn-dark-explore:hover {
+            background-color: #f9bf29;
+            border-color: #f9bf29;
+            color: #2f2f2f;
+        }
+
+        .collage-side {
+            flex: 1;
+        }
+
+        .image-collage {
+            position: relative;
+            height: 480px;
+            width: 100%;
+        }
+
+        .collage-img {
+            position: absolute;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .collage-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
+        }
+
+        .img-large {
+            width: 65%;
+            height: 85%;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+
+        .img-top-right {
+            width: 45%;
+            height: 40%;
+            right: 0;
+            top: -20px;
+            z-index: 1;
+        }
+
+        .img-bottom-right {
+            width: 42%;
+            height: 50%;
+            right: 5%;
+            bottom: 0;
+            z-index: 3;
+            border: 6px solid white;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Furni.</div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#">👤</a>
+                <a href="#">🛒</a>
+            </div>
+        </div>
+    </header>
 
-        <section class="hero-section">
-            <header>
-                <div class="logo">Furni.</div>
-                <nav>
-                    <ul>
-                        <li><a href="#" class="active">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact us</a></li>
-                    </ul>
-                </nav>
-                <div class="header-icons">
-
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-
-                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                </div>
-            </header>
-
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Modern Interior Design Studio</h1>
-                    <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-                    <a href="#" class="btn-orange">Shop Now</a>
-                    <a href="#" class="btn-outline">Explore</a>
-                </div>
-                <div class="hero-image">
-
-                    <svg viewBox="0 0 200 100" width="100%">
-                        <path d="M20,70 Q20,40 50,40 L150,40 Q180,40 180,70 L175,85 L25,85 Z" fill="#1b382f"/>
-                        <path d="M30,50 L95,50 L95,80 L30,80 Z" fill="#142c24"/>
-                        <path d="M105,50 L170,50 L170,80 L105,80 Z" fill="#142c24"/>
-                        <rect x="15" y="55" width="15" height="25" rx="5" fill="#1b382f"/>
-                        <rect x="170" y="55" width="15" height="25" rx="5" fill="#1b382f"/>
-                        <rect x="30" y="85" width="8" height="10" fill="#6d4c41"/>
-                        <rect x="162" y="85" width="8" height="10" fill="#6d4c41"/>
-                    </svg>
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Modern Interior<br>Design Studio</h1>
+                <p>We design spaces that reflect your personality and offer ultimate comfort. Discover our premium furniture and unique decor pieces crafted for modern living.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn btn-shop">Shop Now</a>
+                    <a href="#" class="btn btn-explore">Explore</a>
                 </div>
             </div>
-        </section>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/600x400/3d5a52/ffffff?text=Green+Sofa" alt="Modern Green Sofa" id="mainSofa">
+            </div>
+        </div>
+    </section>
 
-
-        <section class="products-section">
-            <div class="products-left">
-                <h2>Crafted with excellent material.</h2>
-                <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-                <a href="#" class="btn-black">Explore</a>
+    <section class="products">
+        <div class="container">
+            <div class="products-header">
+                <h2>Crafted with<br>excellent<br>material.</h2>
+                <p>Each piece of furniture in our store is carefully built by professionals using durable, high-quality materials designed to last a lifetime.</p>
             </div>
             
-            <div class="products-right">
-
-                <div class="product-card featured">
-                    <svg viewBox="0 0 100 100">
-                        <path d="M35,40 L65,40 L60,65 L40,65 Z" fill="#d1c4e9"/>
-                        <path d="M35,40 Q50,30 65,40" stroke="#b39ddb" stroke-width="4" fill="none"/>
-                        <line x1="40" y1="65" x2="30" y2="90" stroke="#37474f" stroke-width="3"/>
-                        <line x1="60" y1="65" x2="70" y2="90" stroke="#37474f" stroke-width="3"/>
-                        <line x1="50" y1="65" x2="50" y2="95" stroke="#37474f" stroke-width="3"/>
-                    </svg>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="https://via.placeholder.com/150x200/f8f9fa/333333?text=Nordic+Chair" alt="Nordic Chair">
+                    </div>
                     <h3>Nordic Chair</h3>
-                    <div class="price">$50.00</div>
+                    <p class="price">$50.00</p>
                     <button class="add-btn">+</button>
                 </div>
 
                 <div class="product-card">
-                    <svg viewBox="0 0 100 100">
-                        <path d="M30,45 Q50,35 70,45 L65,65 Q50,70 35,65 Z" fill="#b0bec5"/>
-                        <circle cx="50" cy="85" r="15" fill="#37474f"/>
-                        <line x1="50" y1="65" x2="50" y2="85" stroke="#37474f" stroke-width="5"/>
-                    </svg>
+                    <div class="product-img-box">
+                        <img src="https://via.placeholder.com/150x200/f8f9fa/333333?text=Kruzo+Chair" alt="Kruzo Aero Chair">
+                    </div>
                     <h3>Kruzo Aero Chair</h3>
-                    <div class="price">$78.00</div>
+                    <p class="price">$78.00</p>
                     <button class="add-btn">+</button>
                 </div>
 
                 <div class="product-card">
-                    <svg viewBox="0 0 100 100">
-                        <rect x="30" y="35" width="40" height="30" rx="5" fill="#8d6e63"/>
-                        <line x1="35" y1="65" x2="30" y2="95" stroke="#4e342e" stroke-width="4"/>
-                        <line x1="65" y1="65" x2="70" y2="95" stroke="#4e342e" stroke-width="4"/>
-                    </svg>
+                    <div class="product-img-box">
+                        <img src="https://via.placeholder.com/150x200/f8f9fa/333333?text=Ergo+Chair" alt="Ergonomic Chair">
+                    </div>
                     <h3>Ergonomic Chair</h3>
-                    <div class="price">$43.00</div>
+                    <p class="price">$43.00</p>
                     <button class="add-btn">+</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-
-        <section class="why-choose-section">
-            <div class="why-choose-left">
+    <section class="why-choose-us">
+        <div class="container split-layout">
+            <div class="features-side">
                 <h2>Why Choose Us</h2>
-                <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+                <p class="section-desc">We offer an unmatched shopping experience combining quality products, premium customer care, and easy return policies.</p>
                 
                 <div class="features-grid">
                     <div class="feature-item">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm12 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                        </div>
-                        <h4>Fast & Free Shipping</h4>
-                        <p>Donec vitae odio quis nisl dapibus malesuada.</p>
+                        <div class="feature-icon">🚚</div>
+                        <h3>Fast & Free Shipping</h3>
+                        <p>Get your luxury furniture delivered straight to your doorstep quickly and completely free of charge.</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-8-2h4v2h-4V4z"/></svg>
-                        </div>
-                        <h4>Easy to Shop</h4>
-                        <p>Donec vitae odio quis nisl dapibus malesuada.</p>
+                        <div class="feature-icon">💼</div>
+                        <h3>Easy to Shop</h3>
+                        <p>Our intuitive online platform makes browsing, choosing, and purchasing your dream items simpler than ever.</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.79-2.79C10.07 18.79 11.01 19 12 19c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
-                        </div>
-                        <h4>24/7 Support</h4>
-                        <p>Donec vitae odio quis nisl dapibus malesuada.</p>
+                        <div class="feature-icon">💬</div>
+                        <h3>24/7 Support</h3>
+                        <p>Our dedicated support specialists are available around the clock to help you with any questions or issues.</p>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon-wrapper">
-                            <svg viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
-                        </div>
-                        <h4>Hassle Free Returns</h4>
-                        <p>Donec vitae odio quis nisl dapibus malesuada.</p>
+                        <div class="feature-icon">🔄</div>
+                        <h3>Hassle Free Returns</h3>
+                        <p>Not satisfied with your order? No worries! Return your items easily within 30 days without any stress.</p>
                     </div>
                 </div>
             </div>
             
-            <div class="why-choose-right">
-
-                <svg viewBox="0 0 200 150" width="100%">
-                    <rect x="10" y="10" width="180" height="130" fill="#e8ebe9" rx="10"/>
-                    <rect x="40" y="80" width="120" height="50" fill="#cfd8dc" rx="5"/>
-                    <circle cx="100" cy="40" r="10" fill="#b0bec5"/>
-                    <line x1="100" y1="10" x2="100" y2="30" stroke="#37474f" stroke-width="2"/>
-                </svg>
+            <div class="image-side">
+                <div class="dots-bg-wrapper">
+                    <img src="https://via.placeholder.com/500x450/e0e0e0/333333?text=Cozy+Living+Room" alt="Cozy Sofa Setup">
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </div>
+    <section class="help-design">
+        <div class="container split-layout rev-layout">
+            <div class="collage-side">
+                <div class="image-collage">
+                    <div class="collage-img img-large">
+                        <img src="https://via.placeholder.com/300x400/d0d0d0/333333?text=Main+Room" alt="Interior View">
+                    </div>
+                    <div class="collage-img img-top-right">
+                        <img src="https://via.placeholder.com/200x150/c0c0c0/333333?text=Small+Setup" alt="Decor View">
+                    </div>
+                    <div class="collage-img img-bottom-right">
+                        <img src="https://via.placeholder.com/220x250/b0c4de/333333?text=Stool" alt="Modern Stool">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-side">
+                <h2>We Help You Make<br>Modern Interior Design</h2>
+                <p>Our expert team guides you through the entire process, from choosing the right layout and materials to selecting the final decor touches that make a house feel like home.</p>
+                
+                <ul class="bullet-list">
+                    <li>Premium quality materials handpicked for you.</li>
+                    <li>Tailored interior solutions that match your budget.</li>
+                    <li>Highly experienced design consultants at your service.</li>
+                    <li>Modern, timeless aesthetic concepts for any room size.</li>
+                </ul>
+                
+                <a href="#" class="btn btn-dark-explore">Explore</a>
+            </div>
+        </div>
+    </section>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addButtons = document.querySelectorAll('.add-btn');
+            addButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productName = this.parentElement.querySelector('h3').textContent;
+                    const productPrice = this.parentElement.querySelector('.price').textContent;
+                    alert(`🎉 Success!\n${productName} (${productPrice}) has been added to your cart! 🛒`);
+                });
+            });
+
+            const navLinks = document.querySelectorAll('.navbar a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            const mainSofa = document.getElementById('mainSofa');
+            if (mainSofa) {
+                mainSofa.style.transition = 'transform 0.4s ease';
+                mainSofa.addEventListener('mouseover', function() {
+                    this.style.transform = 'scale(1.03) translateY(-5px)';
+                });
+                mainSofa.addEventListener('mouseout', function() {
+                    this.style.transform = 'scale(1.05) translateY(0)';
+                });
+            }
+        });
+    </script>
 </body>
-</html>
+</html>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
