@@ -1,549 +1,491 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homirx - Living Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0b132b; color: #ffffff; }
 
-        body {
-            background-color: #0d1b2a;
-            color: white;
+        .header { 
+            background-color: #1c2541; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 18px 60px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
+        .logo h2 { color: #ff5a3c; font-size: 26px; font-weight: bold; letter-spacing: 1px; }
+        .logo p { font-size: 10px; color: #a0aec0; letter-spacing: 2px; }
 
-        .header {
-            background-color: #0b132b;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-btn { 
+            background: none; 
+            border: none; 
+            color: #cbd5e1; 
+            font-size: 16px; 
+            font-weight: 500; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            padding: 8px 12px;
+            border-radius: 6px;
         }
+        .nav-btn:hover { color: #ff5a3c; background: rgba(255, 90, 60, 0.1); }
+        .nav-btn.active { color: #ff5a3c; font-weight: bold; border-bottom: 2px solid #ff5a3c; }
 
-        .logo h2 {
-            color: #ff5a3c;
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .btn-add-property {
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
         }
+        .btn-add-property:hover { background-color: #ffffff; color: #0b132b; }
 
-        .logo p {
-            font-size: 10px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-
-        .icon-btn {
-            background: none;
+        .cart-icon-btn {
+            background: #ff5a3c;
             border: none;
             color: white;
-            font-size: 18px;
-            margin-right: 15px;
+            padding: 9px 16px;
+            border-radius: 20px;
             cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
         }
-
-        .add-btn {
-            background: none;
-            color: white;
-            border: 1px solid white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+        .cart-icon-btn:hover { background: #e0482b; }
+        .cart-badge { background: #ffffff; color: #ff5a3c; border-radius: 50%; padding: 2px 7px; font-size: 12px; }
 
         .hero {
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600') center/cover;
-            padding: 100px 80px;
+            background: linear-gradient(rgba(11, 19, 43, 0.75), rgba(11, 19, 43, 0.85)), 
+                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600') center/cover;
+            padding: 80px 20px;
+            text-align: center;
         }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 30px;
-        }
-
-        .search-box {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 8px;
-            width: 650px;
-        }
-
-        .tab {
-            background: none;
-            border: none;
-            color: white;
-            padding: 8px 15px;
-            cursor: pointer;
-        }
-
-        .tab.active {
-            background-color: #ff5a3c;
-            border-radius: 4px;
-        }
-
-        .inputs {
-            background-color: white;
-            color: #333;
+        .hero h1 { font-size: 42px; margin-bottom: 20px; font-weight: 700; }
+        
+        .search-container {
             display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            border-radius: 6px;
-            margin-top: 15px;
+            justify-content: center;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #333;
+        }
+        .search-container button {
+            background: #ff5a3c;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .search-container button:hover { background: #e0482b; }
 
-        .input-group {
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-subtitle { color: #ff5a3c; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .section-title { font-size: 32px; font-weight: 700; margin-top: 5px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { 
+            background: #1c2541; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
         }
+        .card:hover { transform: translateY(-8px); }
+        .card-img-wrapper { position: relative; height: 220px; }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .card-badge { position: absolute; top: 15px; left: 15px; background: #ff5a3c; color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        
+        .card-body { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-rating { color: #ffb703; font-size: 14px; margin-bottom: 8px; }
+        .card-title { font-size: 20px; font-weight: 600; margin-bottom: 6px; }
+        .card-location { color: #94a3b8; font-size: 13px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .card-desc { color: #cbd5e1; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
+        .card-features { display: flex; gap: 15px; color: #ff5a3c; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
 
-        .input-group label {
-            font-size: 12px;
-            color: #777;
+        .card-footer { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-top: auto; 
+            padding-top: 15px; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
         }
+        .card-price { color: #ff5a3c; font-size: 22px; font-weight: bold; }
+        .card-buttons { display: flex; gap: 10px; }
+        
+        .btn-details { background: #0b132b; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; transition: 0.3s; font-weight: 600; }
+        .btn-details:hover { background: #3a506b; }
+        .btn-save { background: rgba(255, 90, 60, 0.15); color: #ff5a3c; border: 1px solid #ff5a3c; padding: 8px 12px; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+        .btn-save:hover { background: #ff5a3c; color: white; }
 
-        .input-group input, .input-group select {
-            border: none;
-            outline: none;
-        }
-
-        .search-btn {
-            background-color: #ff5a3c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .types {
-            padding: 60px 80px;
-            text-align: center;
-        }
-
-        .subtitle {
-            color: #ff5a3c;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .types-container {
-            display: flex;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .type-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 30px 20px;
-            flex: 1;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .type-card i {
-            font-size: 36px;
-            color: #ff5a3c;
-            margin-bottom: 15px;
-        }
-
-        .listings {
-            background-color: #f7f9fc;
-            color: #333;
-            padding: 60px 80px;
-        }
-
-        .listings-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 30px;
-        }
-
-        .dark-title {
-            color: #0b132b;
-        }
-
-        .filter {
-            background: white;
-            border: 1px solid #ccc;
-            padding: 8px 15px;
-            margin-left: 5px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .filter.active {
-            background-color: #ff5a3c;
-            color: white;
-            border-color: #ff5a3c;
-        }
-
-        .cards-container {
-            display: flex;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            flex: 1;
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        .stars {
-            color: #ffb100;
-            margin-bottom: 10px;
-        }
-
-        .stars span {
-            color: #777;
-        }
-
-        .address {
-            font-size: 13px;
-            color: #777;
-            margin: 8px 0;
-        }
-
-        .address i, .info i {
-            color: #ff5a3c;
-        }
-
-        .desc {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .info {
-            display: flex;
-            gap: 15px;
-            font-size: 13px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #ff5a3c;
-        }
-
-        .details-btn {
-            background-color: #0b132b;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .locations {
-            padding: 60px 80px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .gallery {
-            display: flex;
-            gap: 15px;
-            height: 300px;
-            margin-top: 30px;
-        }
-
-        .gallery-item {
-            flex: 1;
-            border-radius: 8px;
-            background-size: cover;
-            background-position: center;
+        .locations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .location-card {
             position: relative;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
         }
-
-        .item-1 { flex: 2; background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=800'); }
-        .item-2 { background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600'); }
-        .item-3 { background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600'); }
-        .item-4 { background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600'); }
-
-        .gallery-text {
+        .location-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .location-card:hover img { transform: scale(1.1); }
+        .location-overlay {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(11, 19, 43, 0.9));
         }
+
+        .modal-backdrop {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: #1c2541;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 20px;
+            background: none; border: none;
+            color: #fff; font-size: 22px; cursor: pointer;
+        }
+
+
+        .footer {
+            background: #070d19;
+            padding: 50px 20px 20px 20px;
+            margin-top: 80px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 { color: #ff5a3c; margin-bottom: 15px; font-size: 18px; }
+        .footer-col p, .footer-col li { color: #94a3b8; font-size: 14px; line-height: 1.8; list-style: none; }
+        .footer-bottom { text-align: center; color: #64748b; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo">
-            <h2>HOMIRX</h2>
-            <p>LIVING SOLUTIONS</p>
-        </div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Properties</a>
-            <a href="#">Agents</a>
-            <a href="#">Pages</a>
-            <a href="#">News</a>
-            <a href="#">Contact</a>
-        </nav>
-        <div class="header-buttons">
-            <button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <button class="add-btn">+ Add Property</button>
-        </div>
-    </header>
+    <div id="root"></div>
 
-    <section class="hero">
-        <h1>Let's Find Your<br>Dream House.</h1>
-        
-        <div class="search-box">
-            <div class="tabs">
-                <button class="tab active">General</button>
-                <button class="tab">Villa</button>
-                <button class="tab">Apartment</button>
-            </div>
-            <div class="inputs">
-                <div class="input-group">
-                    <label>Keyword</label>
-                    <input type="text" placeholder="Looking For?">
+    <script type="text/babel">
+        const { useState } = React;
+
+        const PROPERTIES_DATA = [
+            {
+                id: 1,
+                title: "Elevation Small Apartments",
+                location: "10 Braclyn Street, New York",
+                price: 299.00,
+                rating: 5.0,
+                beds: 3,
+                baths: 2,
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600",
+                desc: "Modern apartment with natural sunlight and spacious living area in the city center."
+            },
+            {
+                id: 2,
+                title: "West Square Apartments",
+                location: "12 Braclyn Street, New York",
+                price: 350.00,
+                rating: 5.0,
+                beds: 4,
+                baths: 3,
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600",
+                desc: "Luxury modern home with high ceilings, private parking, and a great neighborhood view."
+            },
+            {
+                id: 3,
+                title: "Peninsula Apartments",
+                location: "15 Braclyn Street, New York",
+                price: 240.00,
+                rating: 4.8,
+                beds: 2,
+                baths: 2,
+                image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=600",
+                desc: "Cozy place featuring stylish design, fully equipped kitchen, and convenient location."
+            }
+        ];
+
+        const LOCATIONS = [
+            { id: 1, name: "California", desc: "Luxury Properties & Convenience", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=500" },
+            { id: 2, name: "New York", desc: "Modern City Living", image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=500" },
+            { id: 3, name: "Florida", desc: "Beachfront & Sunset Views", image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=500" },
+            { id: 4, name: "Texas", desc: "Spacious Villas & Nature", image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=500" }
+        ];
+
+        function App() {
+            const [activeTab, setActiveTab] = useState('Home');
+            const [searchTerm, setSearchTerm] = useState('');
+            const [savedItems, setSavedItems] = useState([]);
+            const [selectedProperty, setSelectedProperty] = useState(null);
+            const [isCartOpen, setIsCartOpen] = useState(false);
+
+
+            const filteredProperties = PROPERTIES_DATA.filter(item =>
+                item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                item.location.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            const handleSave = (item) => {
+                if (savedItems.some(i => i.id === item.id)) {
+                    setSavedItems(savedItems.filter(i => i.id !== item.id));
+                } else {
+                    setSavedItems([...savedItems, item]);
+                }
+            };
+
+            return (
+                <div>
+                    <!-- NAVBAR -->
+                    <header className="header">
+                        <div className="logo">
+                            <h2>HOMIRX</h2>
+                            <p>LIVING SOLUTIONS</p>
+                        </div>
+
+                        <nav className="nav-links">
+                            {['Home', 'Properties', 'Agents', 'Pages', 'News', 'Contact'].map((tab) => (
+                                <button 
+                                    key={tab} 
+                                    className={`nav-btn ${activeTab === tab ? 'active' : ''}`}
+                                    onClick={() => setActiveTab(tab)}
+                                >
+                                    {tab}
+                                </button>
+                            ))}
+                        </nav>
+
+                        <div className="header-actions">
+                            <button className="search-icon-btn nav-btn" onClick={() => alert("Please use the search bar below)}>
+                                <i className="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <button className="btn-add-property" onClick={() => alert("Adding a new property will be avaible soon!")}>
+                                + Add Property
+                            </button>
+                            <button className="cart-icon-btn" onClick={() => setIsCartOpen(true)}>
+                                <i className="fa-solid fa-bookmark"></i>
+                                <span>Saved</span>
+                                <span className="cart-badge">{savedItems.length}</span>
+                            </button>
+                        </div>
+                    </header>
+
+
+                        <section className="hero">
+                        <h1>Find Home Listing in Your Area</h1>
+                        <div className="search-container">
+                            <input 
+                                type="text" 
+                                placeholder="Search by property name or location..." 
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                            <button><i className="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </section>
+
+
+                        <main className="container">
+                        <div className="section-header">
+                            <p className="section-subtitle">Our Listing</p>
+                            <h2 className="section-title">Explore Featured Properties</h2>
+                        </div>
+
+                        <div className="grid">
+                            {filteredProperties.map(item => (
+                                <div key={item.id} className="card">
+                                    <div className="card-img-wrapper">
+                                        <img src={item.image} alt={item.title} />
+                                        <span className="card-badge">FOR RENT</span>
+                                    </div>
+                                    <div className="card-body">
+                                        <div className="card-rating">
+                                            <i className="fa-solid fa-star"></i> {item.rating.toFixed(1)}
+                                        </div>
+                                        <h3 className="card-title">{item.title}</h3>
+                                        <div className="card-location">
+                                            <i className="fa-solid fa-location-dot"></i> {item.location}
+                                        </div>
+                                        <p className="card-desc">{item.desc}</p>
+                                        <div className="card-features">
+                                            <span><i className="fa-solid fa-bed"></i> {item.beds} Beds</span>
+                                            <span><i className="fa-solid fa-bath"></i> {item.baths} Baths</span>
+                                        </div>
+                                        <div className="card-footer">
+                                            <div className="card-price">${item.price.toFixed(2)}</div>
+                                            <div className="card-buttons">
+                                                <button className="btn-save" onClick={() => handleSave(item)}>
+                                                    <i className={savedItems.some(i => i.id === item.id) ? "fa-solid fa-bookmark" : "fa-regular fa-bookmark"}></i>
+                                                </button>
+                                                <button className="btn-details" onClick={() => setSelectedProperty(item)}>
+                                                    Details
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </main>
+
+
+                        <section className="container">
+                        <div className="section-header">
+                            <p className="section-subtitle">Our Property List</p>
+                            <h2 className="section-title">Our Top Location For You Property</h2>
+                        </div>
+                        <div className="locations-grid">
+                            {LOCATIONS.map(loc => (
+                                <div key={loc.id} className="location-card">
+                                    <img src={loc.image} alt={loc.name} />
+                                    <div className="location-overlay">
+                                        <h3>{loc.name}</h3>
+                                        <p style={{ fontSize: '12px', color: '#cbd5e1' }}>{loc.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+
+                        {selectedProperty && (
+                        <div className="modal-backdrop" onClick={() => setSelectedProperty(null)}>
+                            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                                <button className="modal-close" onClick={() => setSelectedProperty(null)}>✕</button>
+                                <img src={selectedProperty.image} alt={selectedProperty.title} style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '8px', marginBottom: '15px' }} />
+                                <h2>{selectedProperty.title}</h2>
+                                <p style={{ color: '#ff5a3c', margin: '5px 0 15px 0' }}>{selectedProperty.location}</p>
+                                <p style={{ color: '#cbd5e1', fontSize: '14px', lineHeight: '1.6' }}>{selectedProperty.desc}</p>
+                                <div style={{ display: 'flex', gap: '20px', margin: '20px 0', background: '#0b132b', padding: '12px', borderRadius: '6px' }}>
+                                    <div><strong>Bedrooms:</strong> {selectedProperty.beds}</div>
+                                    <div><strong>Bathrooms:</strong> {selectedProperty.baths}</div>
+                                    <div><strong>Price:</strong> ${selectedProperty.price}/mo</div>
+                                </div>
+                                <button className="btn-save" style={{ width: '100%', padding: '12px' }} onClick={() => { handleSave(selectedProperty); setSelectedProperty(null); }}>
+                                    {savedItems.some(i => i.id === selectedProperty.id) ? 'Remove from Saved' : 'Save Property'}
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+
+                        {isCartOpen && (
+                        <div className="modal-backdrop" onClick={() => setIsCartOpen(false)}>
+                            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                                <button className="modal-close" onClick={() => setIsCartOpen(false)}>✕</button>
+                                <h2>Saved Properties ({savedItems.length})</h2>
+                                <div style={{ marginTop: '20px', maxHeight: '300px', overflowY: 'auto' }}>
+                                    {savedItems.length === 0 ? (
+                                        <p style={{ color: '#94a3b8' }}>No properties saved yet.</p>
+                                    ) : (
+                                        savedItems.map(item => (
+                                            <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#0b132b', padding: '10px', marginBottom: '10px', borderRadius: '6px' }}>
+                                                <div>
+                                                    <h4 style={{ fontSize: '14px' }}>{item.title}</h4>
+                                                    <p style={{ color: '#ff5a3c', fontSize: '12px' }}>${item.price}/mo</p>
+                                                </div>
+                                                <button style={{ background: 'none', border: 'none', color: '#ff5a3c', cursor: 'pointer' }} onClick={() => handleSave(item)}>
+                                                    <i className="fa-solid fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        ))
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+
+                        <footer className="footer">
+                        <div className="footer-content">
+                            <div className="footer-col">
+                                <h4>HOMIRX</h4>
+                                <p>Providing high quality living solutions and luxury properties worldwide.</p>
+                            </div>
+                            <div className="footer-col">
+                                <h4>Quick Links</h4>
+                                <li>About Us</li>
+                                <li>Properties</li>
+                                <li>Agents</li>
+                                <li>Contact</li>
+                            </div>
+                            <div className="footer-col">
+                                <h4>Contact Info</h4>
+                                <p>New York, Braclyn Street 12</p>
+                                <p>Phone: +1 800 555 0199</p>
+                                <p>Email: info@homirx.com</p>
+                            </div>
+                        </div>
+                        <div className="footer-bottom">
+                            <p>© 2026 Homirx - Living Solutions. All rights reserved.</p>
+                        </div>
+                    </footer>
                 </div>
-                <div class="input-group">
-                    <label>Category</label>
-                    <select>
-                        <option>Select Category</option>
-                        <option>Commercial</option>
-                        <option>Apartment</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Location</label>
-                    <input type="text" placeholder="Location">
-                </div>
-                <button class="search-btn">Search</button>
-            </div>
-        </div>
-    </section>
+            );
+        }
 
-    <section class="types">
-        <p class="subtitle">Property By Requirement</p>
-        <h2>Explore Apartment Types</h2>
-        
-        <div class="types-container">
-            <div class="type-card" onclick="showType('Commercial')">
-                <i class="fa-solid fa-city"></i>
-                <h3>Commercial</h3>
-                <p>6 Properties</p>
-            </div>
-            <div class="type-card" onclick="showType('Warehouse')">
-                <i class="fa-solid fa-warehouse"></i>
-                <h3>Warehouse</h3>
-                <p>6 Properties</p>
-            </div>
-            <div class="type-card" onclick="showType('Villa')">
-                <i class="fa-solid fa-house-chimney"></i>
-                <h3>Villa</h3>
-                <p>6 Properties</p>
-            </div>
-            <div class="type-card" onclick="showType('Apartment')">
-                <i class="fa-solid fa-building"></i>
-                <h3>Apartment</h3>
-                <p>6 Properties</p>
-            </div>
-            <div class="type-card" onclick="showType('Homestay')">
-                <i class="fa-solid fa-hotel"></i>
-                <h3>Homestay</h3>
-                <p>6 Properties</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="listings">
-        <div class="listings-header">
-            <div>
-                <p class="subtitle">Our Listing</p>
-                <h2 class="dark-title">Find Home Listing<br>in Your Area</h2>
-            </div>
-            <div class="filters">
-                <button class="filter active">Apartment</button>
-                <button class="filter">General</button>
-                <button class="filter">Villa</button>
-            </div>
-        </div>
-
-        <div class="cards-container">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600" alt="House">
-                <div class="card-body">
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span>5.0</span>
-                    </div>
-                    <h3>Elevation Small Apartments</h3>
-                    <p class="address"><i class="fa-solid fa-location-dot"></i> 10 Braclyn Street, New York</p>
-                    <p class="desc">Modern apartment with natural sunlight and spacious living area in the city center.</p>
-                    <div class="info">
-                        <span><i class="fa-solid fa-bed"></i> 3 Beds</span>
-                        <span><i class="fa-solid fa-bath"></i> 2 Baths</span>
-                    </div>
-                    <div class="card-footer">
-                        <span class="price">$299.00</span>
-                        <button class="details-btn">Details</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600" alt="House">
-                <div class="card-body">
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span>5.0</span>
-                    </div>
-                    <h3>West Square Apartments</h3>
-                    <p class="address"><i class="fa-solid fa-location-dot"></i> 12 Braclyn Street, New York</p>
-                    <p class="desc">Luxury modern home with high ceilings, private parking, and a great neighborhood view.</p>
-                    <div class="info">
-                        <span><i class="fa-solid fa-bed"></i> 4 Beds</span>
-                        <span><i class="fa-solid fa-bath"></i> 3 Baths</span>
-                    </div>
-                    <div class="card-footer">
-                        <span class="price">$350.00</span>
-                        <button class="details-btn">Details</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=600" alt="House">
-                <div class="card-body">
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                        <span>4.8</span>
-                    </div>
-                    <h3>Peninsula Apartments</h3>
-                    <p class="address"><i class="fa-solid fa-location-dot"></i> 15 Braclyn Street, New York</p>
-                    <p class="desc">Cozy place featuring stylish design, fully equipped kitchen, and convenient location.</p>
-                    <div class="info">
-                        <span><i class="fa-solid fa-bed"></i> 2 Beds</span>
-                        <span><i class="fa-solid fa-bath"></i> 2 Baths</span>
-                    </div>
-                    <div class="card-footer">
-                        <span class="price">$240.00</span>
-                        <button class="details-btn">Details</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="locations">
-        <p class="subtitle text-center">Our Property List</p>
-        <h2 class="text-center">Our Top Location For You Property</h2>
-        
-        <div class="gallery">
-            <div class="gallery-item item-1">
-                <div class="gallery-text">
-                    <h3>California</h3>
-                    <p>Luxury Properties With Convenience</p>
-                </div>
-            </div>
-            <div class="gallery-item item-2"></div>
-            <div class="gallery-item item-3"></div>
-            <div class="gallery-item item-4"></div>
-        </div>
-    </section>
-
-    <script>
-        const tabs = document.querySelectorAll('.tab');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                tabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        const filters = document.querySelectorAll('.filter');
-        filters.forEach(btn => {
-            btn.addEventListener('click', function() {
-                filters.forEach(f => f.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-     
-    
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
-    
 </body>
-
     
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
