@@ -17,6 +17,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #0b132b; color: #ffffff; }
 
+
         .header { 
             background-color: #1c2541; 
             display: flex; 
@@ -75,6 +76,7 @@
         .cart-icon-btn:hover { background: #e0482b; }
         .cart-badge { background: #ffffff; color: #ff5a3c; border-radius: 50%; padding: 2px 7px; font-size: 12px; }
 
+
         .hero {
             background: linear-gradient(rgba(11, 19, 43, 0.75), rgba(11, 19, 43, 0.85)), 
                         url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600') center/cover;
@@ -112,10 +114,12 @@
         }
         .search-container button:hover { background: #e0482b; }
 
+
         .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
         .section-header { text-align: center; margin-bottom: 40px; }
         .section-subtitle { color: #ff5a3c; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
         .section-title { font-size: 32px; font-weight: 700; margin-top: 5px; }
+
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .card { 
@@ -155,6 +159,7 @@
         .btn-save { background: rgba(255, 90, 60, 0.15); color: #ff5a3c; border: 1px solid #ff5a3c; padding: 8px 12px; border-radius: 6px; cursor: pointer; transition: 0.3s; }
         .btn-save:hover { background: #ff5a3c; color: white; }
 
+
         .locations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
         .location-card {
             position: relative;
@@ -173,6 +178,7 @@
             padding: 20px;
             background: linear-gradient(transparent, rgba(11, 19, 43, 0.9));
         }
+
 
         .modal-backdrop {
             position: fixed;
@@ -222,6 +228,7 @@
 <body>
 
     <div id="root"></div>
+
 
     <script type="text/babel">
         const { useState } = React;
@@ -276,7 +283,6 @@
             const [selectedProperty, setSelectedProperty] = useState(null);
             const [isCartOpen, setIsCartOpen] = useState(false);
 
-
             const filteredProperties = PROPERTIES_DATA.filter(item =>
                 item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 item.location.toLowerCase().includes(searchTerm.toLowerCase())
@@ -292,7 +298,6 @@
 
             return (
                 <div>
-                    <!-- NAVBAR -->
                     <header className="header">
                         <div className="logo">
                             <h2>HOMIRX</h2>
@@ -312,10 +317,10 @@
                         </nav>
 
                         <div className="header-actions">
-                            <button className="search-icon-btn nav-btn" onClick={() => alert("Please use the search bar below)}>
+                            <button className="search-icon-btn nav-btn" onClick={() => alert("Please use the search bar below")}>
                                 <i className="fa-solid fa-magnifying-glass"></i>
                             </button>
-                            <button className="btn-add-property" onClick={() => alert("Adding a new property will be avaible soon!")}>
+                            <button className="btn-add-property" onClick={() => alert("Adding a new property will be available soon!")}>
                                 + Add Property
                             </button>
                             <button className="cart-icon-btn" onClick={() => setIsCartOpen(true)}>
@@ -326,8 +331,7 @@
                         </div>
                     </header>
 
-
-                        <section className="hero">
+                    <section className="hero">
                         <h1>Find Home Listing in Your Area</h1>
                         <div className="search-container">
                             <input 
@@ -340,8 +344,7 @@
                         </div>
                     </section>
 
-
-                        <main className="container">
+                    <main className="container">
                         <div className="section-header">
                             <p className="section-subtitle">Our Listing</p>
                             <h2 className="section-title">Explore Featured Properties</h2>
@@ -384,8 +387,7 @@
                         </div>
                     </main>
 
-
-                        <section className="container">
+                    <section className="container">
                         <div className="section-header">
                             <p className="section-subtitle">Our Property List</p>
                             <h2 className="section-title">Our Top Location For You Property</h2>
@@ -403,8 +405,7 @@
                         </div>
                     </section>
 
-
-                        {selectedProperty && (
+                    {selectedProperty && (
                         <div className="modal-backdrop" onClick={() => setSelectedProperty(null)}>
                             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                                 <button className="modal-close" onClick={() => setSelectedProperty(null)}>✕</button>
@@ -424,8 +425,7 @@
                         </div>
                     )}
 
-
-                        {isCartOpen && (
+                    {isCartOpen && (
                         <div className="modal-backdrop" onClick={() => setIsCartOpen(false)}>
                             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                                 <button className="modal-close" onClick={() => setIsCartOpen(false)}>✕</button>
@@ -451,8 +451,7 @@
                         </div>
                     )}
 
-
-                        <footer className="footer">
+                    <footer className="footer">
                         <div className="footer-content">
                             <div className="footer-col">
                                 <h4>HOMIRX</h4>
@@ -483,9 +482,21 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
+    
 </body>
+
     
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
