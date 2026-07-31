@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -6,14 +6,13 @@
 <title>HOMIRX - Let's Find Your Dream House</title>
  
 
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.20/babel.min.js"></script>
  
 <style>
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+ * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
     --dark-navy: #0b2138; --dark-navy-2: #0f2a45; --orange: #f9622c;
     --orange-hover: #e0501e; --text-light: #cfd8e3; --white: #ffffff; --card-radius: 14px;
@@ -22,9 +21,12 @@
   a { text-decoration: none; color: inherit; }
   button { cursor: pointer; font-family: inherit; border: none; }
   .icon-inline { margin-right: 6px; }
+  .icon-svg { width: 16px; height: 16px; display: inline-block; vertical-align: -3px; flex-shrink: 0; }
+  .logo .icon-svg { width: 22px; height: 22px; vertical-align: -5px; }
+  .burger .icon-svg { width: 22px; height: 22px; }
  
 
-    .navbar { display: flex; align-items: center; justify-content: space-between; background: var(--dark-navy); padding: 18px 40px; color: var(--white); position: sticky; top: 0; z-index: 100; }
+ .navbar { display: flex; align-items: center; justify-content: space-between; background: var(--dark-navy); padding: 18px 40px; color: var(--white); position: sticky; top: 0; z-index: 100; }
   .logo { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 22px; }
   .logo span { color: var(--orange); }
   .logo small { display: block; font-size: 10px; font-weight: normal; color: var(--text-light); letter-spacing: 1px; }
@@ -39,8 +41,7 @@
   .btn-add:hover { background: var(--orange-hover); }
   .burger { display: none; font-size: 24px; background: none; color: white; }
  
-
-    .hero { position: relative; min-height: 620px; background: linear-gradient(180deg, rgba(11,33,56,.55), rgba(11,33,56,.75)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; padding: 40px; color: white; }
+  .hero { position: relative; min-height: 620px; background: linear-gradient(rgba(11,33,56,.72), rgba(11,33,56,.82)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat, linear-gradient(135deg, #0b2138, #16436b 60%, #1c5e8f); display: flex; align-items: center; padding: 40px; color: white; }
   .hero-inner { max-width: 900px; }
   .hero h1 { font-size: 48px; line-height: 1.2; margin-bottom: 24px; }
   .hero h1 .accent { color: var(--orange); }
@@ -59,29 +60,29 @@
   .pill { background: rgba(255,255,255,.12); padding: 8px 18px; border-radius: 30px; font-size: 13px; color: white; transition: background .2s; }
   .pill:hover { background: var(--orange); }
  
-
-    .section { padding: 70px 40px; }
+  .section { padding: 70px 40px; }
   .section.dark { background: var(--dark-navy); color: white; }
   .eyebrow { color: var(--orange); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
   .section-title { font-size: 32px; font-weight: 700; margin-bottom: 40px; }
   .section-title.center, .eyebrow.center { text-align: center; }
-    
  
-  .category-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+
+ .category-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
   .category-card { border: 1px solid rgba(255,255,255,.2); border-radius: var(--card-radius); padding: 30px 16px; text-align: center; background: rgba(255,255,255,.02); transition: transform .2s, background .2s, border-color .2s; }
   .category-card:hover, .category-card.active { background: var(--orange); border-color: var(--orange); transform: translateY(-6px); }
-  .category-icon { display: block; font-size: 34px; margin-bottom: 14px; }
+  .category-icon { display: block; width: 34px; height: 34px; margin: 0 auto 14px; }
   .category-card h3 { font-size: 16px; margin-bottom: 4px; }
   .category-card p { font-size: 13px; color: var(--text-light); }
   .category-card:hover p, .category-card.active p { color: white; }
  
-  .listing-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 16px; }
+
+ .listing-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 16px; }
   .filter-tabs { display: flex; gap: 10px; }
   .filter-tabs button { background: #eef1f5; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px; }
   .filter-tabs button.active { background: var(--orange); color: white; }
  
-  .property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 
+ .property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
   .property-card { background: white; border-radius: var(--card-radius); overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.06); transition: transform .25s, box-shadow .25s; }
   .property-card:hover { transform: translateY(-8px); box-shadow: 0 14px 30px rgba(0,0,0,.12); }
   .property-img-wrap { position: relative; height: 210px; }
@@ -104,16 +105,17 @@
   .btn-outline { background: transparent; border: 2px solid var(--dark-navy); padding: 10px 26px; border-radius: 30px; font-weight: 600; font-size: 14px; transition: all .2s; }
   .btn-outline:hover { background: var(--dark-navy); color: white; }
  
-  .location-collage { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; height: 340px; }
+
+ .location-collage { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; height: 340px; }
   .location-collage img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
   .collage-main { position: relative; border-radius: 10px; overflow: hidden; }
-  .collage-main img { width: 100%; height: 100%; object-fit: cover; }
   .collage-caption { position: absolute; bottom: 20px; left: 20px; color: white; }
   .collage-caption h3 { font-size: 26px; }
   .collage-caption p { font-size: 13px; opacity: .8; }
   .collage-caption .count { background: var(--orange); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-bottom: 8px; }
  
-  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; z-index: 999; padding: 20px; }
+
+ .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; z-index: 999; padding: 20px; }
   .modal { background: white; border-radius: var(--card-radius); max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; animation: pop .2s ease; }
   @keyframes pop { from { transform: scale(.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
   .modal-img { height: 260px; width: 100%; object-fit: cover; }
@@ -128,7 +130,8 @@
   .btn-cart:hover { background: var(--orange); }
   .btn-fav-modal { background: #f1f1f1; color: #333; }
  
-  .cart-drawer { position: fixed; top: 0; right: 0; width: 360px; max-width: 90vw; height: 100%; background: white; box-shadow: -8px 0 30px rgba(0,0,0,.2); z-index: 1000; padding: 24px; overflow-y: auto; animation: slideIn .25s ease; }
+
+ .cart-drawer { position: fixed; top: 0; right: 0; width: 360px; max-width: 90vw; height: 100%; background: white; box-shadow: -8px 0 30px rgba(0,0,0,.2); z-index: 1000; padding: 24px; overflow-y: auto; animation: slideIn .25s ease; }
   @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
   .cart-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eee; }
   .cart-item img { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; }
@@ -138,19 +141,19 @@
   .remove-btn { background: none; color: #cc3333; font-size: 12px; }
   .empty-msg { text-align: center; color: #999; padding: 40px 0; font-size: 14px; }
  
-
-    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
   .trust-card { background: white; border-radius: var(--card-radius); padding: 30px 16px; box-shadow: 0 6px 20px rgba(0,0,0,.05); }
-  .trust-card .icon { display: block; font-size: 30px; margin-bottom: 12px; }
+  .trust-card .icon-svg { display: block; width: 30px; height: 30px; margin: 0 auto 12px; }
   .trust-card h4 { font-size: 15px; margin-bottom: 6px; }
   .trust-card p { font-size: 12px; color: #888; }
- 
 
-    footer { background: var(--dark-navy); color: var(--text-light); text-align: center; padding: 30px; font-size: 13px; }
+ 
+  footer { background: var(--dark-navy); color: var(--text-light); text-align: center; padding: 30px; font-size: 13px; }
   footer span { color: var(--orange); }
  
-
-    @media (max-width: 900px) {
+  / RESPONSIVE *
+ 
+  @media (max-width: 900px) {
     .category-grid { grid-template-columns: repeat(3, 1fr); }
     .trust-grid { grid-template-columns: repeat(2, 1fr); }
     .location-collage { grid-template-columns: 1fr 1fr; height: auto; }
@@ -291,18 +294,167 @@ const PROPERTIES = [
 ];
  
 const CATEGORIES = [
-  { name: "Commercial", icon: "fa-building" },
-  { name: "Warehouse", icon: "fa-warehouse" },
-  { name: "Villa", icon: "fa-house-chimney" },
-  { name: "Apartment", icon: "fa-city" },
-  { name: "Homestay", icon: "fa-house" },
+  { name: "Commercial", icon: "building" },
+  { name: "Warehouse", icon: "warehouse" },
+  { name: "Villa", icon: "villa" },
+  { name: "Apartment", icon: "city" },
+  { name: "Homestay", icon: "house" },
 ];
  
+
+ 
+function Icon({ name, filled, className }) {
+  const cls = "icon-svg" + (className ? " " + className : "");
+  const fillColor = filled ? "currentColor" : "none";
+ 
+  if (name === "house") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" />
+      </svg>
+    );
+  }
+  if (name === "building") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="3" width="16" height="18" />
+        <path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1" />
+      </svg>
+    );
+  }
+  if (name === "warehouse") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 21V10l9-6 9 6v11" /><path d="M3 21h18" /><path d="M9 21v-6h6v6" />
+      </svg>
+    );
+  }
+  if (name === "villa") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /><rect x="15" y="4" width="2.5" height="5" />
+      </svg>
+    );
+  }
+  if (name === "city") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="9" width="7" height="12" /><rect x="12" y="3" width="9" height="18" />
+        <path d="M6 12h1M6 15h1M6 18h1M15 6h1M15 9h1M15 12h1M15 15h1" />
+      </svg>
+    );
+  }
+  if (name === "cart") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="20" r="1.4" fill="currentColor" /><circle cx="18" cy="20" r="1.4" fill="currentColor" />
+        <path d="M2 3h2l2.4 12.2a2 2 0 0 0 2 1.8h8.6a2 2 0 0 0 2-1.6L21 8H6" />
+      </svg>
+    );
+  }
+  if (name === "bars") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    );
+  }
+  if (name === "search") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" />
+      </svg>
+    );
+  }
+  if (name === "heart") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill={fillColor} stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
+        <path d="M12 21s-7.5-4.9-10-9.4C0.4 8.4 2 4.5 5.6 4c2-.3 3.8.7 4.9 2.4C11.6 4.7 13.4 3.7 15.4 4c3.6.5 5.2 4.4 3.6 7.6C19.5 16.1 12 21 12 21z" />
+      </svg>
+    );
+  }
+  if (name === "star") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill={fillColor} stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round">
+        <path d="M12 2l3.1 6.4 7 .9-5.1 4.9 1.3 6.9-6.3-3.4-6.3 3.4 1.3-6.9L2 9.3l7-.9L12 2z" />
+      </svg>
+    );
+  }
+  if (name === "location") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 21s7-6.8 7-12a7 7 0 1 0-14 0c0 5.2 7 12 7 12z" /><circle cx="12" cy="9" r="2.4" />
+      </svg>
+    );
+  }
+  if (name === "ruler") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="8" width="20" height="8" transform="rotate(-8 12 12)" />
+        <path d="M6 9l1 2M10 9l1 2M14 9l1 2M18 9l1 2" />
+      </svg>
+    );
+  }
+  if (name === "bed") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6" /><path d="M3 18v2M21 18v2" />
+        <path d="M3 12V8a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v2" /><path d="M3 12h18" />
+      </svg>
+    );
+  }
+  if (name === "bath") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 12V6a2 2 0 0 1 2-2c1 0 1.6.5 2 1" />
+        <path d="M3 12h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-2z" /><path d="M6 21v-2M18 21v-2" />
+      </svg>
+    );
+  }
+  if (name === "info") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="9" /><path d="M12 8h.01M11 11h1v6" />
+      </svg>
+    );
+  }
+  if (name === "xmark") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <path d="M5 5l14 14M19 5L5 19" />
+      </svg>
+    );
+  }
+  if (name === "shield") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z" /><path d="M9 12l2 2 4-4" />
+      </svg>
+    );
+  }
+  if (name === "scroll") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="3" width="14" height="18" rx="1" /><path d="M9 8h6M9 12h6M9 16h4" />
+      </svg>
+    );
+  }
+  if (name === "lock") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="11" width="16" height="9" rx="1.5" /><path d="M8 11V7a4 4 0 0 1 8 0v4" />
+      </svg>
+    );
+  }
+  return null;
+}
+ 
+
 function Navbar({ cartCount, onCartClick }) {
   return (
     <nav className="navbar">
       <div className="logo">
-        <i className="fas fa-house icon-inline"></i>HOM<span>IRX</span>
+        <Icon name="house" className="icon-inline" />HOM<span>IRX</span>
         <small>LIVING SOLUTIONS</small>
       </div>
       <ul className="nav-links">
@@ -315,17 +467,18 @@ function Navbar({ cartCount, onCartClick }) {
       </ul>
       <div className="nav-right">
         <button className="icon-btn" onClick={onCartClick} title="Cart">
-          <i className="fas fa-cart-shopping"></i>
+          <Icon name="cart" />
           {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
         </button>
         <button className="btn-add">+ Add Properties</button>
-        <button className="burger"><i className="fas fa-bars"></i></button>
+        <button className="burger"><Icon name="bars" /></button>
       </div>
     </nav>
   );
 }
  
 
+ 
 function Hero({ filters, setFilters, onSearch }) {
   const [tab, setTab] = useState("General");
   const tabs = ["General", "Villa", "Apartment"];
@@ -378,7 +531,7 @@ function Hero({ filters, setFilters, onSearch }) {
               />
             </div>
  
-            <button className="search-btn" onClick={onSearch}><i className="fas fa-magnifying-glass icon-inline"></i>Search</button>
+            <button className="search-btn" onClick={onSearch}><Icon name="search" className="icon-inline" />Search</button>
           </div>
  
           <div className="quick-links">
@@ -391,6 +544,7 @@ function Hero({ filters, setFilters, onSearch }) {
     </header>
   );
 }
+ 
 
 function Categories({ activeCategory, setActiveCategory }) {
   return (
@@ -407,7 +561,7 @@ function Categories({ activeCategory, setActiveCategory }) {
               className={"category-card " + (isActive ? "active" : "")}
               onClick={() => setActiveCategory(isActive ? "" : cat.name)}
             >
-              <i className={"category-icon fas " + cat.icon}></i>
+              <Icon name={cat.icon} className="category-icon" />
               <h3>{cat.name}</h3>
               <p>{count} Properties</p>
             </div>
@@ -417,12 +571,13 @@ function Categories({ activeCategory, setActiveCategory }) {
     </section>
   );
 }
+ 
 
 function StarRating({ rating }) {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     const filled = i <= Math.round(rating);
-    stars.push(<i key={i} className={(filled ? "fas" : "far") + " fa-star"}></i>);
+    stars.push(<Icon key={i} name="star" filled={filled} />);
   }
   return <React.Fragment>{stars}</React.Fragment>;
 }
@@ -438,7 +593,7 @@ function PropertyCard({ property, isFav, toggleFav, openDetails }) {
           className={"fav-btn " + (isFav ? "active" : "")}
           onClick={() => toggleFav(property.id)}
           title="Add to favorites"
-        ><i className={isFav ? "fas fa-heart" : "far fa-heart"}></i></button>
+        ><Icon name="heart" filled={isFav} /></button>
       </div>
       <div className="property-body">
         <div className="rating">
@@ -446,16 +601,16 @@ function PropertyCard({ property, isFav, toggleFav, openDetails }) {
           <span>{property.rating} ({property.reviews})</span>
         </div>
         <div className="property-title">{property.title}</div>
-        <div className="property-location"><i className="fas fa-location-dot icon-inline"></i>{property.location}</div>
+        <div className="property-location"><Icon name="location" className="icon-inline" />{property.location}</div>
         <p className="property-desc">{property.desc}</p>
         <div className="property-stats">
-          <span><i className="fas fa-ruler-combined icon-inline"></i>{property.sqft} sqft</span>
-          {property.beds > 0 && <span><i className="fas fa-bed icon-inline"></i>Bed {property.beds}</span>}
-          <span><i className="fas fa-bath icon-inline"></i>Bath {property.baths}</span>
+          <span><Icon name="ruler" className="icon-inline" />{property.sqft} sqft</span>
+          {property.beds > 0 && <span><Icon name="bed" className="icon-inline" />Bed {property.beds}</span>}
+          <span><Icon name="bath" className="icon-inline" />Bath {property.baths}</span>
         </div>
         <div className="property-footer">
           <span className="price">${property.price}.00</span>
-          <button className="btn-details" onClick={() => openDetails(property)}><i className="fas fa-circle-info icon-inline"></i>Details</button>
+          <button className="btn-details" onClick={() => openDetails(property)}><Icon name="info" className="icon-inline" />Details</button>
         </div>
       </div>
  
@@ -464,6 +619,7 @@ function PropertyCard({ property, isFav, toggleFav, openDetails }) {
 }
  
 
+ 
 function DetailsModal({ property, onClose, isFav, toggleFav, addToCart }) {
   if (!property) return null;
   return (
@@ -471,13 +627,13 @@ function DetailsModal({ property, onClose, isFav, toggleFav, addToCart }) {
       <div className="modal" onClick={e => e.stopPropagation()}>
         <img className="modal-img" src={property.img} alt={property.title} />
         <div className="modal-body">
-          <button className="modal-close" onClick={onClose}><i className="fas fa-xmark"></i></button>
+          <button className="modal-close" onClick={onClose}><Icon name="xmark" /></button>
           <div className="rating">
             <StarRating rating={property.rating} />
             <span>{property.rating} ({property.reviews} reviews)</span>
           </div>
           <h2>{property.title}</h2>
-          <p className="property-location"><i className="fas fa-location-dot icon-inline"></i>{property.location}</p>
+          <p className="property-location"><Icon name="location" className="icon-inline" />{property.location}</p>
           <p style={{margin: "14px 0", color: "#555", lineHeight: 1.6}}>{property.desc}</p>
  
           <div className="modal-stats">
@@ -489,10 +645,10 @@ function DetailsModal({ property, onClose, isFav, toggleFav, addToCart }) {
  
           <div className="modal-actions">
             <button className="btn-fav-modal" onClick={() => toggleFav(property.id)}>
-              <i className={(isFav ? "fas" : "far") + " fa-heart icon-inline"}></i>
+              <Icon name="heart" filled={isFav} className="icon-inline" />
               {isFav ? "Remove Favorite" : "Add to Favorite"}
             </button>
-            <button className="btn-cart" onClick={() => addToCart(property)}><i className="fas fa-cart-shopping icon-inline"></i>Add to Cart</button>
+            <button className="btn-cart" onClick={() => addToCart(property)}><Icon name="cart" className="icon-inline" />Add to Cart</button>
           </div>
         </div>
       </div>
@@ -500,20 +656,21 @@ function DetailsModal({ property, onClose, isFav, toggleFav, addToCart }) {
   );
 }
  
-   Side cart panel (Cart Drawer)
+
+ 
 function CartDrawer({ items, onClose, removeItem }) {
 
-    let total = 0;
+  let total = 0;
   for (let i = 0; i < items.length; i++) {
     total = total + items[i].price;
   }
   return (
     <div className="overlay" onClick={onClose}>
       <div className="cart-drawer" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}><i className="fas fa-xmark"></i></button>
+        <button className="modal-close" onClick={onClose}><Icon name="xmark" /></button>
         <h2 style={{marginBottom: 20}}>My Cart ({items.length})</h2>
  
-        {items.length === 0 && <p className="empty-msg"><i className="fas fa-cart-shopping icon-inline"></i>Your cart is empty</p>}
+        {items.length === 0 && <p className="empty-msg"><Icon name="cart" className="icon-inline" />Your cart is empty</p>}
  
         {items.map(item => (
           <div className="cart-item" key={item.id}>
@@ -535,7 +692,6 @@ function CartDrawer({ items, onClose, removeItem }) {
     </div>
   );
 }
- 
 
 function TopLocations() {
   return (
@@ -551,9 +707,9 @@ function TopLocations() {
             <p>Luxury Properties With Conveniences</p>
           </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop" alt="loc2" />
-        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=600&auto=format&fit=crop" alt="loc3" />
-        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=600&auto=format&fit=crop" alt="loc4" />
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop" alt="location" />
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=600&auto=format&fit=crop" alt="location" />
+        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=600&auto=format&fit=crop" alt="location" />
       </div>
     </section>
   );
@@ -562,10 +718,10 @@ function TopLocations() {
 
 function TrustSection() {
   const items = [
-    { icon: "fa-shield-halved", title: "Verified Listings", desc: "Every listing is checked by our team" },
-    { icon: "fa-scroll", title: "Licensed Brokers", desc: "Only certified agents work with us" },
-    { icon: "fa-lock", title: "Secure Payment", desc: "Your data is protected with encryption" },
-    { icon: "fa-star", title: "High Ratings", desc: "4.7+ average rating from our users" },
+    { icon: "shield", title: "Verified Listings", desc: "Every listing is checked by our team" },
+    { icon: "scroll", title: "Licensed Brokers", desc: "Only certified agents work with us" },
+    { icon: "lock", title: "Secure Payment", desc: "Your data is protected with encryption" },
+    { icon: "star", title: "High Ratings", desc: "4.7+ average rating from our users" },
   ];
   return (
     <section className="section" id="agents">
@@ -574,7 +730,7 @@ function TrustSection() {
       <div className="trust-grid">
         {items.map((it, i) => (
           <div className="trust-card" key={i}>
-            <i className={"icon fas " + it.icon}></i>
+            <Icon name={it.icon} filled={it.icon === "star"} />
             <h4>{it.title}</h4>
             <p>{it.desc}</p>
           </div>
@@ -612,6 +768,7 @@ function App() {
     setActiveCategory(filters.category || "");
     document.getElementById("properties").scrollIntoView({ behavior: "smooth" });
   };
+ 
  
   const filteredProperties = PROPERTIES.filter(p => {
     const matchCategory = activeCategory ? p.category === activeCategory : true;
@@ -660,7 +817,7 @@ function App() {
         </div>
  
         {filteredProperties.length === 0 && (
-          <p className="empty-msg"><i className="fas fa-magnifying-glass icon-inline"></i>No results found. Try a different search term.</p>
+          <p className="empty-msg"><Icon name="search" className="icon-inline" />No results found. Try a different search term.</p>
         )}
  
         {visibleCount < filteredProperties.length && (
@@ -696,26 +853,10 @@ function App() {
  
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 </script>
-    
+ 
 </body>
-
+ 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
