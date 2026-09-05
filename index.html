@@ -5,14 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>HOMIRX - Let's Find Your Dream House</title>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.development.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.development.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.20/babel.min.js"></script>
 
 <style>
- 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+ * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
     --dark-navy: #0b2138; --dark-navy-2: #0f2a45; --orange: #f9622c;
     --orange-hover: #e0501e; --text-light: #cfd8e3; --white: #ffffff; --card-radius: 14px;
@@ -25,7 +24,6 @@
   .logo .icon-svg { width: 22px; height: 22px; vertical-align: -5px; }
   .burger .icon-svg { width: 22px; height: 22px; }
 
- 
   .navbar { display: flex; align-items: center; justify-content: space-between; background: var(--dark-navy); padding: 18px 40px; color: var(--white); position: sticky; top: 0; z-index: 100; }
   .logo { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 22px; }
   .logo span { color: var(--orange); }
@@ -41,7 +39,6 @@
   .btn-add:hover { background: var(--orange-hover); }
   .burger { display: none; font-size: 24px; background: none; color: white; }
 
-  
   .hero { position: relative; min-height: 620px; background: linear-gradient(rgba(11,33,56,.72), rgba(11,33,56,.82)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat, linear-gradient(135deg, #0b2138, #16436b 60%, #1c5e8f); display: flex; align-items: center; padding: 40px; color: white; }
   .hero-inner { max-width: 900px; }
   .hero h1 { font-size: 48px; line-height: 1.2; margin-bottom: 24px; }
@@ -61,14 +58,12 @@
   .pill { background: rgba(255,255,255,.12); padding: 8px 18px; border-radius: 30px; font-size: 13px; color: white; transition: background .2s; }
   .pill:hover { background: var(--orange); }
 
- 
   .section { padding: 70px 40px; }
   .section.dark { background: var(--dark-navy); color: white; }
   .eyebrow { color: var(--orange); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
   .section-title { font-size: 32px; font-weight: 700; margin-bottom: 40px; }
   .section-title.center, .eyebrow.center { text-align: center; }
 
- 
   .category-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
   .category-card { border: 1px solid rgba(255,255,255,.2); border-radius: var(--card-radius); padding: 30px 16px; text-align: center; background: rgba(255,255,255,.02); transition: transform .2s, background .2s, border-color .2s; }
   .category-card:hover, .category-card.active { background: var(--orange); border-color: var(--orange); transform: translateY(-6px); }
@@ -77,13 +72,12 @@
   .category-card p { font-size: 13px; color: var(--text-light); }
   .category-card:hover p, .category-card.active p { color: white; }
 
- 
-  .listing-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 16px; }
+
+ .listing-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 16px; }
   .filter-tabs { display: flex; gap: 10px; }
   .filter-tabs button { background: #eef1f5; color: #333; padding: 8px 16px; border-radius: 20px; font-size: 13px; }
   .filter-tabs button.active { background: var(--orange); color: white; }
 
-  
   .property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
   .property-card { background: white; border-radius: var(--card-radius); overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.06); transition: transform .25s, box-shadow .25s; }
   .property-card:hover { transform: translateY(-8px); box-shadow: 0 14px 30px rgba(0,0,0,.12); }
@@ -107,7 +101,6 @@
   .btn-outline { background: transparent; border: 2px solid var(--dark-navy); padding: 10px 26px; border-radius: 30px; font-weight: 600; font-size: 14px; transition: all .2s; }
   .btn-outline:hover { background: var(--dark-navy); color: white; }
 
-  
   .location-collage { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; height: 340px; }
   .location-collage img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
   .collage-main { position: relative; border-radius: 10px; overflow: hidden; }
@@ -116,7 +109,6 @@
   .collage-caption p { font-size: 13px; opacity: .8; }
   .collage-caption .count { background: var(--orange); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-bottom: 8px; }
 
- 
   .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; z-index: 999; padding: 20px; }
   .modal { background: white; border-radius: var(--card-radius); max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; animation: pop .2s ease; }
   @keyframes pop { from { transform: scale(.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -132,8 +124,8 @@
   .btn-cart:hover { background: var(--orange); }
   .btn-fav-modal { background: #f1f1f1; color: #333; }
 
- 
-  .cart-drawer { position: fixed; top: 0; right: 0; width: 360px; max-width: 90vw; height: 100%; background: white; box-shadow: -8px 0 30px rgba(0,0,0,.2); z-index: 1000; padding: 24px; overflow-y: auto; animation: slideIn .25s ease; }
+
+ .cart-drawer { position: fixed; top: 0; right: 0; width: 360px; max-width: 90vw; height: 100%; background: white; box-shadow: -8px 0 30px rgba(0,0,0,.2); z-index: 1000; padding: 24px; overflow-y: auto; animation: slideIn .25s ease; }
   @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
   .cart-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eee; }
   .cart-item img { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; }
@@ -143,44 +135,13 @@
   .remove-btn { background: none; color: #cc3333; font-size: 12px; }
   .empty-msg { text-align: center; color: #999; padding: 40px 0; font-size: 14px; }
 
- 
-  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .step-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.15); border-radius: var(--card-radius); padding: 30px; text-align: center; }
-  .step-number { width: 44px; height: 44px; background: var(--orange); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; margin: 0 auto 16px; }
-  .step-card h4 { font-size: 17px; margin-bottom: 10px; }
-  .step-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
 
-  
-  .stats-section { padding: 50px 40px; background: white; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-  .stat-card h3 { font-size: 34px; color: var(--orange); font-weight: 700; }
-  .stat-card p { font-size: 13px; color: #777; margin-top: 6px; }
-
-  
-  .newsletter-section { background: var(--orange); text-align: center; color: white; }
-  .newsletter-section h2 { font-size: 28px; margin-bottom: 10px; }
-  .newsletter-section p { margin-bottom: 24px; opacity: .9; }
-  .newsletter-form { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-  .newsletter-form input { padding: 12px 16px; border-radius: 8px; border: none; width: 280px; font-size: 14px; }
-  .newsletter-form button { background: var(--dark-navy); color: white; padding: 12px 26px; border-radius: 8px; font-weight: 600; }
-  .newsletter-form button:hover { background: var(--dark-navy-2); }
-  .newsletter-thanks { font-size: 18px; font-weight: 600; }
-
-  
-  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+ .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
   .trust-card { background: white; border-radius: var(--card-radius); padding: 30px 16px; box-shadow: 0 6px 20px rgba(0,0,0,.05); }
   .trust-card .icon-svg { display: block; width: 30px; height: 30px; margin: 0 auto 12px; }
   .trust-card h4 { font-size: 15px; margin-bottom: 6px; }
   .trust-card p { font-size: 12px; color: #888; }
 
- 
-  .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .news-card { background: white; border-radius: var(--card-radius); padding: 24px; box-shadow: 0 6px 20px rgba(0,0,0,.06); }
-  .news-date { color: var(--orange); font-size: 12px; font-weight: 600; }
-  .news-card h4 { margin: 10px 0; font-size: 16px; }
-  .news-card p { font-size: 13px; color: #777; line-height: 1.6; }
-
- 
   footer { background: var(--dark-navy); color: var(--text-light); padding: 50px 40px 20px; font-size: 13px; }
   footer span { color: var(--orange); }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; max-width: 1100px; margin: 0 auto; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,.1); }
@@ -191,16 +152,13 @@
   .footer-bottom { text-align: center; padding-top: 20px; }
 
 
-  @media (max-width: 900px) {
+ @media (max-width: 900px) {
     .category-grid { grid-template-columns: repeat(3, 1fr); }
     .trust-grid { grid-template-columns: repeat(2, 1fr); }
     .location-collage { grid-template-columns: 1fr 1fr; height: auto; }
     .collage-main { grid-column: span 2; height: 220px; }
-    .news-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .footer-col p, .footer-col a { justify-content: center; }
-    .steps-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 700px) {
     .nav-links { display: none; }
@@ -338,6 +296,16 @@ const PROPERTIES = [
   },
 ];
 
+
+function listHasId(list, id) {
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === id) {
+      return true;
+    }
+  }
+  return false;
+}
+
 const CATEGORIES = [
   { name: "Commercial", icon: "building" },
   { name: "Warehouse", icon: "warehouse" },
@@ -347,9 +315,18 @@ const CATEGORIES = [
 ];
 
 
-function Icon({ name, filled, className }) {
-  const cls = "icon-svg" + (className ? " " + className : "");
-  const fillColor = filled ? "currentColor" : "none";
+function Icon(props) {
+  const name = props.name;
+  const filled = props.filled;
+  const className = props.className;
+  let cls = "icon-svg";
+  if (className) {
+    cls = "icon-svg " + className;
+  }
+  let fillColor = "none";
+  if (filled) {
+    fillColor = "currentColor";
+  }
 
   if (name === "house") return <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg>;
   if (name === "building") return <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" /><path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1" /></svg>;
@@ -376,7 +353,15 @@ function Icon({ name, filled, className }) {
 }
 
 
-function Navbar({ cartCount, onCartClick }) {
+function Navbar(props) {
+  const cartCount = props.cartCount;
+  const onCartClick = props.onCartClick;
+
+  let cartBadge = null;
+  if (cartCount > 0) {
+    cartBadge = <span className="cart-count">{cartCount}</span>;
+  }
+
   return (
     <nav className="navbar">
       <div className="logo">
@@ -388,13 +373,12 @@ function Navbar({ cartCount, onCartClick }) {
         <li><a href="#properties">Properties</a></li>
         <li><a href="#agents">Agents</a></li>
         <li><a href="#pages">Pages</a></li>
-        <li><a href="#news">News</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div className="nav-right">
         <button className="icon-btn" onClick={onCartClick} title="Cart">
           <Icon name="cart" />
-          {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+          {cartBadge}
         </button>
         <button className="btn-add">+ Add Properties</button>
         <button className="burger"><Icon name="bars" /></button>
@@ -403,8 +387,12 @@ function Navbar({ cartCount, onCartClick }) {
   );
 }
 
+ 
+function Hero(props) {
+  const filters = props.filters;
+  const setFilters = props.setFilters;
+  const onSearch = props.onSearch;
 
-function Hero({ filters, setFilters, onSearch }) {
   const [tab, setTab] = useState("General");
   const tabs = ["General", "Villa", "Apartment"];
 
@@ -415,13 +403,19 @@ function Hero({ filters, setFilters, onSearch }) {
 
         <div className="search-box">
           <div className="tabs">
-            {tabs.map(t => (
-              <button
-                key={t}
-                className={"tab " + (tab === t ? "active" : "")}
-                onClick={() => setTab(t)}
-              >{t}</button>
-            ))}
+            {tabs.map(t => {
+              let tabClass = "tab";
+              if (tab === t) {
+                tabClass = "tab active";
+              }
+              return (
+                <button
+                  key={t}
+                  className={tabClass}
+                  onClick={() => setTab(t)}
+                >{t}</button>
+              );
+            })}
           </div>
 
           <div className="search-row">
@@ -471,7 +465,10 @@ function Hero({ filters, setFilters, onSearch }) {
 }
 
 
-function Categories({ activeCategory, setActiveCategory }) {
+function Categories(props) {
+  const activeCategory = props.activeCategory;
+  const setActiveCategory = props.setActiveCategory;
+
   return (
     <section className="section dark">
       <p className="eyebrow center">Property By Requirement</p>
@@ -480,11 +477,25 @@ function Categories({ activeCategory, setActiveCategory }) {
         {CATEGORIES.map(cat => {
           const count = PROPERTIES.filter(p => p.category === cat.name).length;
           const isActive = activeCategory === cat.name;
+
+          let cardClass = "category-card";
+          if (isActive) {
+            cardClass = "category-card active";
+          }
+
+          const handleClick = () => {
+            if (isActive) {
+              setActiveCategory("");
+            } else {
+              setActiveCategory(cat.name);
+            }
+          };
+
           return (
             <div
               key={cat.name}
-              className={"category-card " + (isActive ? "active" : "")}
-              onClick={() => setActiveCategory(isActive ? "" : cat.name)}
+              className={cardClass}
+              onClick={handleClick}
             >
               <Icon name={cat.icon} className="category-icon" />
               <h3>{cat.name}</h3>
@@ -497,8 +508,8 @@ function Categories({ activeCategory, setActiveCategory }) {
   );
 }
 
-
-function StarRating({ rating }) {
+function StarRating(props) {
+  const rating = props.rating;
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     const filled = i <= Math.round(rating);
@@ -508,14 +519,29 @@ function StarRating({ rating }) {
 }
 
 
-function PropertyCard({ property, isFav, toggleFav, openDetails }) {
+function PropertyCard(props) {
+  const property = props.property;
+  const isFav = props.isFav;
+  const toggleFav = props.toggleFav;
+  const openDetails = props.openDetails;
+
+  let favClass = "fav-btn";
+  if (isFav) {
+    favClass = "fav-btn active";
+  }
+
+  let bedInfo = null;
+  if (property.beds > 0) {
+    bedInfo = <span><Icon name="bed" className="icon-inline" />Bed {property.beds}</span>;
+  }
+
   return (
     <div className="property-card">
       <div className="property-img-wrap">
         <img src={property.img} alt={property.title} />
         <span className="badge">{property.category}</span>
         <button
-          className={"fav-btn " + (isFav ? "active" : "")}
+          className={favClass}
           onClick={() => toggleFav(property.id)}
           title="Add to favorites"
         ><Icon name="heart" filled={isFav} /></button>
@@ -530,7 +556,7 @@ function PropertyCard({ property, isFav, toggleFav, openDetails }) {
         <p className="property-desc">{property.desc}</p>
         <div className="property-stats">
           <span><Icon name="ruler" className="icon-inline" />{property.sqft} sqft</span>
-          {property.beds > 0 && <span><Icon name="bed" className="icon-inline" />Bed {property.beds}</span>}
+          {bedInfo}
           <span><Icon name="bath" className="icon-inline" />Bath {property.baths}</span>
         </div>
         <div className="property-footer">
@@ -544,8 +570,22 @@ function PropertyCard({ property, isFav, toggleFav, openDetails }) {
 }
 
 
-function DetailsModal({ property, onClose, isFav, toggleFav, addToCart }) {
-  if (!property) return null;
+function DetailsModal(props) {
+  const property = props.property;
+  const onClose = props.onClose;
+  const isFav = props.isFav;
+  const toggleFav = props.toggleFav;
+  const addToCart = props.addToCart;
+
+  if (!property) {
+    return null;
+  }
+
+  let favText = "Add to Favorite";
+  if (isFav) {
+    favText = "Remove Favorite";
+  }
+
   return (
     <div className="overlay" onClick={onClose}>
       <div className="modal" onClick={e => e.stopPropagation()}>
@@ -570,7 +610,7 @@ function DetailsModal({ property, onClose, isFav, toggleFav, addToCart }) {
           <div className="modal-actions">
             <button className="btn-fav-modal" onClick={() => toggleFav(property.id)}>
               <Icon name="heart" filled={isFav} className="icon-inline" />
-              {isFav ? "Remove Favorite" : "Add to Favorite"}
+              {favText}
             </button>
             <button className="btn-cart" onClick={() => addToCart(property)}><Icon name="cart" className="icon-inline" />Add to Cart</button>
           </div>
@@ -581,20 +621,37 @@ function DetailsModal({ property, onClose, isFav, toggleFav, addToCart }) {
 }
 
 
+function CartDrawer(props) {
+  const items = props.items;
+  const onClose = props.onClose;
+  const removeItem = props.removeItem;
 
-function CartDrawer({ items, onClose, removeItem }) {
- 
   let total = 0;
   for (let i = 0; i < items.length; i++) {
     total = total + items[i].price;
   }
+
+  let emptyMessage = null;
+  if (items.length === 0) {
+    emptyMessage = <p className="empty-msg"><Icon name="cart" className="icon-inline" />Your cart is empty</p>;
+  }
+
+  let totalRow = null;
+  if (items.length > 0) {
+    totalRow = (
+      <div style={{marginTop: 20, fontWeight: 700, fontSize: 16}}>
+        Total: ${total}.00
+      </div>
+    );
+  }
+
   return (
     <div className="overlay" onClick={onClose}>
       <div className="cart-drawer" onClick={e => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}><Icon name="xmark" /></button>
         <h2 style={{marginBottom: 20}}>My Cart ({items.length})</h2>
 
-        {items.length === 0 && <p className="empty-msg"><Icon name="cart" className="icon-inline" />Your cart is empty</p>}
+        {emptyMessage}
 
         {items.map(item => (
           <div className="cart-item" key={item.id}>
@@ -607,11 +664,7 @@ function CartDrawer({ items, onClose, removeItem }) {
           </div>
         ))}
 
-        {items.length > 0 && (
-          <div style={{marginTop: 20, fontWeight: 700, fontSize: 16}}>
-            Total: ${total}.00
-          </div>
-        )}
+        {totalRow}
       </div>
     </div>
   );
@@ -636,88 +689,6 @@ function TopLocations() {
         <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=600&auto=format&fit=crop" alt="location" />
         <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=600&auto=format&fit=crop" alt="location" />
       </div>
-    </section>
-  );
-}
-
-
-const STEPS = [
-  { number: "1", title: "Search", desc: "Use the search bar or pick a category to find properties that match what you're looking for." },
-  { number: "2", title: "Schedule a Visit", desc: "Contact the agent, ask questions, and book a time to see the property in person." },
-  { number: "3", title: "Move In", desc: "Sign the paperwork with our team's help and get the keys to your new place." },
-];
-
-function HowItWorks() {
-  return (
-    <section className="section dark">
-      <p className="eyebrow center">Our Process</p>
-      <h2 className="section-title center">How It Works</h2>
-      <div className="steps-grid">
-        {STEPS.map(step => (
-          <div className="step-card" key={step.number}>
-            <div className="step-number">{step.number}</div>
-            <h4>{step.title}</h4>
-            <p>{step.desc}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-
-const STATS = [
-  { number: "500+", label: "Properties Listed" },
-  { number: "50+", label: "Expert Agents" },
-  { number: "10k+", label: "Happy Clients" },
-  { number: "15+", label: "Years Of Experience" },
-];
-
-function StatsSection() {
-  return (
-    <section className="section stats-section">
-      <div className="stats-grid">
-        {STATS.map((stat, i) => (
-          <div className="stat-card" key={i}>
-            <h3>{stat.number}</h3>
-            <p>{stat.label}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-
-function Newsletter() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = () => {
-    if (email.trim() !== "") {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
-
-  return (
-    <section className="section newsletter-section">
-      <h2>Subscribe To Our Newsletter</h2>
-      <p>Get the newest properties and offers straight to your inbox.</p>
-
-      {subscribed ? (
-        <p className="newsletter-thanks">Thanks! You're subscribed. 🎉</p>
-      ) : (
-        <div className="newsletter-form">
-          <input
-            type="text"
-            placeholder="Enter your email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-          <button onClick={handleSubscribe}>Subscribe</button>
-        </div>
-      )}
     </section>
   );
 }
@@ -748,47 +719,6 @@ function TrustSection() {
 }
 
 
-
-const NEWS = [
-  {
-    id: 1,
-    date: "March 3, 2026",
-    title: "5 Tips For First-Time Home Buyers",
-    excerpt: "A short guide covering budget, location, and what to check before signing anything."
-  },
-  {
-    id: 2,
-    date: "Feb 18, 2026",
-    title: "Villa Prices Are Rising This Spring",
-    excerpt: "Why villa listings on HOMIRX have seen more interest over the last few months."
-  },
-  {
-    id: 3,
-    date: "Jan 27, 2026",
-    title: "How To Choose The Right Neighborhood",
-    excerpt: "Schools, commute time, and safety — what actually matters when picking a location."
-  },
-];
-
-function NewsSection() {
-  return (
-    <section className="section" id="news">
-      <p className="eyebrow center">Our Blog</p>
-      <h2 className="section-title center">Latest News</h2>
-      <div className="news-grid">
-        {NEWS.map(item => (
-          <div className="news-card" key={item.id}>
-            <span className="news-date">{item.date}</span>
-            <h4>{item.title}</h4>
-            <p>{item.excerpt}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-
 function App() {
   const [filters, setFilters] = useState({ keyword: "", category: "", location: "" });
   const [appliedFilters, setAppliedFilters] = useState({ keyword: "", category: "", location: "" });
@@ -800,11 +730,29 @@ function App() {
   const [visibleCount, setVisibleCount] = useState(6);
 
   const toggleFav = (id) => {
-    setFavorites(prev => prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]);
+    setFavorites(prev => {
+      if (listHasId(prev, id)) {
+        return prev.filter(f => f !== id);
+      } else {
+        return [...prev, id];
+      }
+    });
   };
 
   const addToCart = (property) => {
-    setCart(prev => prev.some(p => p.id === property.id) ? prev : [...prev, property]);
+    setCart(prev => {
+      let alreadyInCart = false;
+      for (let i = 0; i < prev.length; i++) {
+        if (prev[i].id === property.id) {
+          alreadyInCart = true;
+        }
+      }
+      if (alreadyInCart) {
+        return prev;
+      } else {
+        return [...prev, property];
+      }
+    });
     setSelectedProperty(null);
   };
 
@@ -812,21 +760,71 @@ function App() {
 
   const handleSearch = () => {
     setAppliedFilters(filters);
-    setActiveCategory(filters.category || "");
+    let newCategory = "";
+    if (filters.category) {
+      newCategory = filters.category;
+    }
+    setActiveCategory(newCategory);
     document.getElementById("properties").scrollIntoView({ behavior: "smooth" });
   };
 
-
   const filteredProperties = PROPERTIES.filter(p => {
-    const matchCategory = activeCategory ? p.category === activeCategory : true;
-    const matchKeyword = appliedFilters.keyword
-      ? p.title.toLowerCase().includes(appliedFilters.keyword.toLowerCase())
-      : true;
-    const matchLocation = appliedFilters.location
-      ? p.location.toLowerCase().includes(appliedFilters.location.toLowerCase())
-      : true;
-    return matchCategory && matchKeyword && matchLocation;
+    let matchCategory = true;
+    if (activeCategory) {
+      matchCategory = p.category === activeCategory;
+    }
+
+    let matchKeyword = true;
+    if (appliedFilters.keyword) {
+      matchKeyword = p.title.toLowerCase().indexOf(appliedFilters.keyword.toLowerCase()) !== -1;
+    }
+
+    let matchLocation = true;
+    if (appliedFilters.location) {
+      matchLocation = p.location.toLowerCase().indexOf(appliedFilters.location.toLowerCase()) !== -1;
+    }
+
+    if (matchCategory) {
+      if (matchKeyword) {
+        if (matchLocation) {
+          return true;
+        }
+      }
+    }
+    return false;
   });
+
+  let noResultsMessage = null;
+  if (filteredProperties.length === 0) {
+    noResultsMessage = <p className="empty-msg"><Icon name="search" className="icon-inline" />No results found. Try a different search term.</p>;
+  }
+
+  let loadMoreButton = null;
+  if (visibleCount < filteredProperties.length) {
+    loadMoreButton = (
+      <div className="load-more-wrap">
+        <button className="btn-outline" onClick={() => setVisibleCount(v => v + 6)}>Load More</button>
+      </div>
+    );
+  }
+
+  let detailsModalElement = null;
+  if (selectedProperty) {
+    detailsModalElement = (
+      <DetailsModal
+        property={selectedProperty}
+        onClose={() => setSelectedProperty(null)}
+        isFav={listHasId(favorites, selectedProperty.id)}
+        toggleFav={toggleFav}
+        addToCart={addToCart}
+      />
+    );
+  }
+
+  let cartDrawerElement = null;
+  if (showCart) {
+    cartDrawerElement = <CartDrawer items={cart} onClose={() => setShowCart(false)} removeItem={removeFromCart} />;
+  }
 
   return (
     <React.Fragment>
@@ -841,13 +839,30 @@ function App() {
             <h2 className="section-title" style={{marginBottom: 0}}>Find Home Listing in Your Area</h2>
           </div>
           <div className="filter-tabs">
-            {["", "Apartment", "Villa", "Commercial"].map(cat => (
-              <button
-                key={cat || "all"}
-                className={activeCategory === cat ? "active" : ""}
-                onClick={() => setActiveCategory(cat)}
-              >{cat || "All"}</button>
-            ))}
+            {["", "Apartment", "Villa", "Commercial"].map(cat => {
+              let tabLabel = cat;
+              if (cat === "") {
+                tabLabel = "All";
+              }
+
+              let tabKey = cat;
+              if (cat === "") {
+                tabKey = "all";
+              }
+
+              let tabClass = "";
+              if (activeCategory === cat) {
+                tabClass = "active";
+              }
+
+              return (
+                <button
+                  key={tabKey}
+                  className={tabClass}
+                  onClick={() => setActiveCategory(cat)}
+                >{tabLabel}</button>
+              );
+            })}
           </div>
         </div>
 
@@ -856,30 +871,20 @@ function App() {
             <PropertyCard
               key={p.id}
               property={p}
-              isFav={favorites.includes(p.id)}
+              isFav={listHasId(favorites, p.id)}
               toggleFav={toggleFav}
               openDetails={setSelectedProperty}
             />
           ))}
         </div>
 
-        {filteredProperties.length === 0 && (
-          <p className="empty-msg"><Icon name="search" className="icon-inline" />No results found. Try a different search term.</p>
-        )}
+        {noResultsMessage}
 
-        {visibleCount < filteredProperties.length && (
-          <div className="load-more-wrap">
-            <button className="btn-outline" onClick={() => setVisibleCount(v => v + 6)}>Load More</button>
-          </div>
-        )}
+        {loadMoreButton}
       </section>
 
       <TopLocations />
-      <HowItWorks />
-      <StatsSection />
-      <Newsletter />
       <TrustSection />
-      <NewsSection />
 
       <footer id="contact">
         <div className="footer-grid">
@@ -900,7 +905,6 @@ function App() {
             <a href="#home">Home</a>
             <a href="#properties">Properties</a>
             <a href="#agents">Agents</a>
-            <a href="#news">News</a>
           </div>
         </div>
 
@@ -909,19 +913,9 @@ function App() {
         </div>
       </footer>
 
-      {selectedProperty && (
-        <DetailsModal
-          property={selectedProperty}
-          onClose={() => setSelectedProperty(null)}
-          isFav={favorites.includes(selectedProperty.id)}
-          toggleFav={toggleFav}
-          addToCart={addToCart}
-        />
-      )}
+      {detailsModalElement}
 
-      {showCart && (
-        <CartDrawer items={cart} onClose={() => setShowCart(false)} removeItem={removeFromCart} />
-      )}
+      {cartDrawerElement}
     </React.Fragment>
   );
 }
@@ -931,10 +925,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 </body>
  
 </html>
-
-
-
-
 
 
 
